@@ -1,0 +1,7 @@
+{
+    "uxp.widget-id-title":{
+        "en": "Widget one Title",
+        "ar": "<arabic translation>" 
+        // can add other language translations
+    }
+}

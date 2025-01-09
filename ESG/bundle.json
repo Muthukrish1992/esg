@@ -1,0 +1,24 @@
+{
+    "id": "e5ccd88a-312d-4d72-c302-be4ffc207fe2",
+    "author": "",
+    "widgets": [
+        {
+            "id": "ESG",
+            "name": "ESG",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+       
+    ],
+    "menuItems": [
+        
+    ]
+}

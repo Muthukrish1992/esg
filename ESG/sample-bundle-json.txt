@@ -1,0 +1,39 @@
+{
+    "id": "0ee0ae3c-8f7a-4cb8-eedd-33b4367a9e9e",
+    "author": "",
+    "widgets": [
+        {
+            "id": "ESG",
+            "name": "ESG",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+            "category":"",
+            "isTemplate": true/false // this will mark the widget as a template 
+        }
+    ],
+    "sidebarLinks": [
+        {
+            "id": "ESGLink",
+            "label": "",
+            "description": "",
+            "target": "",
+            "icon": "",
+            "roles":[]
+        }
+    ],
+    "uis": [
+        {
+            "id": "ESGLink",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        {
+            "id": "ESGLink",
+            "title": "ESG"
+        }
+    ]
+}
