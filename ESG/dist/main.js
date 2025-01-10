@@ -226,6 +226,7 @@ const ESGWidget = (props) => {
                         }).catch((error) => {
                             console.error('Error executing action:', error);
                             setError('Error sending data to server');
+                            alert(error);
                         }).finally(() => {
                             setLoading(false);
                         });
