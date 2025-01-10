@@ -47,6 +47,27 @@ const react_1 = __webpack_require__(/*! react */ "react");
 const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
 const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
 const XLSX = __importStar(__webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.mjs"));
+const getMonths = () => [
+    { label: 'January', value: '1' },
+    { label: 'February', value: '2' },
+    { label: 'March', value: '3' },
+    { label: 'April', value: '4' },
+    { label: 'May', value: '5' },
+    { label: 'June', value: '6' },
+    { label: 'July', value: '7' },
+    { label: 'August', value: '8' },
+    { label: 'September', value: '9' },
+    { label: 'October', value: '10' },
+    { label: 'November', value: '11' },
+    { label: 'December', value: '12' }
+];
+const getYears = () => {
+    const currentYear = new Date().getFullYear();
+    return Array.from({ length: 5 }, (_, i) => ({
+        label: String(currentYear - i),
+        value: String(currentYear - i)
+    }));
+};
 const processExcelData = (worksheet) => {
     var _a;
     const processedData = [];
@@ -58,50 +79,72 @@ const processExcelData = (worksheet) => {
     };
     const jsonData = XLSX.utils.sheet_to_json(worksheet, options);
     console.log("Raw Excel Data:", jsonData);
-    let currentActivityName = "";
-    let currentTableTitle = "";
+    let currentActivityGroup = "";
+    let currentActivityCategory = "";
     let headers = [];
     let headerRow = [];
-    // Process each row
     for (let i = 0; i < jsonData.length; i++) {
         const row = jsonData[i];
         if (!row || !row.length)
             continue;
         const cleanRow = row.map(cell => String(cell || '').trim());
         const firstCell = cleanRow[0];
-        // Check for Section/Activity Name
+        // Check for Section/Activity Group
         if (firstCell.toLowerCase().includes("section")) {
-            currentActivityName = ((_a = firstCell.split(":")[1]) === null || _a === void 0 ? void 0 : _a.trim()) || firstCell;
+            currentActivityGroup = ((_a = firstCell.split(":")[1]) === null || _a === void 0 ? void 0 : _a.trim()) || firstCell;
+            console.log("Found Activity Group:", currentActivityGroup);
             continue;
         }
         // Check for Table header
         if (firstCell.toLowerCase().includes("table")) {
-            currentTableTitle = firstCell;
+            currentActivityCategory = firstCell;
             headers = [];
             headerRow = [];
+            console.log("Found Activity Criteria:", currentActivityCategory);
             continue;
         }
-        // Look for header row
+        // Look for header row with more specific matching
         if (firstCell === "Criteria" || firstCell === "Criteria (English)") {
-            headerRow = cleanRow;
-            headers = cleanRow.filter(Boolean); // Remove empty headers
+            headerRow = cleanRow.map(header => String(header || '').trim());
+            headers = headerRow.filter(Boolean);
+            // Debug header detection
+            console.log("Headers Found:", headerRow);
             continue;
         }
         // Process data rows
         if (headers.length > 0 && firstCell &&
             !firstCell.toLowerCase().includes("table") &&
             !firstCell.toLowerCase().includes("section")) {
-            const rowData = {
-                ActivityName: currentActivityName,
-                ActivityGroup: currentTableTitle
-            };
-            // Add data for each header
-            headers.forEach((header, index) => {
-                if (header) {
-                    const value = cleanRow[headerRow.indexOf(header)];
-                    rowData[header] = value || '';
-                }
+            // Find total column index - look for exact match
+            let totalIndex = headerRow.findIndex(header => {
+                const headerStr = String(header || '').trim();
+                return headerStr === 'Total';
             });
+            // If Total not found, try looking for it in last column
+            if (totalIndex === -1 && cleanRow.length > 0) {
+                totalIndex = cleanRow.length - 1;
+            }
+            // Find male/female indices
+            const maleIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'male' ||
+                String(header).toLowerCase().trim() === 'm');
+            const femaleIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'female' ||
+                String(header).toLowerCase().trim() === 'f');
+            console.log("Processing row:", {
+                firstCell,
+                totalIndex,
+                totalValue: totalIndex > -1 ? cleanRow[totalIndex] : null,
+                fullRow: cleanRow
+            });
+            const rowData = {
+                ActivityID: firstCell,
+                ActivityCategory: currentActivityCategory,
+                ActivityGroup: currentActivityGroup,
+                Value: totalIndex > -1 ? cleanRow[totalIndex] || '' : '',
+                Uploaded: "yes",
+                Status: "Uploaded",
+                MaleValue: maleIndex > -1 ? cleanRow[maleIndex] || '' : '',
+                FemaleValue: femaleIndex > -1 ? cleanRow[femaleIndex] || '' : ''
+            };
             processedData.push(rowData);
         }
     }
@@ -113,15 +156,18 @@ const ESGWidget = (props) => {
     const [sheets, setSheets] = (0, react_1.useState)([]);
     const [selectedSheet, setSelectedSheet] = (0, react_1.useState)("");
     const [loading, setLoading] = (0, react_1.useState)(false);
-    const [data, setData] = (0, react_1.useState)(null);
+    const [success, setSuccess] = (0, react_1.useState)(false);
     const [error, setError] = (0, react_1.useState)(null);
+    const [showUploadForm, setShowUploadForm] = (0, react_1.useState)(false);
+    const [selectedMonth, setSelectedMonth] = (0, react_1.useState)(String(new Date().getMonth() + 1));
+    const [selectedYear, setSelectedYear] = (0, react_1.useState)(String(new Date().getFullYear()));
     const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
         const files = event.target.files;
         if (files && files[0]) {
-            console.log("File selected:", files[0].name);
             setFile(files[0]);
             setError(null);
             setLoading(true);
+            setSuccess(false);
             const reader = new FileReader();
             reader.onload = (e) => {
                 var _a;
@@ -129,7 +175,6 @@ const ESGWidget = (props) => {
                     const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
                     if (binary && typeof binary === 'string') {
                         const workbook = XLSX.read(binary, { type: 'binary' });
-                        console.log("Available sheets:", workbook.SheetNames);
                         setSheets(workbook.SheetNames);
                     }
                     setLoading(false);
@@ -154,53 +199,86 @@ const ESGWidget = (props) => {
         }
         setLoading(true);
         setError(null);
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            var _a;
-            try {
-                const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
-                if (binary && typeof binary === 'string') {
-                    const workbook = XLSX.read(binary, { type: 'binary' });
-                    const worksheet = workbook.Sheets[selectedSheet];
-                    const processedData = processExcelData(worksheet);
-                    setData(processedData);
+        setSuccess(false);
+        try {
+            const reader = new FileReader();
+            reader.onload = (e) => __awaiter(void 0, void 0, void 0, function* () {
+                var _a, _b;
+                try {
+                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                    if (binary && typeof binary === 'string') {
+                        const workbook = XLSX.read(binary, { type: 'binary' });
+                        const worksheet = workbook.Sheets[selectedSheet];
+                        const processedData = processExcelData(worksheet);
+                        const finalData = processedData.map(item => (Object.assign(Object.assign({}, item), { Month: selectedMonth, Year: selectedYear })));
+                        const payload = {
+                            json: JSON.stringify(finalData),
+                            month: selectedMonth,
+                            year: selectedYear
+                        };
+                        console.log("Final payload:", payload);
+                        (_b = props.uxpContext) === null || _b === void 0 ? void 0 : _b.executeAction('ESG', 'GetDataFromExcel', payload, {}).then((res) => {
+                            setSuccess(true);
+                            setShowUploadForm(false);
+                            setFile(null);
+                            setSelectedSheet("");
+                            setSheets([]);
+                        }).catch((error) => {
+                            console.error('Error executing action:', error);
+                            setError('Error sending data to server');
+                        }).finally(() => {
+                            setLoading(false);
+                        });
+                    }
                 }
+                catch (error) {
+                    console.error('Error processing sheet:', error);
+                    setError('Error processing the Excel sheet. Please check the file format.');
+                    setLoading(false);
+                }
+            });
+            reader.onerror = () => {
+                setError('Error reading the file. Please try again.');
                 setLoading(false);
-            }
-            catch (error) {
-                console.error('Error processing sheet:', error);
-                setError('Error processing the Excel sheet. Please check the file format.');
-                setLoading(false);
-            }
-        };
-        reader.onerror = () => {
-            setError('Error reading the file. Please try again.');
+            };
+            reader.readAsBinaryString(file);
+        }
+        catch (error) {
+            setError('Error processing the request');
             setLoading(false);
-        };
-        reader.readAsBinaryString(file);
+        }
     });
+    const handleApprove = () => {
+        console.log('Approve button clicked');
+        alert('Approval functionality will be implemented here');
+    };
     return (React.createElement(components_1.WidgetWrapper, null,
         React.createElement(components_1.TitleBar, { title: 'ESG Data Upload' },
             React.createElement(components_1.FilterPanel, null)),
         React.createElement("div", { className: "flex flex-col space-y-4 p-4" },
-            React.createElement("div", { className: "flex items-center space-x-4" },
+            React.createElement("div", { className: "flex items-center space-x-4 border-b pb-4" },
                 React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden", id: "file-upload" }),
-                React.createElement("label", { htmlFor: "file-upload" },
-                    React.createElement(components_1.Button, { title: "Upload Excel", onClick: () => { var _a; return (_a = document.getElementById('file-upload')) === null || _a === void 0 ? void 0 : _a.click(); } }, "Upload Excel")),
-                file && React.createElement("span", { className: "text-sm text-gray-600" }, file.name)),
-            sheets.length > 0 && (React.createElement("div", { className: "flex items-center space-x-4" },
-                React.createElement("div", { className: "w-64" },
-                    React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => {
-                            console.log("Sheet selected:", value);
-                            setSelectedSheet(value);
-                        }, placeholder: "Select Sheet" })),
-                React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet }, "Submit"))),
+                React.createElement(components_1.Button, { title: "Upload Excel", onClick: () => setShowUploadForm(true) }, "Upload Excel"),
+                React.createElement(components_1.Button, { title: "Approve", onClick: handleApprove }, "Approve")),
+            showUploadForm && (React.createElement("div", { className: "flex flex-col space-y-4 mt-4" },
+                React.createElement("div", { className: "flex items-center space-x-4" },
+                    React.createElement(components_1.Button, { title: "Select File", onClick: () => { var _a; return (_a = document.getElementById('file-upload')) === null || _a === void 0 ? void 0 : _a.click(); } }, "Select File"),
+                    file && React.createElement("span", { className: "text-sm text-gray-600" }, file.name)),
+                React.createElement("div", { className: "flex items-center space-x-4" },
+                    React.createElement("div", { className: "w-40" },
+                        React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                    React.createElement("div", { className: "w-40" },
+                        React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
+                sheets.length > 0 && (React.createElement("div", { className: "flex items-center space-x-4" },
+                    React.createElement("div", { className: "w-64" },
+                        React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
+                    React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet }, "Submit"))))),
+            success && (React.createElement("div", { className: "text-green-600 bg-green-50 p-4 rounded" },
+                "File \"", file === null || file === void 0 ? void 0 :
+                file.name,
+                "\" uploaded successfully and submitted for approval")),
             error && (React.createElement("div", { className: "text-red-600 text-sm" }, error)),
-            loading && React.createElement(components_1.Loading, null),
-            data && (React.createElement("div", { className: "mt-4" },
-                React.createElement("h3", { className: "text-lg font-semibold mb-2" }, "Processed Data Preview:"),
-                React.createElement("div", { className: "max-h-60 overflow-auto border rounded p-4 bg-gray-50" },
-                    React.createElement("pre", null, JSON.stringify(data, null, 2))))))));
+            loading && React.createElement(components_1.Loading, null))));
 };
 (0, uxp_1.registerWidget)({
     id: "ESG",

@@ -1,0 +1,356 @@
+{
+  "models": [
+    {
+      "ApiRoutes": [],
+      "Definition": {
+        "actions": [
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "GetDataFromExcel",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "json",
+              "month",
+              "year"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "json"
+              },
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "month"
+              },
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "year"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          }
+        ],
+        "attributes": [],
+        "flows": {
+          "blocks": [
+            {
+              "actionName": "GetDataFromExcel",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:json",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:json"
+                  },
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:month",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:month"
+                  },
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:year",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:year"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "8b9db3c8-957d-4700-c965-c02ef8ef8876",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "json",
+                  "label": "json",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "month",
+                  "label": "month",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "year",
+                  "label": "year",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 74,
+                "top": 153
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "",
+              "static": true,
+              "surface": "GetDataFromExcel",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "code": "let { json, month, year } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON string into an array\n    const data = JSON.parse(json);\n    \n    // Create array of documents to insert\n    const activitiesDataArray = data.map(item => ({\n        ActivityID: item.ActivityID,\n        ActivityCategory: item.ActivityCategory,\n        ActivityGroup: item.ActivityGroup,\n        Value: item.Value,\n        Status: \"Uploaded\",\n        Year: year,\n        Month: month,\n        Uploaded: item.Uploaded,\n        MaleValue: item.MaleValue,\n        FemaleValue: item.FemaleValue\n    }));\n\n    // Function to validate an activity against ActivityMaster\n    const validateActivity = async (activity) => {\n        const masterRecord = await collections.findOne('ActivityMaster', {\n            ActivityID: activity.ActivityID,\n            ActivityGroup: activity.ActivityGroup,\n            ActivityCategory: activity.ActivityCategory\n        }, {});\n\n        return {\n            isValid: !!masterRecord,\n            activity: activity\n        };\n    };\n\n    // First validate all activities\n    Promise.all(activitiesDataArray.map(validateActivity))\n        .then(validationResults => {\n            // Check if all activities are valid\n            const invalidActivities = validationResults.filter(result => !result.isValid);\n\n            if (invalidActivities.length > 0) {\n                // Prepare error message with invalid combinations\n                const invalidCombinations = invalidActivities.map(result => {\n                    const activity = result.activity;\n                    return `\\nActivityID: ${activity.ActivityID}, ActivityGroup: ${activity.ActivityGroup}, ActivityCategory: ${activity.ActivityCategory}`;\n                }).join('');\n\n                throw new Error(`Following activity combinations not found in ActivityMaster:${invalidCombinations}`);\n            }\n\n            // If all validations pass, proceed with insertion\n            return collections.insertMany('Activities', activitiesDataArray, {});\n        })\n        .then(() => {\n            // After insertion, fetch all inserted records for this month and year\n            return collections.findMany('Activities', {\n                Month: month,\n                Year: year\n            }, {});\n        })\n        .then((insertedActivities) => {\n            // Log the successfully inserted activities\n            lucy.log(`Successfully inserted ${insertedActivities.length} activities`);\n            // Return the result with inserted data\n            runtime.done({\n                done: \"done\",\n            });\n        })\n        .catch((err) => {\n            // Handle any errors during the process\n            runtime.error('Failed during the operation: ' + err.message);\n        });\n\n} catch (e) {\n    runtime.error('Validation failed: ' + e);\n}",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:json",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:json"
+                  },
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:month",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:month"
+                  },
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:year",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:year"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "04e10535-e357-4d25-81af-f735e0a7acb4:output:done",
+                    "target": "6c4a26d7-2397-4807-c4a6-8e2a71b7ae26:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "04e10535-e357-4d25-81af-f735e0a7acb4",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "json",
+                  "label": "json",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "month",
+                  "label": "month",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "year",
+                  "label": "year",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 405,
+                "top": 183
+              },
+              "surface": "GetDataFromExcel",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "04e10535-e357-4d25-81af-f735e0a7acb4:output:done",
+                    "target": "6c4a26d7-2397-4807-c4a6-8e2a71b7ae26:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "6c4a26d7-2397-4807-c4a6-8e2a71b7ae26",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 691,
+                "top": 208
+              },
+              "surface": "GetDataFromExcel",
+              "title": "Output",
+              "type": "actionoutput2"
+            }
+          ],
+          "position": {
+            "left": 0,
+            "top": 0
+          }
+        },
+        "sources": [
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "GetDataFromExcel",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "json",
+              "month",
+              "year"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "json"
+              },
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "month"
+              },
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "year"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          }
+        ],
+        "uioptions": {},
+        "version": "v2"
+      },
+      "Icon": "",
+      "JSModules": [],
+      "Key": "14",
+      "MetadataDictionary": "null",
+      "ModelCollections": [
+        {
+          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"Unit\",\"dataType\":\"string\"},{\"name\":\"Category\",\"dataType\":\"string\"},{\"name\":\"GenderBased\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"}]",
+          "GUID": "eafe7f5f-dfa2-4ef6-cce6-414955d2f123",
+          "MapKey": "14",
+          "Name": "ActivityMaster"
+        },
+        {
+          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Month\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"MaleValue\",\"dataType\":\"string\"},{\"name\":\"FemaleValue\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"}]",
+          "GUID": "08584931-20bc-4c3e-da65-a87280cfbd1b",
+          "MapKey": "14",
+          "Name": "Activities"
+        }
+      ],
+      "Name": "ESG",
+      "Roles": [],
+      "UIDefinition": null
+    }
+  ],
+  "version": "2.0"
+}
