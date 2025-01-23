@@ -39,7 +39,7 @@
               }
             ],
             "published": false,
-            "schema": "",
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
             "schemaFrozen": false,
             "static": true
           }
@@ -68,7 +68,7 @@
                   }
                 ]
               },
-              "debug": false,
+              "debug": true,
               "docs": "",
               "id": "8b9db3c8-957d-4700-c965-c02ef8ef8876",
               "initiate": false,
@@ -121,20 +121,20 @@
                 }
               ],
               "position": {
-                "left": 74,
-                "top": 153
+                "left": 100,
+                "top": 100
               },
               "preProcessService": "",
               "published": false,
               "roles": [],
-              "schema": "",
+              "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
               "static": true,
               "surface": "GetDataFromExcel",
               "title": "Action",
               "type": "actionstart"
             },
             {
-              "code": "let { json, month, year } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON string into an array\n    const data = JSON.parse(json);\n    \n    // Create array of documents to insert\n    const activitiesDataArray = data.map(item => ({\n        ActivityID: item.ActivityID,\n        ActivityCategory: item.ActivityCategory,\n        ActivityGroup: item.ActivityGroup,\n        Value: item.Value,\n        Status: \"Uploaded\",\n        Year: year,\n        Month: month,\n        Uploaded: item.Uploaded,\n        MaleValue: item.MaleValue,\n        FemaleValue: item.FemaleValue\n    }));\n\n    // Function to validate activity against ActivityMaster\n    const validateActivity = async (activity) => {\n        const masterRecord = await collections.findOne('ActivityMaster', {\n            ActivityID: activity.ActivityID,\n            ActivityGroup: activity.ActivityGroup,\n            ActivityCategory: activity.ActivityCategory\n        }, {});\n\n        // Check if activity already exists for the given month and year\n        const existingRecord = await collections.findOne('Activities', {\n            ActivityID: activity.ActivityID,\n            Year: year,\n            Month: month\n        }, {});\n\n        return {\n            isValid: !!masterRecord,\n            activity: activity,\n            exists: !!existingRecord\n        };\n    };\n\n    // First validate all activities\n    Promise.all(activitiesDataArray.map(validateActivity))\n        .then(validationResults => {\n            // Check for existing records\n            const existingActivities = validationResults.filter(result => result.exists);\n            if (existingActivities.length > 0) {\n                // Prepare error message with existing combinations\n                const existingCombinations = existingActivities.map(result => {\n                    const activity = result.activity;\n                    return `\\nActivityID: ${activity.ActivityID}`;\n                }).join('');\n                throw new Error(`Following activities already exist for ${month}/${year}:${existingCombinations}`);\n            }\n\n            // Check if all activities are valid\n            const invalidActivities = validationResults.filter(result => !result.isValid);\n            if (invalidActivities.length > 0) {\n                // Prepare error message with invalid combinations\n                const invalidCombinations = invalidActivities.map(result => {\n                    const activity = result.activity;\n                    return `\\nActivityID: ${activity.ActivityID}, ActivityGroup: ${activity.ActivityGroup}, ActivityCategory: ${activity.ActivityCategory}`;\n                }).join('');\n                throw new Error(`Following activity combinations not found in ActivityMaster:${invalidCombinations}`);\n            }\n\n            // If all validations pass, proceed with insertion\n            return collections.insertMany('Activities', activitiesDataArray, {});\n        })\n        .then(() => {\n            // After insertion, fetch all inserted records for this month and year\n            return collections.findMany('Activities', {\n                Month: month,\n                Year: year\n            }, {});\n        })\n        .then((insertedActivities) => {\n            // Log the successfully inserted activities\n            lucy.log(`Successfully inserted ${insertedActivities.length} activities`);\n            // Return the result with inserted data\n            runtime.done({\n                done: \"done\",\n            });\n        })\n        .catch((err) => {\n            // Handle any errors during the process\n            runtime.error('Failed during the operation: ' + err.message);\n        });\n\n} catch (e) {\n    runtime.error('Validation failed: ' + e);\n}",
+              "code": "let { json, month, year } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\nconst recordsToInsert = [];\n\n(async () => {\n try {\n   const data = JSON.parse(json);\n   if (!data || !Array.isArray(data) || data.length === 0) {\n     throw new Error(\"Insert failed: Empty JSON data provided\");\n   }\n\n   const validationErrors = [];\n   \n   // Validate all activities against ActivityMaster\n   for (const activity of data) {\n     const masterRecord = await collections.findOne(\"ActivityMaster\", {\n       ActivityID: activity.ActivityID,\n       ActivityGroup: activity.ActivityGroup,\n       ActivityCategory: activity.ActivityCategory\n     }, {});\n\n     if (JSON.stringify(masterRecord) === '{}') {\n       validationErrors.push(activity.ActivityID);\n     } else {\n       activity.Month = month;\n       activity.Year = year;\n     }\n   }\n\n   if (validationErrors.length > 0) {\n     runtime.error(`Activity validation failed for: ${validationErrors.join(', ')}`);\n     return;\n   }\n\n        // Check for duplicates in the Activities collection\n        for (const activity of data) {\n            const existingRecord = await collections.findOne(\"Activities\", {\n                ActivityID: activity.ActivityID,\n                Month: activity.Month,\n                Year: activity.Year\n            },{});\n\n            // If record doesn't exist, add it to recordsToInsert array\n            if (!existingRecord || Object.keys(existingRecord).length === 0) {\n                recordsToInsert.push(activity);\n            }\n\n        }\n\n        // Insert only non-duplicate records\n        if (recordsToInsert.length > 0) {\n            await collections.insertMany(\"Activities\", recordsToInsert, {});\n            runtime.done({ done: `Inserted ${recordsToInsert.length} records successfully.` });\n        } else {\n            runtime.error({ done: \"No new records to insert - all records were duplicates.\" });\n        }\n\n } catch (error) {\n   runtime.error({ done: `Error:catch` });\n }\n})();",
               "connections": {
                 "inputs": [
                   {
@@ -226,8 +226,8 @@
                 }
               ],
               "position": {
-                "left": 405,
-                "top": 183
+                "left": 319,
+                "top": 100
               },
               "surface": "GetDataFromExcel",
               "timeoutMilliseconds": 5000,
@@ -272,8 +272,8 @@
               ],
               "outputValues": [],
               "position": {
-                "left": 691,
-                "top": 208
+                "left": 540,
+                "top": 100
               },
               "surface": "GetDataFromExcel",
               "title": "Output",
@@ -321,7 +321,7 @@
               }
             ],
             "published": false,
-            "schema": "",
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
             "schemaFrozen": false,
             "static": true
           }
@@ -335,16 +335,16 @@
       "MetadataDictionary": "null",
       "ModelCollections": [
         {
+          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Month\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"MaleValue\",\"dataType\":\"string\"},{\"name\":\"FemaleValue\",\"dataType\":\"string\"}]",
+          "GUID": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
+          "MapKey": "14",
+          "Name": "Activities"
+        },
+        {
           "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"Unit\",\"dataType\":\"string\"},{\"name\":\"Category\",\"dataType\":\"string\"},{\"name\":\"GenderBased\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"}]",
           "GUID": "eafe7f5f-dfa2-4ef6-cce6-414955d2f123",
           "MapKey": "14",
           "Name": "ActivityMaster"
-        },
-        {
-          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Month\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"MaleValue\",\"dataType\":\"string\"},{\"name\":\"FemaleValue\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"}]",
-          "GUID": "08584931-20bc-4c3e-da65-a87280cfbd1b",
-          "MapKey": "14",
-          "Name": "Activities"
         }
       ],
       "Name": "ESG",

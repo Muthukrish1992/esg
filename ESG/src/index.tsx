@@ -1,18 +1,24 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
     registerWidget, 
     IContextProvider 
 } from './uxp';
 import { 
+    useAlert,
     TitleBar, 
     FilterPanel, 
     WidgetWrapper,
     Button,
     Select,
-    Loading
+    Loading,
+    Modal,
+    CRUDComponent,
+    CRUDComponentInstanceProps,
+    ActionResponse,
 } from "uxp/components";
 import * as XLSX from 'xlsx';
+import './styles.scss'
 
 export interface IWidgetProps {
     uxpContext?: IContextProvider,
@@ -30,7 +36,7 @@ interface TableData {
     Year?: string;
     MaleValue?: string;
     FemaleValue?: string;
-    [key: string]: any;
+
 }
 
 const getMonths = () => [
@@ -160,6 +166,8 @@ const processExcelData = (worksheet: XLSX.WorkSheet): TableData[] => {
 };
 
 const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
+    const crudRef = useRef(null);
+    const alert = useAlert();
     const [file, setFile] = useState<File | null>(null);
     const [sheets, setSheets] = useState<string[]>([]);
     const [selectedSheet, setSelectedSheet] = useState<string>("");
@@ -170,6 +178,16 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
     
     const [selectedMonth, setSelectedMonth] = useState<string>(String(new Date().getMonth() + 1));
     const [selectedYear, setSelectedYear] = useState<string>(String(new Date().getFullYear()));
+
+    const [showEditModel,setShowEditModel] = useState<boolean>(false)
+    const [payload,setPayload] = useState<any>()
+    const [tableData, setTableData] = useState<TableData[]>([]);
+
+    const refreshCrud = () => {
+        if (crudRef.current) {
+            crudRef.current.refresh();
+        }
+    };
 
     const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
@@ -227,7 +245,7 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                             Month: selectedMonth,
                             Year: selectedYear
                         }));
-
+                        setTableData(finalData);
                         const payload = {
                             json: JSON.stringify(finalData),
                             month: selectedMonth,
@@ -235,23 +253,9 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                         };
 
                         console.log("Final payload:", payload);
-
-                        props.uxpContext?.executeAction('ESG', 'GetDataFromExcel', payload, {})
-                            .then((res) => {
-                                setSuccess(true);
-                                setShowUploadForm(false);
-                                setFile(null);
-                                setSelectedSheet("");
-                                setSheets([]);
-                            })
-                            .catch((error) => {
-                                console.error('Error executing action:', error);
-                                setError('Error sending data to server');
-                                alert(error)
-                            })
-                            .finally(() => {
-                                setLoading(false);
-                            });
+                        setPayload(payload)
+                        setShowEditModel(true)
+                        setLoading(false);
                     }
                 } catch (error) {
                     console.error('Error processing sheet:', error);
@@ -271,8 +275,33 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
     };
 
     const handleApprove = () => {
-        console.log('Approve button clicked');
-        alert('Approval functionality will be implemented here');
+        console.log(tableData)
+        
+        setLoading(true);
+        setError(null);
+        const updatedPayload = {
+            ...payload,
+            json: JSON.stringify(tableData)
+        };
+
+        props.uxpContext?.executeAction('ESG', 'GetDataFromExcel', updatedPayload, {})
+        .then((res) => {
+            
+            setSuccess(true);
+            setShowUploadForm(false);
+            setFile(null);
+            setSelectedSheet("");
+            setSheets([]);
+            alert.show('Success', 'Data successfully submitted for approval'); // Using alert hook
+            setShowEditModel(false);
+        })
+        .catch((error) => {
+            console.error('Error executing action:', error);
+            alert.show(`Error sending data to server.${error}`); 
+        })
+        .finally(() => {
+            setLoading(false);
+        });
     };
 
     return (
@@ -281,8 +310,7 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                 <FilterPanel>
                 </FilterPanel>
             </TitleBar>
-
-            <div className="flex flex-col space-y-4 p-4">
+            <div className="ESGWrapper">
                 <div className="flex items-center space-x-4 border-b pb-4">
                     <input
                         type="file"
@@ -292,33 +320,27 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                         id="file-upload"
                     />
                     <Button
+                    className="upload"
                         title="Upload Excel"
                         onClick={() => setShowUploadForm(true)}
                     >
                         Upload Excel
                     </Button>
-                    <Button
-                        title="Approve"
-                        onClick={handleApprove}
-                    >
-                        Approve
-                    </Button>
+
                 </div>
 
                 {showUploadForm && (
                     <div className="flex flex-col space-y-4 mt-4">
                         <div className="flex items-center space-x-4">
-                            <Button
-                                title="Select File"
-                                onClick={() => document.getElementById('file-upload')?.click()}
-                            >
-                                Select File
-                            </Button>
+                            <label>
+                                Selected File
+                            </label>
+                            
                             {file && <span className="text-sm text-gray-600">{file.name}</span>}
                         </div>
 
-                        <div className="flex items-center space-x-4">
-                            <div className="w-40">
+                        <div className="flex items-details">
+                            <div className="getMonths">
                                 <Select
                                     options={getMonths()}
                                     selected={selectedMonth}
@@ -326,7 +348,7 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                                     placeholder="Select Month"
                                 />
                             </div>
-                            <div className="w-40">
+                            <div className="getYears">
                                 <Select
                                     options={getYears()}
                                     selected={selectedYear}
@@ -337,8 +359,8 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                         </div>
 
                         {sheets.length > 0 && (
-                            <div className="flex items-center space-x-4">
-                                <div className="w-64">
+                            <div className="submitSheet">
+                                <div className="selectSheet">
                                     <Select
                                         options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
                                         selected={selectedSheet}
@@ -350,6 +372,7 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
                                     title="Submit"
                                     onClick={handleSubmit}
                                     disabled={!selectedSheet}
+                                    className="Submit"
                                 >
                                     Submit
                                 </Button>
@@ -372,6 +395,171 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
 
                 {loading && <Loading />}
             </div>
+            <Modal show={showEditModel}
+                onClose={() => {setShowEditModel(false),setLoading(false)}}
+                title={"Edit ESG Data"}>
+                <div className="p-4">
+                {error && (
+                    <div className="mb-4 p-4 bg-red-50 text-red-600 rounded">
+                        {error}
+                    </div>
+                )}
+                        {success ? (
+            <div className="p-4 bg-green-50 text-green-600 rounded">
+                Data successfully submitted for approval
+            </div>
+        ) : (
+            <>
+                    <CRUDComponent
+                        ref={crudRef}
+                        edit={{
+                            title: 'Edit ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Value',
+                                            label: 'Total Value',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'MaleValue',
+                                            label: 'Male Value',
+                                            type: 'text'
+                                        },
+                                        {
+                                            name: 'FemaleValue',
+                                            label: 'Female Value',
+                                            type: 'text'
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: async (data: any, oldData: any): Promise<ActionResponse> => {
+                                setTableData(prevData => 
+                                    prevData.map(item => 
+                                        item === oldData ? { ...data, Status: "Uploaded", Uploaded: "yes" } : item
+                                    )
+                                );
+                                return {
+                                    status: "done", // Adding required status field
+                                    message: "Record updated successfully",
+                                };
+                            },
+                            afterSave: () => {}
+                        }}
+                        add={{
+                            title: 'Add New ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Value',
+                                            label: 'Total Value',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'MaleValue',
+                                            label: 'Male Value',
+                                            type: 'text'
+                                        },
+                                        {
+                                            name: 'FemaleValue',
+                                            label: 'Female Value',
+                                            type: 'text'
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: async (data: any): Promise<ActionResponse> => {
+                                const newRecord = {
+                                    ...data,
+                                    Status: "Uploaded",
+                                    Uploaded: "yes",
+                                    Month: selectedMonth,
+                                    Year: selectedYear
+                                };
+                                setTableData(prev => [...prev, newRecord]);
+                                return {
+                                    status: "done", // Adding required status field
+                                    message: "Record added successfully",
+                                    
+                                };
+                            },
+                            afterSave: () => {}
+                        }}
+                        list={{
+                            search: { 
+                                enabled: true, 
+                                fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value'] 
+                            },
+                            data: { getData:tableData },
+                            defaultPageSize: 10,
+                            title: 'ESG Data',
+                            columns: [
+                                { id: 'ActivityID', label: 'Activity ID' },
+                                { id: 'ActivityCategory', label: 'Category' },
+                                { id: 'ActivityGroup', label: 'Group' },
+                                { id: 'Value', label: 'Total Value' },
+                                { id: 'MaleValue', label: 'Male Value' },
+                                { id: 'FemaleValue', label: 'Female Value' }
+                            ]
+                        }}
+                    />
+                    <div className="mt-4 flex justify-end">
+                        <Button
+                            className="approve"
+                            title="Submit for Approval"
+                            onClick={handleApprove}
+                        >
+                            Submit for Approval
+                        </Button>
+                    </div>
+                    </>
+                    )}
+                </div>
+                    
+            </Modal>
         </WidgetWrapper>
     );
 };

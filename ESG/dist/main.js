@@ -1,6 +1,433 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles.scss":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles.scss ***!
+  \******************************************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, ".ESGWrapper {\n  padding: 15px;\n}\n.ESGWrapper .upload {\n  margin: 5px;\n}\n.ESGWrapper .getMonths {\n  padding: 10px;\n}\n.ESGWrapper .getYears {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .selectSheet {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .Submit {\n  padding: 10px;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
+
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot || '').concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
+}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
+/***/ "./src/styles.scss":
+/*!*************************!*\
+  !*** ./src/styles.scss ***!
+  \*************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var api = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./styles.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
 
 /***/ "./src/index.tsx":
 /*!***********************!*\
@@ -8,6 +435,7 @@
   \***********************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -47,6 +475,7 @@ const react_1 = __webpack_require__(/*! react */ "react");
 const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
 const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
 const XLSX = __importStar(__webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.mjs"));
+__webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
 const getMonths = () => [
     { label: 'January', value: '1' },
     { label: 'February', value: '2' },
@@ -152,6 +581,8 @@ const processExcelData = (worksheet) => {
     return processedData;
 };
 const ESGWidget = (props) => {
+    const crudRef = (0, react_1.useRef)(null);
+    const alert = (0, components_1.useAlert)();
     const [file, setFile] = (0, react_1.useState)(null);
     const [sheets, setSheets] = (0, react_1.useState)([]);
     const [selectedSheet, setSelectedSheet] = (0, react_1.useState)("");
@@ -161,6 +592,14 @@ const ESGWidget = (props) => {
     const [showUploadForm, setShowUploadForm] = (0, react_1.useState)(false);
     const [selectedMonth, setSelectedMonth] = (0, react_1.useState)(String(new Date().getMonth() + 1));
     const [selectedYear, setSelectedYear] = (0, react_1.useState)(String(new Date().getFullYear()));
+    const [showEditModel, setShowEditModel] = (0, react_1.useState)(false);
+    const [payload, setPayload] = (0, react_1.useState)();
+    const [tableData, setTableData] = (0, react_1.useState)([]);
+    const refreshCrud = () => {
+        if (crudRef.current) {
+            crudRef.current.refresh();
+        }
+    };
     const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
         const files = event.target.files;
         if (files && files[0]) {
@@ -203,7 +642,7 @@ const ESGWidget = (props) => {
         try {
             const reader = new FileReader();
             reader.onload = (e) => __awaiter(void 0, void 0, void 0, function* () {
-                var _a, _b;
+                var _a;
                 try {
                     const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
                     if (binary && typeof binary === 'string') {
@@ -211,25 +650,16 @@ const ESGWidget = (props) => {
                         const worksheet = workbook.Sheets[selectedSheet];
                         const processedData = processExcelData(worksheet);
                         const finalData = processedData.map(item => (Object.assign(Object.assign({}, item), { Month: selectedMonth, Year: selectedYear })));
+                        setTableData(finalData);
                         const payload = {
                             json: JSON.stringify(finalData),
                             month: selectedMonth,
                             year: selectedYear
                         };
                         console.log("Final payload:", payload);
-                        (_b = props.uxpContext) === null || _b === void 0 ? void 0 : _b.executeAction('ESG', 'GetDataFromExcel', payload, {}).then((res) => {
-                            setSuccess(true);
-                            setShowUploadForm(false);
-                            setFile(null);
-                            setSelectedSheet("");
-                            setSheets([]);
-                        }).catch((error) => {
-                            console.error('Error executing action:', error);
-                            setError('Error sending data to server');
-                            alert(error);
-                        }).finally(() => {
-                            setLoading(false);
-                        });
+                        setPayload(payload);
+                        setShowEditModel(true);
+                        setLoading(false);
                     }
                 }
                 catch (error) {
@@ -250,36 +680,178 @@ const ESGWidget = (props) => {
         }
     });
     const handleApprove = () => {
-        console.log('Approve button clicked');
-        alert('Approval functionality will be implemented here');
+        var _a;
+        console.log(tableData);
+        setLoading(true);
+        setError(null);
+        const updatedPayload = Object.assign(Object.assign({}, payload), { json: JSON.stringify(tableData) });
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'GetDataFromExcel', updatedPayload, {}).then((res) => {
+            setSuccess(true);
+            setShowUploadForm(false);
+            setFile(null);
+            setSelectedSheet("");
+            setSheets([]);
+            alert.show('Success', 'Data successfully submitted for approval'); // Using alert hook
+            setShowEditModel(false);
+        }).catch((error) => {
+            console.error('Error executing action:', error);
+            alert.show(`Error sending data to server.${error}`);
+        }).finally(() => {
+            setLoading(false);
+        });
     };
     return (React.createElement(components_1.WidgetWrapper, null,
         React.createElement(components_1.TitleBar, { title: 'ESG Data Upload' },
             React.createElement(components_1.FilterPanel, null)),
-        React.createElement("div", { className: "flex flex-col space-y-4 p-4" },
+        React.createElement("div", { className: "ESGWrapper" },
             React.createElement("div", { className: "flex items-center space-x-4 border-b pb-4" },
                 React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden", id: "file-upload" }),
-                React.createElement(components_1.Button, { title: "Upload Excel", onClick: () => setShowUploadForm(true) }, "Upload Excel"),
-                React.createElement(components_1.Button, { title: "Approve", onClick: handleApprove }, "Approve")),
+                React.createElement(components_1.Button, { className: "upload", title: "Upload Excel", onClick: () => setShowUploadForm(true) }, "Upload Excel")),
             showUploadForm && (React.createElement("div", { className: "flex flex-col space-y-4 mt-4" },
                 React.createElement("div", { className: "flex items-center space-x-4" },
-                    React.createElement(components_1.Button, { title: "Select File", onClick: () => { var _a; return (_a = document.getElementById('file-upload')) === null || _a === void 0 ? void 0 : _a.click(); } }, "Select File"),
+                    React.createElement("label", null, "Selected File"),
                     file && React.createElement("span", { className: "text-sm text-gray-600" }, file.name)),
-                React.createElement("div", { className: "flex items-center space-x-4" },
-                    React.createElement("div", { className: "w-40" },
+                React.createElement("div", { className: "flex items-details" },
+                    React.createElement("div", { className: "getMonths" },
                         React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
-                    React.createElement("div", { className: "w-40" },
+                    React.createElement("div", { className: "getYears" },
                         React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
-                sheets.length > 0 && (React.createElement("div", { className: "flex items-center space-x-4" },
-                    React.createElement("div", { className: "w-64" },
+                sheets.length > 0 && (React.createElement("div", { className: "submitSheet" },
+                    React.createElement("div", { className: "selectSheet" },
                         React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
-                    React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet }, "Submit"))))),
+                    React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet, className: "Submit" }, "Submit"))))),
             success && (React.createElement("div", { className: "text-green-600 bg-green-50 p-4 rounded" },
                 "File \"", file === null || file === void 0 ? void 0 :
                 file.name,
                 "\" uploaded successfully and submitted for approval")),
             error && (React.createElement("div", { className: "text-red-600 text-sm" }, error)),
-            loading && React.createElement(components_1.Loading, null))));
+            loading && React.createElement(components_1.Loading, null)),
+        React.createElement(components_1.Modal, { show: showEditModel, onClose: () => { setShowEditModel(false), setLoading(false); }, title: "Edit ESG Data" },
+            React.createElement("div", { className: "p-4" },
+                error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
+                success ? (React.createElement("div", { className: "p-4 bg-green-50 text-green-600 rounded" }, "Data successfully submitted for approval")) : (React.createElement(React.Fragment, null,
+                    React.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
+                            title: 'Edit ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Value',
+                                            label: 'Total Value',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'MaleValue',
+                                            label: 'Male Value',
+                                            type: 'text'
+                                        },
+                                        {
+                                            name: 'FemaleValue',
+                                            label: 'Female Value',
+                                            type: 'text'
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: (data, oldData) => __awaiter(void 0, void 0, void 0, function* () {
+                                setTableData(prevData => prevData.map(item => item === oldData ? Object.assign(Object.assign({}, data), { Status: "Uploaded", Uploaded: "yes" }) : item));
+                                return {
+                                    status: "done",
+                                    message: "Record updated successfully",
+                                };
+                            }),
+                            afterSave: () => { }
+                        }, add: {
+                            title: 'Add New ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Value',
+                                            label: 'Total Value',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'MaleValue',
+                                            label: 'Male Value',
+                                            type: 'text'
+                                        },
+                                        {
+                                            name: 'FemaleValue',
+                                            label: 'Female Value',
+                                            type: 'text'
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: (data) => __awaiter(void 0, void 0, void 0, function* () {
+                                const newRecord = Object.assign(Object.assign({}, data), { Status: "Uploaded", Uploaded: "yes", Month: selectedMonth, Year: selectedYear });
+                                setTableData(prev => [...prev, newRecord]);
+                                return {
+                                    status: "done",
+                                    message: "Record added successfully",
+                                };
+                            }),
+                            afterSave: () => { }
+                        }, list: {
+                            search: {
+                                enabled: true,
+                                fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value']
+                            },
+                            data: { getData: tableData },
+                            defaultPageSize: 10,
+                            title: 'ESG Data',
+                            columns: [
+                                { id: 'ActivityID', label: 'Activity ID' },
+                                { id: 'ActivityCategory', label: 'Category' },
+                                { id: 'ActivityGroup', label: 'Group' },
+                                { id: 'Value', label: 'Total Value' },
+                                { id: 'MaleValue', label: 'Male Value' },
+                                { id: 'FemaleValue', label: 'Female Value' }
+                            ]
+                        } }),
+                    React.createElement("div", { className: "mt-4 flex justify-end" },
+                        React.createElement(components_1.Button, { className: "approve", title: "Submit for Approval", onClick: handleApprove }, "Submit for Approval"))))))));
 };
 (0, uxp_1.registerWidget)({
     id: "ESG",
@@ -304,6 +876,7 @@ exports["default"] = ESGWidget;
   \********************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -445,6 +1018,7 @@ exports.registerCustomWidgetTemplate = registerCustomWidgetTemplate;
   \************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = React;
 
 /***/ }),
@@ -455,6 +1029,7 @@ module.exports = React;
   \********************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = UXPComponents;
 
 /***/ }),
@@ -465,6 +1040,7 @@ module.exports = UXPComponents;
   \************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CFB: () => (/* binding */ CFB),
@@ -25077,6 +25653,7 @@ const version = XLSX.version;
   \*********************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"","widgets":[{"id":"ESG","name":"ESG","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
 
 /***/ }),
@@ -25087,6 +25664,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc2
   \***************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = {};
 
 /***/ })
@@ -25105,7 +25683,7 @@ module.exports = {};
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
+/******/ 			id: moduleId,
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
@@ -25144,6 +25722,11 @@ module.exports = {};
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
