@@ -1,6 +1,40 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Components/approvalstyles.scss":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Components/approvalstyles.scss ***!
+  \*************************************************************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, "", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Components/uploadstyles.scss":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Components/uploadstyles.scss ***!
+  \***********************************************************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.id, ".ESGWrapper {\n  padding: 15px;\n}\n.ESGWrapper .upload {\n  margin: 5px;\n}\n.ESGWrapper .getMonths {\n  padding: 10px;\n}\n.ESGWrapper .getYears {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .selectSheet {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .Submit {\n  padding: 10px;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles.scss":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles.scss ***!
@@ -11,7 +45,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, ".ESGWrapper {\n  padding: 15px;\n}\n.ESGWrapper .upload {\n  margin: 5px;\n}\n.ESGWrapper .getMonths {\n  padding: 10px;\n}\n.ESGWrapper .getYears {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .selectSheet {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .Submit {\n  padding: 10px;\n}", ""]);
+exports.push([module.id, "", ""]);
 // Exports
 module.exports = exports;
 
@@ -401,6 +435,62 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./src/Components/approvalstyles.scss":
+/*!********************************************!*\
+  !*** ./src/Components/approvalstyles.scss ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var api = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./approvalstyles.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Components/approvalstyles.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/Components/uploadstyles.scss":
+/*!******************************************!*\
+  !*** ./src/Components/uploadstyles.scss ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var api = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./uploadstyles.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/Components/uploadstyles.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.id, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/styles.scss":
 /*!*************************!*\
   !*** ./src/styles.scss ***!
@@ -429,10 +519,183 @@ module.exports = content.locals || {};
 
 /***/ }),
 
-/***/ "./src/index.tsx":
-/*!***********************!*\
-  !*** ./src/index.tsx ***!
-  \***********************/
+/***/ "./src/Components/Approval.tsx":
+/*!*************************************!*\
+  !*** ./src/Components/Approval.tsx ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const React = __importStar(__webpack_require__(/*! react */ "react"));
+const react_1 = __webpack_require__(/*! react */ "react");
+const uxp_1 = __webpack_require__(/*! ../uxp */ "./src/uxp.ts");
+const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
+__webpack_require__(/*! ./approvalstyles.scss */ "./src/Components/approvalstyles.scss");
+const Approval = (props) => {
+    const [documents, setDocuments] = (0, react_1.useState)([]);
+    const [loading, setLoading] = (0, react_1.useState)(true);
+    const alert = (0, components_1.useAlert)();
+    const [approval, setApproval] = (0, react_1.useState)();
+    const [selectedMonth, setSelectedMonth] = (0, react_1.useState)(null);
+    const [selectedYear, setSelectedYear] = (0, react_1.useState)(null);
+    (0, react_1.useEffect)(() => {
+        fetchDocuments();
+    }, [approval, selectedMonth, selectedYear]);
+    const getMonths = () => [
+        { label: 'January', value: '1' },
+        { label: 'February', value: '2' },
+        { label: 'March', value: '3' },
+        { label: 'April', value: '4' },
+        { label: 'May', value: '5' },
+        { label: 'June', value: '6' },
+        { label: 'July', value: '7' },
+        { label: 'August', value: '8' },
+        { label: 'September', value: '9' },
+        { label: 'October', value: '10' },
+        { label: 'November', value: '11' },
+        { label: 'December', value: '12' }
+    ];
+    const getYears = () => {
+        const currentYear = new Date().getFullYear();
+        return Array.from({ length: 5 }, (_, i) => ({
+            label: String(currentYear - i),
+            value: String(currentYear - i)
+        }));
+    };
+    const fetchDocuments = () => {
+        var _a;
+        console.log("month and year", selectedMonth, selectedYear);
+        setLoading(true);
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showApprovalDocuments', { selectedMonth, selectedYear }, { json: true }).then((res) => {
+            console.log("res", res);
+            setDocuments(res);
+        }).catch((error) => {
+            alert.show("Failed to fetch documents");
+            console.error("Error fetching documents:", error);
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
+    const handleApprove = (Activity) => {
+        props.uxpContext.executeAction('ESG', 'approveDocument', { Activity }, {})
+            .then((res) => {
+            setApproval(`Acivity Approved ${Activity.ActivityID}`);
+            alert.show(`Approved document: ${Activity.ActivityID}`);
+        })
+            .catch((error) => {
+            alert.show(`error:${error}`);
+        });
+    };
+    const handleApproveAll = () => {
+        console.log("documents", documents);
+        props.uxpContext.executeAction('ESG', 'approveAllDocuments', { documents }, { json: true })
+            .then((res) => {
+            console.log("res approve all", res);
+            setApproval(`Acivity Approved ${res.length}`);
+            alert.show(`Approving all ${res.length} documents`);
+        })
+            .catch((error) => {
+            alert.show(`error:${error}`);
+        });
+    };
+    const renderContent = () => {
+        if (loading) {
+            return React.createElement(components_1.Loading, null);
+        }
+        if (!documents || documents.length === 0) {
+            return (React.createElement("div", { className: "no-documents-message" },
+                React.createElement("p", null, "No documents to approve")));
+        }
+        return (React.createElement(React.Fragment, null,
+            React.createElement(components_1.Button, { title: "Approve All", onClick: handleApproveAll, className: "approve-all-button" }),
+            React.createElement("div", { className: "approval-table-container" },
+                React.createElement(components_1.DataTable, { data: documents, pageSize: 5, className: "custom-data-table", columns: [
+                        {
+                            title: "Activity",
+                            width: "25%",
+                            renderColumn: (item) => React.createElement("div", null, item.ActivityID),
+                        },
+                        {
+                            title: "Month",
+                            width: "10%",
+                            renderColumn: (item) => React.createElement("div", null, item.Month),
+                        },
+                        {
+                            title: "Year",
+                            width: "10%",
+                            renderColumn: (item) => React.createElement("div", null, item.Year),
+                        },
+                        {
+                            title: "Status",
+                            width: "15%",
+                            renderColumn: (item) => React.createElement("div", null, item.Status),
+                        },
+                        {
+                            title: "Approve",
+                            width: "15%",
+                            renderColumn: (item) => (React.createElement("div", null,
+                                React.createElement(components_1.Button, { title: "Approve", onClick: () => handleApprove(item) }))),
+                        },
+                    ] }))));
+    };
+    return (React.createElement(components_1.WidgetWrapper, null,
+        React.createElement(components_1.TitleBar, { title: 'Document Approval' },
+            React.createElement(components_1.FilterPanel, { onClear: () => {
+                    setSelectedMonth("");
+                    setSelectedYear("");
+                } },
+                React.createElement(components_1.FormField, null,
+                    React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                React.createElement(components_1.FormField, null,
+                    React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" })))),
+        renderContent()));
+};
+(0, uxp_1.registerWidget)({
+    id: "Approval",
+    widget: Approval,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+exports["default"] = Approval;
+
+
+/***/ }),
+
+/***/ "./src/Components/UploadDocument.tsx":
+/*!*******************************************!*\
+  !*** ./src/Components/UploadDocument.tsx ***!
+  \*******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -472,10 +735,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "react"));
 const react_1 = __webpack_require__(/*! react */ "react");
-const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
 const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
 const XLSX = __importStar(__webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.mjs"));
-__webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
+__webpack_require__(/*! ./uploadstyles.scss */ "./src/Components/uploadstyles.scss");
 const getMonths = () => [
     { label: 'January', value: '1' },
     { label: 'February', value: '2' },
@@ -580,7 +842,7 @@ const processExcelData = (worksheet) => {
     console.log("Processed Data:", processedData);
     return processedData;
 };
-const ESGWidget = (props) => {
+const UploadDocument = (props) => {
     const crudRef = (0, react_1.useRef)(null);
     const alert = (0, components_1.useAlert)();
     const [file, setFile] = (0, react_1.useState)(null);
@@ -853,9 +1115,59 @@ const ESGWidget = (props) => {
                     React.createElement("div", { className: "mt-4 flex justify-end" },
                         React.createElement(components_1.Button, { className: "approve", title: "Submit for Approval", onClick: handleApprove }, "Submit for Approval"))))))));
 };
+exports["default"] = UploadDocument;
+
+
+/***/ }),
+
+/***/ "./src/index.tsx":
+/*!***********************!*\
+  !*** ./src/index.tsx ***!
+  \***********************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const React = __importStar(__webpack_require__(/*! react */ "react"));
+const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
+__webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
+const UploadDocument_1 = __importDefault(__webpack_require__(/*! ./Components/UploadDocument */ "./src/Components/UploadDocument.tsx"));
+const Approval_1 = __importDefault(__webpack_require__(/*! ./Components/Approval */ "./src/Components/Approval.tsx"));
+const ESGWidget = (props) => {
+    return (React.createElement(React.Fragment, null,
+        React.createElement(UploadDocument_1.default, null),
+        React.createElement(Approval_1.default, null)));
+};
 (0, uxp_1.registerWidget)({
-    id: "ESG",
-    widget: ESGWidget,
+    id: "UploadDocument",
+    widget: UploadDocument_1.default,
     configs: {
         layout: {
             w: 12,
@@ -25654,7 +25966,7 @@ const version = XLSX.version;
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"","widgets":[{"id":"ESG","name":"ESG","description":"A sample widget","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
+module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"","widgets":[{"id":"UploadDocument","name":"UploadDocument","description":"A sample widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"Approval","name":"Approval","description":"A sample widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
 
 /***/ }),
 

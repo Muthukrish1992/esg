@@ -9,6 +9,31 @@
             "capability": "",
             "docs": "",
             "initiate": false,
+            "name": "ApproveAllDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "documents"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "documents"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"integer\"}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
             "name": "GetDataFromExcel",
             "outputs": [
               ""
@@ -42,11 +67,344 @@
             "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
             "schemaFrozen": false,
             "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "approveDocument",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "Activity"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "Activity"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "showApprovalDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedMonth",
+              "selectedYear"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "selectedMonth"
+              },
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\"}",
+            "schemaFrozen": false,
+            "static": true
           }
         ],
         "attributes": [],
         "flows": {
           "blocks": [
+            {
+              "CollectionName": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
+              "configuration": "[{\"IsEither\":false,\"Conditions\":[{\"Attribute\":\"ActivityID\",\"Operator\":\"eq\",\"Value\":\"ActivityID\",\"IsPin\":true},{\"Attribute\":\"Month\",\"Operator\":\"eq\",\"Value\":\"Month\",\"IsPin\":true},{\"Attribute\":\"Year\",\"Operator\":\"eq\",\"Value\":\"Year\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:ActivityCategory",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:ActivityCategory"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:ActivityGroup",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:ActivityGroup"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:ActivityID",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:ActivityID"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:FemaleValue",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:FemaleValue"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:MaleValue",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:MaleValue"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Month",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Month"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Uploaded",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Uploaded"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Value",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Value"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Year",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Year"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "b8a34684-46e4-4844-db0f-b13eac467ab7:output:output",
+                    "target": "cc8bb92d-c3ad-4ca3-cb74-556680046809:input:input"
+                  }
+                ]
+              },
+              "id": "b8a34684-46e4-4844-db0f-b13eac467ab7",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "ActivityCategory",
+                  "label": "ActivityCategory",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "ActivityGroup",
+                  "label": "ActivityGroup",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "ActivityID",
+                  "label": "ActivityID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "FemaleValue",
+                  "label": "FemaleValue",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "MaleValue",
+                  "label": "MaleValue",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "Month",
+                  "label": "Month",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "Status",
+                  "label": "Status",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": "Approved"
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "Uploaded",
+                  "label": "Uploaded",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "Value",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "Year",
+                  "label": "Year",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 719,
+                "top": 98
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "approveDocument",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Update one document",
+              "type": "modelcollections:updateone",
+              "UpdateAsAttributes": true
+            },
+            {
+              "actionName": "ApproveAllDocuments",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "b8fb5c9d-1cf1-469a-c711-64b3e776bad0:output:documents",
+                    "target": "87202b6a-565b-468c-b1d1-b62a826ee011:input:documents"
+                  }
+                ]
+              },
+              "debug": true,
+              "docs": "",
+              "id": "b8fb5c9d-1cf1-469a-c711-64b3e776bad0",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "documents",
+                  "label": "documents",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 40,
+                "top": 79
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"integer\"}",
+              "static": true,
+              "surface": "ApproveAllDocuments",
+              "title": "Action",
+              "type": "actionstart"
+            },
             {
               "actionName": "GetDataFromExcel",
               "canOverrideCredentials": false,
@@ -132,6 +490,210 @@
               "surface": "GetDataFromExcel",
               "title": "Action",
               "type": "actionstart"
+            },
+            {
+              "actionName": "approveDocument",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "8114248f-52fa-4d23-fe57-b0c00bc3da4a:output:Activity",
+                    "target": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:input:input"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "8114248f-52fa-4d23-fe57-b0c00bc3da4a",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "Activity",
+                  "label": "Activity",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 141,
+                "top": 153
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "",
+              "static": true,
+              "surface": "approveDocument",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "showApprovalDocuments",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedMonth",
+                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedMonth"
+                  },
+                  {
+                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedYear",
+                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedYear"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "selectedMonth",
+                  "label": "selectedMonth",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 161,
+                "top": 137
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"array\"}",
+              "static": true,
+              "surface": "showApprovalDocuments",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc._id);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'Activities',\n        { _id: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "b8fb5c9d-1cf1-469a-c711-64b3e776bad0:output:documents",
+                    "target": "87202b6a-565b-468c-b1d1-b62a826ee011:input:documents"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "87202b6a-565b-468c-b1d1-b62a826ee011:output:done",
+                    "target": "6b60a601-0317-43bf-97e1-eb3db72b467d:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "87202b6a-565b-468c-b1d1-b62a826ee011",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "documents",
+                  "label": "documents",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 316,
+                "top": 113
+              },
+              "surface": "ApproveAllDocuments",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
             },
             {
               "code": "let { json, month, year } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\nconst recordsToInsert = [];\n\n(async () => {\n try {\n   const data = JSON.parse(json);\n   if (!data || !Array.isArray(data) || data.length === 0) {\n     throw new Error(\"Insert failed: Empty JSON data provided\");\n   }\n\n   const validationErrors = [];\n   \n   // Validate all activities against ActivityMaster\n   for (const activity of data) {\n     const masterRecord = await collections.findOne(\"ActivityMaster\", {\n       ActivityID: activity.ActivityID,\n       ActivityGroup: activity.ActivityGroup,\n       ActivityCategory: activity.ActivityCategory\n     }, {});\n\n     if (JSON.stringify(masterRecord) === '{}') {\n       validationErrors.push(activity.ActivityID);\n     } else {\n       activity.Month = month;\n       activity.Year = year;\n     }\n   }\n\n   if (validationErrors.length > 0) {\n     runtime.error(`Activity validation failed for: ${validationErrors.join(', ')}`);\n     return;\n   }\n\n        // Check for duplicates in the Activities collection\n        for (const activity of data) {\n            const existingRecord = await collections.findOne(\"Activities\", {\n                ActivityID: activity.ActivityID,\n                Month: activity.Month,\n                Year: activity.Year\n            },{});\n\n            // If record doesn't exist, add it to recordsToInsert array\n            if (!existingRecord || Object.keys(existingRecord).length === 0) {\n                recordsToInsert.push(activity);\n            }\n\n        }\n\n        // Insert only non-duplicate records\n        if (recordsToInsert.length > 0) {\n            await collections.insertMany(\"Activities\", recordsToInsert, {});\n            runtime.done({ done: `Inserted ${recordsToInsert.length} records successfully.` });\n        } else {\n            runtime.error({ done: \"No new records to insert - all records were duplicates.\" });\n        }\n\n } catch (error) {\n   runtime.error({ done: `Error:catch` });\n }\n})();",
@@ -235,6 +797,92 @@
               "type": "es6javascript"
             },
             {
+              "code": "let {selectedMonth, selectedYear} = runtime.inputs();\nlet {done} = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Uploaded' };\n\n// Add month and year to filter only if they're not empty\nif (selectedMonth !== '') filterCondition.Month = selectedMonth;\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"Activities\", filterCondition, {})\n    .then((res) => {\n        runtime.done({done: res});\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedMonth",
+                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedMonth"
+                  },
+                  {
+                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedYear",
+                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedYear"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "51dd6d2e-6422-4614-9338-df0b6ebf8685:output:done",
+                    "target": "aa36ce72-57bf-45c7-c6a6-896e3453b652:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "51dd6d2e-6422-4614-9338-df0b6ebf8685",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "selectedMonth",
+                  "label": "selectedMonth",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 450,
+                "top": 155
+              },
+              "surface": "showApprovalDocuments",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
+            },
+            {
               "connections": {
                 "inputs": [
                   {
@@ -278,6 +926,302 @@
               "surface": "GetDataFromExcel",
               "title": "Output",
               "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "51dd6d2e-6422-4614-9338-df0b6ebf8685:output:done",
+                    "target": "aa36ce72-57bf-45c7-c6a6-896e3453b652:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "aa36ce72-57bf-45c7-c6a6-896e3453b652",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 739,
+                "top": 148
+              },
+              "surface": "showApprovalDocuments",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "8114248f-52fa-4d23-fe57-b0c00bc3da4a:output:Activity",
+                    "target": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:input:input"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:ActivityCategory",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:ActivityCategory"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:ActivityGroup",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:ActivityGroup"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:ActivityID",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:ActivityID"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:FemaleValue",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:FemaleValue"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:MaleValue",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:MaleValue"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Month",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Month"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Uploaded",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Uploaded"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Value",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Value"
+                  },
+                  {
+                    "source": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a:output:Year",
+                    "target": "b8a34684-46e4-4844-db0f-b13eac467ab7:input:Year"
+                  }
+                ]
+              },
+              "id": "7f6ffc70-770b-4566-e4c0-c8c24b3e7b0a",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Input",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "ActivityCategory",
+                  "label": "ActivityCategory",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "ActivityGroup",
+                  "label": "ActivityGroup",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "ActivityID",
+                  "label": "ActivityID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "FemaleValue",
+                  "label": "FemaleValue",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "MaleValue",
+                  "label": "MaleValue",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "Month",
+                  "label": "Month",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "Uploaded",
+                  "label": "Uploaded",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "Value",
+                  "label": "Value",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "Year",
+                  "label": "Year",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 399,
+                "top": 116
+              },
+              "surface": "approveDocument",
+              "title": "Extract Multiple Values",
+              "type": "extractmultiplevalues"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "87202b6a-565b-468c-b1d1-b62a826ee011:output:done",
+                    "target": "6b60a601-0317-43bf-97e1-eb3db72b467d:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "6b60a601-0317-43bf-97e1-eb3db72b467d",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 580,
+                "top": 129
+              },
+              "surface": "ApproveAllDocuments",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "b8a34684-46e4-4844-db0f-b13eac467ab7:output:output",
+                    "target": "cc8bb92d-c3ad-4ca3-cb74-556680046809:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "cc8bb92d-c3ad-4ca3-cb74-556680046809",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 972,
+                "top": 208
+              },
+              "surface": "approveDocument",
+              "title": "Output",
+              "type": "actionoutput2"
             }
           ],
           "position": {
@@ -286,6 +1230,31 @@
           }
         },
         "sources": [
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "ApproveAllDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "documents"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "documents"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"integer\"}",
+            "schemaFrozen": false,
+            "static": true
+          },
           {
             "canOverrideCredentials": false,
             "capability": "",
@@ -322,6 +1291,63 @@
             ],
             "published": false,
             "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "approveDocument",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "Activity"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "Activity"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "showApprovalDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedMonth",
+              "selectedYear"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "selectedMonth"
+              },
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\"}",
             "schemaFrozen": false,
             "static": true
           }
