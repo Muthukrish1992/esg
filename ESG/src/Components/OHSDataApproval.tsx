@@ -180,7 +180,7 @@ const OHSDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
             if(hasConfirmed) {
                 props.uxpContext.executeAction('ESG', 'ApproveAllOHSDocuments', {documents}, {json:true})
                     .then((res) => {
-                        setApproval(`Activity Approved ${documents.length}`);
+                        setApproval(`Document Approved ${documents.length}`);
                         alert.show(`Approved all ${documents.length} documents`);
                         fetchDocuments();
                     })

@@ -169,7 +169,7 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
             if(hasConfirmed) {
                 props.uxpContext.executeAction('ESG', 'ApproveAllGovernanceDocuments', {documents}, {json:true})
                     .then((res) => {
-                        setApproval(`Activity Approved ${documents.length}`);
+                        setApproval(`Documents Approved ${documents.length}`);
                         alert.show(`Approved all ${documents.length} documents`);
                         fetchDocuments();
                     })

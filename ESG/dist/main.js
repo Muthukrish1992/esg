@@ -674,7 +674,7 @@ const GovernanceDataApproval = (props) => {
             if (hasConfirmed) {
                 props.uxpContext.executeAction('ESG', 'ApproveAllGovernanceDocuments', { documents }, { json: true })
                     .then((res) => {
-                    setApproval(`Activity Approved ${documents.length}`);
+                    setApproval(`Documents Approved ${documents.length}`);
                     alert.show(`Approved all ${documents.length} documents`);
                     fetchDocuments();
                 })
@@ -979,7 +979,7 @@ const OHSDataApproval = (props) => {
             if (hasConfirmed) {
                 props.uxpContext.executeAction('ESG', 'ApproveAllOHSDocuments', { documents }, { json: true })
                     .then((res) => {
-                    setApproval(`Activity Approved ${documents.length}`);
+                    setApproval(`Document Approved ${documents.length}`);
                     alert.show(`Approved all ${documents.length} documents`);
                     fetchDocuments();
                 })
@@ -1256,7 +1256,7 @@ const SocialDataApproval = (props) => {
             if (hasConfirmed) {
                 props.uxpContext.executeAction('ESG', 'ApproveAllSocialDocuments', { documents }, { json: true })
                     .then((res) => {
-                    setApproval(`Activity Approved ${documents.length}`);
+                    setApproval(`Documents Approved ${documents.length}`);
                     alert.show(`Approved all ${documents.length} documents`);
                     fetchDocuments();
                 })

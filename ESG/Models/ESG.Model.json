@@ -385,6 +385,9 @@
             ],
             "parametersExtended": [
               {
+                "dataType": "",
+                "docs": "",
+                "example": "",
                 "id": "TransactionID"
               }
             ],
@@ -432,6 +435,9 @@
             ],
             "parametersExtended": [
               {
+                "dataType": "",
+                "docs": "",
+                "example": "",
                 "id": "TransactionID"
               }
             ],
@@ -486,6 +492,9 @@
             ],
             "parametersExtended": [
               {
+                "dataType": "",
+                "docs": "",
+                "example": "",
                 "id": "TransactionID"
               }
             ],
@@ -909,6 +918,17 @@
                   "transformationOptions": "",
                   "type": "",
                   "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
+                  "value": ""
                 }
               ],
               "outputValues": [
@@ -993,6 +1013,17 @@
                   "transformation": "",
                   "transformationOptions": "",
                   "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
                   "value": ""
                 }
               ],
@@ -1079,6 +1110,17 @@
                   "transformationOptions": "",
                   "type": "",
                   "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
+                  "value": ""
                 }
               ],
               "outputValues": [
@@ -1163,6 +1205,17 @@
                   "transformation": "",
                   "transformationOptions": "",
                   "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
                   "value": ""
                 }
               ],
@@ -1752,6 +1805,17 @@
                   "transformationOptions": "",
                   "type": "",
                   "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
+                  "value": ""
                 }
               ],
               "outputValues": [
@@ -1836,6 +1900,17 @@
                   "transformation": "",
                   "transformationOptions": "",
                   "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "Data to be inserted",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "__data__",
+                  "label": "Data",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "text",
                   "value": ""
                 }
               ],
@@ -2985,6 +3060,15 @@
                   "description": "",
                   "documentation": "",
                   "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
                   "id": "__error__",
                   "label": "Error",
                   "type": "error"
@@ -2996,11 +3080,6 @@
                   "example": "",
                   "id": "output",
                   "label": "All Output",
-                  "type": ""
-                },
-                {
-                  "id": "TransactionID",
-                  "label": "TransactionID",
                   "type": ""
                 }
               ],
@@ -3101,6 +3180,15 @@
                   "description": "",
                   "documentation": "",
                   "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
                   "id": "__error__",
                   "label": "Error",
                   "type": "error"
@@ -3112,11 +3200,6 @@
                   "example": "",
                   "id": "output",
                   "label": "All Output",
-                  "type": ""
-                },
-                {
-                  "id": "TransactionID",
-                  "label": "TransactionID",
                   "type": ""
                 }
               ],
@@ -3230,6 +3313,15 @@
                   "description": "",
                   "documentation": "",
                   "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
                   "id": "__error__",
                   "label": "Error",
                   "type": "error"
@@ -3241,11 +3333,6 @@
                   "example": "",
                   "id": "output",
                   "label": "All Output",
-                  "type": ""
-                },
-                {
-                  "id": "TransactionID",
-                  "label": "TransactionID",
                   "type": ""
                 }
               ],
@@ -3478,7 +3565,7 @@
               "type": "actionstart"
             },
             {
-              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc._id);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'GovernanceActivities',\n        { _id: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
+              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc.TransactionID);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'GovernanceActivities',\n        { TransactionID: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
               "connections": {
                 "inputs": [
                   {
@@ -3549,7 +3636,7 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc._id);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'OHSActivities',\n        { _id: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
+              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc.TransactionID);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'OHSActivities',\n        { TransactionID: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
               "connections": {
                 "inputs": [
                   {
@@ -3620,7 +3707,7 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc._id);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'SocialActivities',\n        { _id: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
+              "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc.TransactionID);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'SocialActivities',\n        { TransactionID: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
               "connections": {
                 "inputs": [
                   {
@@ -6396,6 +6483,9 @@
             ],
             "parametersExtended": [
               {
+                "dataType": "",
+                "docs": "",
+                "example": "",
                 "id": "TransactionID"
               }
             ],
@@ -6443,6 +6533,9 @@
             ],
             "parametersExtended": [
               {
+                "dataType": "",
+                "docs": "",
+                "example": "",
                 "id": "TransactionID"
               }
             ],
@@ -6497,6 +6590,9 @@
             ],
             "parametersExtended": [
               {
+                "dataType": "",
+                "docs": "",
+                "example": "",
                 "id": "TransactionID"
               }
             ],
