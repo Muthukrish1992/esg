@@ -11,7 +11,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, "", ""]);
+exports.push([module.id, ".widget-wrapper {\n  padding: 0 !important;\n}\n\n.approval-table-container {\n  height: calc(100vh - 130px);\n  overflow: auto;\n  padding: 1rem;\n}\n.approval-table-container table {\n  width: 100%;\n  border-collapse: collapse;\n  background: white;\n}\n.approval-table-container thead {\n  top: 0;\n  z-index: 1;\n  background: white;\n}\n.approval-table-container th {\n  background: #f3f4f6;\n  padding: 12px;\n  text-align: left;\n  border: 1px solid #e5e7eb;\n}\n.approval-table-container td {\n  padding: 12px;\n  border: 1px solid #e5e7eb;\n}\n.approval-table-container tr:hover {\n  background-color: #f9fafb;\n}\n\n.approve-all-button {\n  margin-bottom: 1rem;\n}\n\n.no-documents-message {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 200px;\n  color: #6b7280;\n}\n\n.filter-panel {\n  padding: 1rem;\n  background: white;\n  border-bottom: 1px solid #e5e7eb;\n}\n\n.governance-approval-widget, .OHS-approval-widget, .social-approval-widget {\n  padding: 20px;\n}\n.governance-approval-widget .approval-table-container, .OHS-approval-widget .approval-table-container, .social-approval-widget .approval-table-container {\n  margin-top: 20px;\n}\n.governance-approval-widget .approval-header, .OHS-approval-widget .approval-header, .social-approval-widget .approval-header {\n  margin-bottom: 16px;\n}\n.governance-approval-widget .approval-header .approve-all-button, .OHS-approval-widget .approval-header .approve-all-button, .social-approval-widget .approval-header .approve-all-button {\n  background-color: #4CAF50;\n  color: white;\n}\n.governance-approval-widget .approval-header .approve-all-button:hover, .OHS-approval-widget .approval-header .approve-all-button:hover, .social-approval-widget .approval-header .approve-all-button:hover {\n  background-color: #45a049;\n}\n.governance-approval-widget .table-wrapper, .OHS-approval-widget .table-wrapper, .social-approval-widget .table-wrapper {\n  overflow-x: auto;\n}\n.governance-approval-widget .approval-table, .OHS-approval-widget .approval-table, .social-approval-widget .approval-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n.governance-approval-widget .approval-table th, .governance-approval-widget .approval-table td, .OHS-approval-widget .approval-table th, .OHS-approval-widget .approval-table td, .social-approval-widget .approval-table th, .social-approval-widget .approval-table td {\n  padding: 12px;\n  border: 1px solid #ddd;\n  text-align: left;\n}\n.governance-approval-widget .approval-table th, .OHS-approval-widget .approval-table th, .social-approval-widget .approval-table th {\n  background-color: #f5f5f5;\n  font-weight: 600;\n}\n.governance-approval-widget .approval-table tr:hover, .OHS-approval-widget .approval-table tr:hover, .social-approval-widget .approval-table tr:hover {\n  background-color: #f9f9f9;\n}\n.governance-approval-widget .approval-table .action-button, .OHS-approval-widget .approval-table .action-button, .social-approval-widget .approval-table .action-button {\n  background-color: #2196F3;\n  color: white;\n}\n.governance-approval-widget .approval-table .action-button:disabled, .OHS-approval-widget .approval-table .action-button:disabled, .social-approval-widget .approval-table .action-button:disabled {\n  background-color: #cccccc;\n  cursor: not-allowed;\n}\n.governance-approval-widget .approval-table .action-button:hover:not(:disabled), .OHS-approval-widget .approval-table .action-button:hover:not(:disabled), .social-approval-widget .approval-table .action-button:hover:not(:disabled) {\n  background-color: #1976D2;\n}\n.governance-approval-widget .no-documents-message, .OHS-approval-widget .no-documents-message, .social-approval-widget .no-documents-message {\n  text-align: center;\n  padding: 20px;\n  color: #666;\n}\n\n.activity-modal {\n  padding: 20px;\n}\n.activity-modal .activity-details {\n  margin-bottom: 24px;\n}\n.activity-modal .activity-details .modal-title {\n  font-size: 1.25rem;\n  font-weight: 600;\n  margin-bottom: 16px;\n}\n.activity-modal .activity-details .details-grid {\n  display: grid;\n  gap: 12px;\n}\n.activity-modal .activity-details .detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.activity-modal .activity-details .detail-row .detail-label {\n  font-weight: 500;\n  color: #666;\n}\n.activity-modal .activity-details .detail-row .detail-value {\n  color: #333;\n}\n.activity-modal .modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 24px;\n}\n.activity-modal .modal-actions .reject-button {\n  background-color: #f44336;\n  color: white;\n}\n.activity-modal .modal-actions .reject-button:hover {\n  background-color: #d32f2f;\n}\n.activity-modal .modal-actions .approve-button {\n  background-color: #4CAF50;\n  color: white;\n}\n.activity-modal .modal-actions .approve-button:hover {\n  background-color: #45a049;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -28,7 +28,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, ".ESGWrapper {\n  padding: 15px;\n}\n.ESGWrapper .upload {\n  margin: 5px;\n}\n.ESGWrapper .getMonths {\n  padding: 10px;\n}\n.ESGWrapper .getYears {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .selectSheet {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .Submit {\n  padding: 10px;\n}", ""]);
+exports.push([module.id, ".ESGWrapper {\n  padding: 15px;\n}\n.ESGWrapper .upload {\n  margin: 5px;\n}\n.ESGWrapper .getMonths {\n  padding: 10px;\n}\n.ESGWrapper .getYears {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .selectSheet {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .Submit {\n  padding: 10px;\n}\n.ESGWrapper .widget-wrapper {\n  padding: 0 !important;\n}\n.ESGWrapper .approval-table-container {\n  height: calc(100vh - 130px);\n  overflow: auto;\n  padding: 1rem;\n}\n.ESGWrapper .approval-table-container table {\n  width: 100%;\n  border-collapse: collapse;\n  background: white;\n}\n.ESGWrapper .approval-table-container thead {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  background: white;\n}\n.ESGWrapper .approval-table-container th {\n  background: #f3f4f6;\n  padding: 12px;\n  text-align: left;\n  border: 1px solid #e5e7eb;\n}\n.ESGWrapper .approval-table-container td {\n  padding: 12px;\n  border: 1px solid #e5e7eb;\n}\n.ESGWrapper .approval-table-container tr:hover {\n  background-color: #f9fafb;\n}\n.ESGWrapper .approve-all-button {\n  margin-bottom: 1rem;\n}\n.ESGWrapper .no-documents-message {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 200px;\n  color: #6b7280;\n}\n.ESGWrapper .filter-panel {\n  padding: 1rem;\n  background: white;\n  border-bottom: 1px solid #e5e7eb;\n}\n\n.ESGWrapper {\n  padding: 20px;\n  overflow: auto;\n}\n.ESGWrapper .upload-section {\n  border-bottom: 1px solid #e5e7eb;\n  padding-bottom: 1rem;\n  margin-bottom: 1rem;\n}\n.ESGWrapper .upload-section .upload-btn {\n  background-color: #3b82f6;\n  color: white;\n  transition: background-color 0.2s;\n}\n.ESGWrapper .upload-section .upload-btn:hover {\n  background-color: #2563eb;\n}\n.ESGWrapper .upload-form {\n  background: #fff;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.ESGWrapper .upload-form .file-upload-container {\n  margin-bottom: 24px;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area {\n  border: 2px dashed #cbd5e1;\n  border-radius: 8px;\n  padding: 40px 20px;\n  text-align: center;\n  transition: all 0.3s ease;\n  background: #f8fafc;\n  cursor: pointer;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area.dragging {\n  border-color: #3b82f6;\n  background: #eff6ff;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area.has-file {\n  border-style: solid;\n  background: #f0f9ff;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-icon {\n  font-size: 48px;\n  color: #64748b;\n  margin-bottom: 16px;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text {\n  color: #475569;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text p {\n  margin: 8px 0;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text .custom-file-upload {\n  display: inline-block;\n  padding: 8px 16px;\n  background: #3b82f6;\n  color: white;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.2s;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text .custom-file-upload:hover {\n  background: #2563eb;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .hidden-input {\n  display: none;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info {\n  margin-top: 16px;\n  padding: 8px 16px;\n  background: white;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info .file-name {\n  color: #1e293b;\n  font-weight: 500;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info .remove-file {\n  background: none;\n  border: none;\n  color: #ef4444;\n  font-size: 20px;\n  cursor: pointer;\n  padding: 4px 8px;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info .remove-file:hover {\n  color: #dc2626;\n}\n.ESGWrapper .upload-form .selection-controls .date-selectors {\n  display: flex;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-form .selection-controls .select-container {\n  flex: 1;\n}\n.ESGWrapper .upload-form .selection-controls .select-container label {\n  display: block;\n  margin-bottom: 8px;\n  color: #475569;\n  font-weight: 500;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection {\n  display: flex;\n  gap: 20px;\n  align-items: flex-end;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .select-container {\n  flex: 1;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .submit-btn {\n  background: #3b82f6;\n  color: white;\n  transition: background-color 0.2s;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .submit-btn:hover {\n  background: #2563eb;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .submit-btn:disabled {\n  background: #94a3b8;\n  cursor: not-allowed;\n}\n.ESGWrapper .upload-form .success-message {\n  margin-top: 16px;\n  padding: 12px;\n  background: #f0fdf4;\n  border: 1px solid #86efac;\n  color: #166534;\n  border-radius: 4px;\n}\n.ESGWrapper .upload-form .error-message {\n  margin-top: 16px;\n  padding: 12px;\n  background: #fef2f2;\n  border: 1px solid #fecaca;\n  color: #991b1b;\n  border-radius: 4px;\n}\n\n.Modal .approve {\n  background: #3b82f6;\n  color: white;\n  transition: background-color 0.2s;\n}\n.Modal .approve:hover {\n  background: #2563eb;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -519,10 +519,10 @@ module.exports = content.locals || {};
 
 /***/ }),
 
-/***/ "./src/Components/Approval.tsx":
-/*!*************************************!*\
-  !*** ./src/Components/Approval.tsx ***!
-  \*************************************/
+/***/ "./src/Components/GovernanceDataApproval.tsx":
+/*!***************************************************!*\
+  !*** ./src/Components/GovernanceDataApproval.tsx ***!
+  \***************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -550,22 +550,73 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __importStar(__webpack_require__(/*! react */ "react"));
-const react_1 = __webpack_require__(/*! react */ "react");
+// GovernanceDataApproval.tsx
+const react_1 = __importStar(__webpack_require__(/*! react */ "react"));
 const uxp_1 = __webpack_require__(/*! ../uxp */ "./src/uxp.ts");
 const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
 __webpack_require__(/*! ./approvalstyles.scss */ "./src/Components/approvalstyles.scss");
-const Approval = (props) => {
+// Main Component
+const GovernanceDataApproval = (props) => {
+    const crudRef = (0, react_1.useRef)(null);
     const [documents, setDocuments] = (0, react_1.useState)([]);
     const [loading, setLoading] = (0, react_1.useState)(true);
+    const [selectedDocument, setSelectedDocument] = (0, react_1.useState)(null);
+    const [selectedActivity, setSelectedActivity] = (0, react_1.useState)(null);
+    const [showApprovalDocument, setShowApprovalDocument] = (0, react_1.useState)(false);
+    const [transactionActivities, setTransactionActivities] = (0, react_1.useState)([]);
     const alert = (0, components_1.useAlert)();
     const [approval, setApproval] = (0, react_1.useState)();
     const [selectedMonth, setSelectedMonth] = (0, react_1.useState)(null);
     const [selectedYear, setSelectedYear] = (0, react_1.useState)(null);
+    const [showEditModal, setShowEditModal] = (0, react_1.useState)(false);
+    const [editingActivity, setEditingActivity] = (0, react_1.useState)(null);
     (0, react_1.useEffect)(() => {
         fetchDocuments();
     }, [approval, selectedMonth, selectedYear]);
+    const fetchTransactionDetails = (transactionId) => __awaiter(void 0, void 0, void 0, function* () {
+        var _a;
+        try {
+            const activities = yield ((_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showGovernanceTransactionDetails', { transactionId }, { json: true }));
+            setTransactionActivities(activities);
+        }
+        catch (error) {
+            alert.show("Failed to fetch transaction details");
+            console.error("Error fetching transaction details:", error);
+        }
+    });
+    // Your existing fetchDocuments, handleApprove, handleReject, etc. functions...
+    const handleUpdateActivity = (data, oldData) => __awaiter(void 0, void 0, void 0, function* () {
+        var _b;
+        try {
+            yield ((_b = props.uxpContext) === null || _b === void 0 ? void 0 : _b.executeAction('ESG', 'updateGovernanceDocument', {
+                id: oldData._id,
+                updates: data // Passing the updated data
+            }, { json: true }));
+            // Update the local state
+            setTransactionActivities(prevActivities => prevActivities.map(activity => activity._id === oldData._id ? Object.assign(Object.assign({}, activity), data) : activity));
+            return {
+                status: "done",
+                message: "Activity updated successfully"
+            };
+        }
+        catch (error) {
+            console.error("Error updating activity:", error);
+            return {
+                status: "error",
+                message: "Failed to update activity"
+            };
+        }
+    });
     const getMonths = () => [
         { label: 'January', value: '1' },
         { label: 'February', value: '2' },
@@ -589,10 +640,8 @@ const Approval = (props) => {
     };
     const fetchDocuments = () => {
         var _a;
-        console.log("month and year", selectedMonth, selectedYear);
         setLoading(true);
-        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showApprovalDocuments', { selectedMonth, selectedYear }, { json: true }).then((res) => {
-            console.log("res", res);
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showGovernanceApprovalDocuments', { selectedMonth, selectedYear }, { json: true }).then((res) => {
             setDocuments(res);
         }).catch((error) => {
             alert.show("Failed to fetch documents");
@@ -601,83 +650,167 @@ const Approval = (props) => {
             setLoading(false);
         });
     };
-    const handleApprove = (Activity) => {
-        props.uxpContext.executeAction('ESG', 'approveDocument', { Activity }, {})
-            .then((res) => {
-            setApproval(`Acivity Approved ${Activity.ActivityID}`);
-            alert.show(`Approved document: ${Activity.ActivityID}`);
-        })
-            .catch((error) => {
-            alert.show(`error:${error}`);
+    // Modified handleApprove to use the latest activity data
+    const handleApprove = (activity, id) => {
+        alert.confirm(`Do you want to approve document ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'approveGovernanceDocument', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    setApproval(`Activity Approved ${activity.TransactionID}`);
+                    alert.show(`Approved document: ${activity.TransactionID}`);
+                    setShowApprovalDocument(false);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
         });
     };
     const handleApproveAll = () => {
-        console.log("documents", documents);
-        props.uxpContext.executeAction('ESG', 'approveAllDocuments', { documents }, { json: true })
-            .then((res) => {
-            console.log("res approve all", res);
-            setApproval(`Acivity Approved ${res.length}`);
-            alert.show(`Approving all ${res.length} documents`);
-        })
-            .catch((error) => {
-            alert.show(`error:${error}`);
+        alert.confirm("Do you want to approve all the documents?")
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'ApproveAllGovernanceDocuments', { documents }, { json: true })
+                    .then((res) => {
+                    setApproval(`Activity Approved ${documents.length}`);
+                    alert.show(`Approved all ${documents.length} documents`);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const handleReject = (activity, id) => {
+        alert.confirm(`Do you want to reject document ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'rejectGovernanceDocument', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    alert.show(`Rejected document: ${activity.TransactionID}`);
+                    setShowApprovalDocument(false);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
         });
     };
     const renderContent = () => {
         if (loading) {
-            return React.createElement(components_1.Loading, null);
+            return react_1.default.createElement(components_1.Loading, null);
         }
         if (!documents || documents.length === 0) {
-            return (React.createElement("div", { className: "no-documents-message" },
-                React.createElement("p", null, "No documents to approve")));
+            return (react_1.default.createElement("div", { className: "no-documents-message" },
+                react_1.default.createElement("p", null, "No documents to approve")));
         }
-        return (React.createElement(React.Fragment, null,
-            React.createElement(components_1.Button, { title: "Approve All", onClick: handleApproveAll, className: "approve-all-button" }),
-            React.createElement("div", { className: "approval-table-container" },
-                React.createElement(components_1.DataTable, { data: documents, pageSize: 5, className: "custom-data-table", columns: [
-                        {
-                            title: "Activity",
-                            width: "25%",
-                            renderColumn: (item) => React.createElement("div", null, item.ActivityID),
-                        },
-                        {
-                            title: "Month",
-                            width: "10%",
-                            renderColumn: (item) => React.createElement("div", null, item.Month),
-                        },
-                        {
-                            title: "Year",
-                            width: "10%",
-                            renderColumn: (item) => React.createElement("div", null, item.Year),
-                        },
-                        {
-                            title: "Status",
-                            width: "15%",
-                            renderColumn: (item) => React.createElement("div", null, item.Status),
-                        },
-                        {
-                            title: "Approve",
-                            width: "15%",
-                            renderColumn: (item) => (React.createElement("div", null,
-                                React.createElement(components_1.Button, { title: "Approve", onClick: () => handleApprove(item) }))),
-                        },
-                    ] }))));
+        return (react_1.default.createElement("div", { className: "approval-table-container" },
+            react_1.default.createElement("div", { className: "approval-header" },
+                react_1.default.createElement(components_1.Button, { title: "Approve All", onClick: handleApproveAll, className: "approve-all-button" })),
+            react_1.default.createElement("div", { className: "table-wrapper" },
+                react_1.default.createElement("table", { className: "approval-table" },
+                    react_1.default.createElement("thead", null,
+                        react_1.default.createElement("tr", null,
+                            react_1.default.createElement("th", null, "Transaction ID"),
+                            react_1.default.createElement("th", null, "Month"),
+                            react_1.default.createElement("th", null, "Year"),
+                            react_1.default.createElement("th", null, "Status"),
+                            react_1.default.createElement("th", null, "Actions"))),
+                    react_1.default.createElement("tbody", null, documents.map((doc) => (react_1.default.createElement("tr", { key: doc.TransactionID },
+                        react_1.default.createElement("td", null, doc.TransactionID),
+                        react_1.default.createElement("td", null, doc.Month),
+                        react_1.default.createElement("td", null, doc.Year),
+                        react_1.default.createElement("td", null, doc.Status),
+                        react_1.default.createElement("td", null,
+                            react_1.default.createElement(components_1.Button, { title: "Approve/Reject", onClick: () => {
+                                    setSelectedDocument(doc);
+                                    fetchTransactionDetails(doc.TransactionID);
+                                    setShowApprovalDocument(true);
+                                }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
     };
-    return (React.createElement(components_1.WidgetWrapper, null,
-        React.createElement(components_1.TitleBar, { title: 'Document Approval' },
-            React.createElement(components_1.FilterPanel, { onClear: () => {
+    return (react_1.default.createElement(components_1.WidgetWrapper, { className: "governance-approval-widget" },
+        react_1.default.createElement(components_1.TitleBar, { title: 'Governance Document Approval' },
+            react_1.default.createElement(components_1.FilterPanel, { onClear: () => {
                     setSelectedMonth("");
                     setSelectedYear("");
                 } },
-                React.createElement(components_1.FormField, null,
-                    React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
-                React.createElement(components_1.FormField, null,
-                    React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" })))),
-        renderContent()));
+                react_1.default.createElement(components_1.FormField, null,
+                    react_1.default.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                react_1.default.createElement(components_1.FormField, null,
+                    react_1.default.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" })))),
+        renderContent(),
+        react_1.default.createElement(components_1.Modal, { show: showApprovalDocument, onClose: () => {
+                setShowApprovalDocument(false);
+                setSelectedDocument(null);
+                setTransactionActivities([]);
+            }, title: "Approve/Reject Social Document" }, selectedDocument && (react_1.default.createElement("div", null,
+            react_1.default.createElement("div", { className: "approval-actions" },
+                react_1.default.createElement(components_1.Button, { title: "Approve", onClick: () => handleApprove(selectedDocument, selectedDocument._id) }),
+                react_1.default.createElement(components_1.Button, { title: "Reject", onClick: () => handleReject(selectedDocument, selectedDocument._id) })),
+            react_1.default.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
+                    title: 'Edit Activity Data',
+                    formStructure: [
+                        {
+                            columns: 1,
+                            fields: [
+                                {
+                                    name: 'ActivityID',
+                                    label: 'Activity ID',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'ActivityCategory',
+                                    label: 'Activity Category',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'ActivityGroup',
+                                    label: 'Activity Group',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'Value',
+                                    label: 'Value',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'Unit',
+                                    label: 'Unit',
+                                    type: 'text'
+                                }
+                            ]
+                        }
+                    ],
+                    onSubmit: handleUpdateActivity,
+                    afterSave: () => { }
+                }, list: {
+                    search: {
+                        enabled: true,
+                        fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value', 'Unit']
+                    },
+                    data: { getData: transactionActivities },
+                    defaultPageSize: 10,
+                    title: 'Transaction Activities',
+                    columns: [
+                        { id: 'ActivityID', label: 'Activity ID' },
+                        { id: 'ActivityCategory', label: 'Category' },
+                        { id: 'ActivityGroup', label: 'Group' },
+                        { id: 'Unit', label: 'Unit' },
+                        { id: 'Value', label: 'Value' }
+                    ]
+                } }))))));
 };
 (0, uxp_1.registerWidget)({
-    id: "Approval",
-    widget: Approval,
+    id: "GovernanceDataApproval",
+    widget: GovernanceDataApproval,
     configs: {
         layout: {
             w: 12,
@@ -687,15 +820,597 @@ const Approval = (props) => {
         }
     }
 });
-exports["default"] = Approval;
+exports["default"] = GovernanceDataApproval;
 
 
 /***/ }),
 
-/***/ "./src/Components/UploadDocument.tsx":
-/*!*******************************************!*\
-  !*** ./src/Components/UploadDocument.tsx ***!
-  \*******************************************/
+/***/ "./src/Components/OHSDataApproval.tsx":
+/*!********************************************!*\
+  !*** ./src/Components/OHSDataApproval.tsx ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "react"));
+const uxp_1 = __webpack_require__(/*! ../uxp */ "./src/uxp.ts");
+const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
+const OHSDataApproval = (props) => {
+    const crudRef = (0, react_1.useRef)(null);
+    const [documents, setDocuments] = (0, react_1.useState)([]);
+    const [loading, setLoading] = (0, react_1.useState)(true);
+    const [selectedDocument, setSelectedDocument] = (0, react_1.useState)(null);
+    const [isModalOpen, setIsModalOpen] = (0, react_1.useState)(false);
+    const [editingDocument, setEditingDocument] = (0, react_1.useState)(null);
+    const [selectedActivity, setSelectedActivity] = (0, react_1.useState)(null);
+    const [showApprovalDocument, setShowApprovalDocument] = (0, react_1.useState)(false);
+    const [transactionActivities, setTransactionActivities] = (0, react_1.useState)([]);
+    const alert = (0, components_1.useAlert)();
+    const [approval, setApproval] = (0, react_1.useState)();
+    const [selectedYear, setSelectedYear] = (0, react_1.useState)(null);
+    const [showEditModal, setShowEditModal] = (0, react_1.useState)(false);
+    const [editingActivity, setEditingActivity] = (0, react_1.useState)(null);
+    (0, react_1.useEffect)(() => {
+        fetchDocuments();
+    }, [approval, selectedYear]);
+    const fetchTransactionDetails = (transactionId) => __awaiter(void 0, void 0, void 0, function* () {
+        var _a;
+        try {
+            const activities = yield ((_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showOHSTransactionDetails', { transactionId }, { json: true }));
+            setTransactionActivities(activities);
+        }
+        catch (error) {
+            alert.show("Failed to fetch transaction details");
+            console.error("Error fetching transaction details:", error);
+        }
+    });
+    // Your existing fetchDocuments, handleApprove, handleReject, etc. functions...
+    const handleUpdateActivity = (data, oldData) => __awaiter(void 0, void 0, void 0, function* () {
+        var _b;
+        try {
+            yield ((_b = props.uxpContext) === null || _b === void 0 ? void 0 : _b.executeAction('ESG', 'updateOHSDocument', {
+                id: oldData._id,
+                updates: data // Passing the updated data
+            }, { json: true }));
+            // Update the local state
+            setTransactionActivities(prevActivities => prevActivities.map(activity => activity._id === oldData._id ? Object.assign(Object.assign({}, activity), data) : activity));
+            return {
+                status: "done",
+                message: "Activity updated successfully"
+            };
+        }
+        catch (error) {
+            console.error("Error updating activity:", error);
+            return {
+                status: "error",
+                message: "Failed to update activity"
+            };
+        }
+    });
+    const getYears = () => {
+        const currentYear = new Date().getFullYear();
+        return Array.from({ length: 5 }, (_, i) => ({
+            label: String(currentYear - i),
+            value: String(currentYear - i)
+        }));
+    };
+    const fetchDocuments = () => {
+        var _a;
+        setLoading(true);
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showOHSApprovalDocuments', { selectedYear }, { json: true }).then((res) => {
+            setDocuments(res);
+        }).catch((error) => {
+            alert.show("Failed to fetch documents");
+            console.error("Error fetching documents:", error);
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
+    const handleApprove = (activity, id) => {
+        alert.confirm(`Do you want to approve document ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'approveOHSDocument', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    setApproval(`Activity Approved ${activity.TransactionID}`);
+                    alert.show(`Approved document: ${activity.TransactionID}`);
+                    setShowApprovalDocument(false);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const handleReject = (activity, id) => {
+        alert.confirm(`Do you want to reject document ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'rejectOHSDocument', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    alert.show(`Rejected document: ${activity.TransactionID}`);
+                    setShowApprovalDocument(false);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const handleApproveAll = () => {
+        alert.confirm("Do you want to approve all the documents?")
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'ApproveAllOHSDocuments', { documents }, { json: true })
+                    .then((res) => {
+                    setApproval(`Activity Approved ${documents.length}`);
+                    alert.show(`Approved all ${documents.length} documents`);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const renderContent = () => {
+        if (loading) {
+            return react_1.default.createElement(components_1.Loading, null);
+        }
+        if (!documents || documents.length === 0) {
+            return (react_1.default.createElement("div", { className: "no-documents-message" },
+                react_1.default.createElement("p", null, "No documents to approve")));
+        }
+        return (react_1.default.createElement("div", { className: "approval-table-container" },
+            react_1.default.createElement("div", { className: "approval-header" },
+                react_1.default.createElement(components_1.Button, { title: "Approve All", onClick: handleApproveAll, className: "approve-all-button" })),
+            react_1.default.createElement("div", { className: "table-wrapper" },
+                react_1.default.createElement("table", { className: "approval-table" },
+                    react_1.default.createElement("thead", null,
+                        react_1.default.createElement("tr", null,
+                            react_1.default.createElement("th", null, "Transaction ID"),
+                            react_1.default.createElement("th", null, "Year"),
+                            react_1.default.createElement("th", null, "Status"),
+                            react_1.default.createElement("th", null, "Actions"))),
+                    react_1.default.createElement("tbody", null, documents.map((doc) => (react_1.default.createElement("tr", { key: doc.TransactionID },
+                        react_1.default.createElement("td", null, doc.TransactionID),
+                        react_1.default.createElement("td", null, doc.Year),
+                        react_1.default.createElement("td", null, doc.Status),
+                        react_1.default.createElement("td", null,
+                            react_1.default.createElement(components_1.Button, { title: "Approve/Reject", onClick: () => {
+                                    setSelectedDocument(doc);
+                                    fetchTransactionDetails(doc.TransactionID);
+                                    setShowApprovalDocument(true);
+                                }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
+    };
+    return (react_1.default.createElement(components_1.WidgetWrapper, { className: "OHS-approval-widget" },
+        react_1.default.createElement(components_1.TitleBar, { title: 'OHS Document Approval' },
+            react_1.default.createElement(components_1.FilterPanel, { onClear: () => {
+                    setSelectedYear("");
+                } },
+                react_1.default.createElement(components_1.FormField, null,
+                    react_1.default.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" })))),
+        renderContent(),
+        react_1.default.createElement(components_1.Modal, { show: showApprovalDocument, onClose: () => {
+                setShowApprovalDocument(false);
+                setSelectedActivity(null);
+            }, title: "Approve/Reject OHS Document" }, selectedDocument && (react_1.default.createElement("div", null,
+            react_1.default.createElement("div", { className: "approval-actions" },
+                react_1.default.createElement(components_1.Button, { title: "Approve", onClick: () => handleApprove(selectedDocument, selectedDocument._id) }),
+                react_1.default.createElement(components_1.Button, { title: "Reject", onClick: () => handleReject(selectedDocument, selectedDocument._id) })),
+            react_1.default.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
+                    title: 'Edit Activity Data',
+                    formStructure: [
+                        {
+                            columns: 1,
+                            fields: [
+                                { name: 'ActivityID', label: 'Activity ID', type: 'text', validate: { required: true } },
+                                { name: 'ActivityCategory', label: 'Activity Category', type: 'text', validate: { required: true } },
+                                { name: 'ActivityGroup', label: 'Activity Group', type: 'text', validate: { required: true } },
+                                { name: 'Value', label: 'Value', type: 'text', validate: { required: true } },
+                                { name: 'January', label: 'January', type: 'text' },
+                                { name: 'February', label: 'February', type: 'text' },
+                                { name: 'March', label: 'March', type: 'text' },
+                                { name: 'April', label: 'April', type: 'text' },
+                                { name: 'May', label: 'May', type: 'text' },
+                                { name: 'June', label: 'June', type: 'text' },
+                                { name: 'July', label: 'July', type: 'text' },
+                                { name: 'August', label: 'August', type: 'text' },
+                                { name: 'September', label: 'September', type: 'text' },
+                                { name: 'October', label: 'October', type: 'text' },
+                                { name: 'November', label: 'November', type: 'text' },
+                                { name: 'December', label: 'December', type: 'text' }
+                            ]
+                        }
+                    ],
+                    onSubmit: handleUpdateActivity,
+                    afterSave: () => { }
+                }, list: {
+                    search: {
+                        enabled: true,
+                        fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Value']
+                    },
+                    data: { getData: transactionActivities },
+                    defaultPageSize: 10,
+                    title: 'Transaction Activities',
+                    columns: [
+                        { id: 'ActivityID', label: 'Activity ID' },
+                        { id: 'ActivityCategory', label: 'Category' },
+                        { id: 'ActivityGroup', label: 'Group' },
+                        { id: 'January', label: 'January' },
+                        { id: 'February', label: 'February' },
+                        { id: 'March', label: 'March' },
+                        { id: 'April', label: 'April' },
+                        { id: 'May', label: 'May' },
+                        { id: 'June', label: 'June' },
+                        { id: 'July', label: 'July' },
+                        { id: 'August', label: 'August' },
+                        { id: 'September', label: 'September' },
+                        { id: 'October', label: 'October' },
+                        { id: 'November', label: 'November' },
+                        { id: 'December', label: 'December' },
+                        { id: 'Value', label: 'Value' }
+                    ]
+                } }))))));
+};
+(0, uxp_1.registerWidget)({
+    id: "OHSDataApproval",
+    widget: OHSDataApproval,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+exports["default"] = OHSDataApproval;
+
+
+/***/ }),
+
+/***/ "./src/Components/SocialDataApproval.tsx":
+/*!***********************************************!*\
+  !*** ./src/Components/SocialDataApproval.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "react"));
+const uxp_1 = __webpack_require__(/*! ../uxp */ "./src/uxp.ts");
+const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
+__webpack_require__(/*! ./approvalstyles.scss */ "./src/Components/approvalstyles.scss");
+const SocialDataApproval = (props) => {
+    const crudRef = (0, react_1.useRef)(null);
+    const [documents, setDocuments] = (0, react_1.useState)([]);
+    const [loading, setLoading] = (0, react_1.useState)(true);
+    const [selectedDocument, setSelectedDocument] = (0, react_1.useState)(null);
+    const [showApprovalDocument, setShowApprovalDocument] = (0, react_1.useState)(false);
+    const [transactionActivities, setTransactionActivities] = (0, react_1.useState)([]);
+    const alert = (0, components_1.useAlert)();
+    const [approval, setApproval] = (0, react_1.useState)();
+    const [selectedMonth, setSelectedMonth] = (0, react_1.useState)(null);
+    const [selectedYear, setSelectedYear] = (0, react_1.useState)(null);
+    (0, react_1.useEffect)(() => {
+        fetchDocuments();
+    }, [approval, selectedMonth, selectedYear]);
+    const fetchTransactionDetails = (transactionId) => __awaiter(void 0, void 0, void 0, function* () {
+        var _a;
+        try {
+            const activities = yield ((_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showSocialTransactionDetails', { transactionId }, { json: true }));
+            setTransactionActivities(activities);
+        }
+        catch (error) {
+            alert.show("Failed to fetch transaction details");
+            console.error("Error fetching transaction details:", error);
+        }
+    });
+    // Your existing fetchDocuments, handleApprove, handleReject, etc. functions...
+    const handleUpdateActivity = (data, oldData) => __awaiter(void 0, void 0, void 0, function* () {
+        var _b;
+        try {
+            yield ((_b = props.uxpContext) === null || _b === void 0 ? void 0 : _b.executeAction('ESG', 'updateSocialDocument', {
+                id: oldData._id,
+                updates: data // Passing the updated data
+            }, { json: true }));
+            // Update the local state
+            setTransactionActivities(prevActivities => prevActivities.map(activity => activity._id === oldData._id ? Object.assign(Object.assign({}, activity), data) : activity));
+            return {
+                status: "done",
+                message: "Activity updated successfully"
+            };
+        }
+        catch (error) {
+            console.error("Error updating activity:", error);
+            return {
+                status: "error",
+                message: "Failed to update activity"
+            };
+        }
+    });
+    const getMonths = () => [
+        { label: 'January', value: '1' },
+        { label: 'February', value: '2' },
+        { label: 'March', value: '3' },
+        { label: 'April', value: '4' },
+        { label: 'May', value: '5' },
+        { label: 'June', value: '6' },
+        { label: 'July', value: '7' },
+        { label: 'August', value: '8' },
+        { label: 'September', value: '9' },
+        { label: 'October', value: '10' },
+        { label: 'November', value: '11' },
+        { label: 'December', value: '12' }
+    ];
+    const getYears = () => {
+        const currentYear = new Date().getFullYear();
+        return Array.from({ length: 5 }, (_, i) => ({
+            label: String(currentYear - i),
+            value: String(currentYear - i)
+        }));
+    };
+    const fetchDocuments = () => {
+        var _a;
+        setLoading(true);
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'showSocialApprovalDocuments', { selectedMonth, selectedYear }, { json: true }).then((res) => {
+            setDocuments(res);
+        }).catch((error) => {
+            alert.show("Failed to fetch documents");
+            console.error("Error fetching documents:", error);
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
+    // Modified handleApprove to use the latest activity data
+    const handleApprove = (activity, id) => {
+        alert.confirm(`Do you want to approve document ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'approveSocialDocument', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    setApproval(`Activity Approved ${activity.TransactionID}`);
+                    alert.show(`Approved document: ${activity.TransactionID}`);
+                    setShowApprovalDocument(false);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const handleApproveAll = () => {
+        alert.confirm("Do you want to approve all the documents?")
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'ApproveAllSocialDocuments', { documents }, { json: true })
+                    .then((res) => {
+                    setApproval(`Activity Approved ${documents.length}`);
+                    alert.show(`Approved all ${documents.length} documents`);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const handleReject = (activity, id) => {
+        alert.confirm(`Do you want to reject document ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'rejectSocialDocument', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    alert.show(`Rejected document: ${activity.ActivityID}`);
+                    setShowApprovalDocument(false);
+                    fetchDocuments();
+                })
+                    .catch((error) => {
+                    alert.show(`error:${error}`);
+                });
+            }
+        });
+    };
+    const renderContent = () => {
+        if (loading) {
+            return react_1.default.createElement(components_1.Loading, null);
+        }
+        if (!documents || documents.length === 0) {
+            return (react_1.default.createElement("div", { className: "no-documents-message" },
+                react_1.default.createElement("p", null, "No documents to approve")));
+        }
+        return (react_1.default.createElement("div", { className: "approval-table-container" },
+            react_1.default.createElement("div", { className: "approval-header" },
+                react_1.default.createElement(components_1.Button, { title: "Approve All", onClick: handleApproveAll, className: "approve-all-button" })),
+            react_1.default.createElement("div", { className: "table-wrapper" },
+                react_1.default.createElement("table", { className: "approval-table" },
+                    react_1.default.createElement("thead", null,
+                        react_1.default.createElement("tr", null,
+                            react_1.default.createElement("th", null, "Transaction ID"),
+                            react_1.default.createElement("th", null, "Month"),
+                            react_1.default.createElement("th", null, "Year"),
+                            react_1.default.createElement("th", null, "Status"),
+                            react_1.default.createElement("th", null, "Actions"))),
+                    react_1.default.createElement("tbody", null, documents.map((doc) => (react_1.default.createElement("tr", { key: doc._id },
+                        react_1.default.createElement("td", null, doc.TransactionID),
+                        react_1.default.createElement("td", null, doc.Month),
+                        react_1.default.createElement("td", null, doc.Year),
+                        react_1.default.createElement("td", null, doc.Status),
+                        react_1.default.createElement("td", null,
+                            react_1.default.createElement(components_1.Button, { title: "Approve/Reject", onClick: () => {
+                                    setSelectedDocument(doc);
+                                    fetchTransactionDetails(doc.TransactionID);
+                                    setShowApprovalDocument(true);
+                                }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
+    };
+    return (react_1.default.createElement(components_1.WidgetWrapper, { className: "social-approval-widget" },
+        react_1.default.createElement(components_1.TitleBar, { title: 'Social Document Approval' },
+            react_1.default.createElement(components_1.FilterPanel, { onClear: () => {
+                    setSelectedMonth("");
+                    setSelectedYear("");
+                } },
+                react_1.default.createElement(components_1.FormField, null,
+                    react_1.default.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                react_1.default.createElement(components_1.FormField, null,
+                    react_1.default.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" })))),
+        renderContent(),
+        react_1.default.createElement(components_1.Modal, { show: showApprovalDocument, onClose: () => {
+                setShowApprovalDocument(false);
+                setSelectedDocument(null);
+                setTransactionActivities([]);
+            }, title: "Approve/Reject Social Document" }, selectedDocument && (react_1.default.createElement("div", null,
+            react_1.default.createElement("div", { className: "approval-actions" },
+                react_1.default.createElement(components_1.Button, { title: "Approve", onClick: () => handleApprove(selectedDocument, selectedDocument._id) }),
+                react_1.default.createElement(components_1.Button, { title: "Reject", onClick: () => handleReject(selectedDocument, selectedDocument._id) })),
+            react_1.default.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
+                    title: 'Edit Activity Data',
+                    formStructure: [
+                        {
+                            columns: 1,
+                            fields: [
+                                {
+                                    name: 'ActivityID',
+                                    label: 'Activity ID',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'ActivityCategory',
+                                    label: 'Activity Category',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'ActivityGroup',
+                                    label: 'Activity Group',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'Value',
+                                    label: 'Value',
+                                    type: 'text',
+                                    validate: { required: true }
+                                },
+                                {
+                                    name: 'Unit',
+                                    label: 'Unit',
+                                    type: 'text'
+                                }
+                            ]
+                        }
+                    ],
+                    onSubmit: handleUpdateActivity,
+                    afterSave: () => { }
+                }, list: {
+                    search: {
+                        enabled: true,
+                        fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value', 'Unit']
+                    },
+                    data: { getData: transactionActivities },
+                    defaultPageSize: 10,
+                    title: 'Transaction Activities',
+                    columns: [
+                        { id: 'ActivityID', label: 'Activity ID' },
+                        { id: 'ActivityCategory', label: 'Category' },
+                        { id: 'ActivityGroup', label: 'Group' },
+                        { id: 'Unit', label: 'Unit' },
+                        { id: 'Value', label: 'Value' }
+                    ]
+                } }))))));
+};
+(0, uxp_1.registerWidget)({
+    id: "SocialDataApproval",
+    widget: SocialDataApproval,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+exports["default"] = SocialDataApproval;
+
+
+/***/ }),
+
+/***/ "./src/Components/UploadDocumentGovernance.tsx":
+/*!*****************************************************!*\
+  !*** ./src/Components/UploadDocumentGovernance.tsx ***!
+  \*****************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -815,11 +1530,7 @@ const processExcelData = (worksheet) => {
             if (totalIndex === -1 && cleanRow.length > 0) {
                 totalIndex = cleanRow.length - 1;
             }
-            // Find male/female indices
-            const maleIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'male' ||
-                String(header).toLowerCase().trim() === 'm');
-            const femaleIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'female' ||
-                String(header).toLowerCase().trim() === 'f');
+            const unitIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'unit');
             console.log("Processing row:", {
                 firstCell,
                 totalIndex,
@@ -833,8 +1544,7 @@ const processExcelData = (worksheet) => {
                 Value: totalIndex > -1 ? cleanRow[totalIndex] || '' : '',
                 Uploaded: "yes",
                 Status: "Uploaded",
-                MaleValue: maleIndex > -1 ? cleanRow[maleIndex] || '' : '',
-                FemaleValue: femaleIndex > -1 ? cleanRow[femaleIndex] || '' : ''
+                Unit: unitIndex > -1 ? cleanRow[unitIndex] || '' : '',
             };
             processedData.push(rowData);
         }
@@ -842,7 +1552,7 @@ const processExcelData = (worksheet) => {
     console.log("Processed Data:", processedData);
     return processedData;
 };
-const UploadDocument = (props) => {
+const UploadDocumentGovernance = (props) => {
     const crudRef = (0, react_1.useRef)(null);
     const alert = (0, components_1.useAlert)();
     const [file, setFile] = (0, react_1.useState)(null);
@@ -911,10 +1621,9 @@ const UploadDocument = (props) => {
                         const workbook = XLSX.read(binary, { type: 'binary' });
                         const worksheet = workbook.Sheets[selectedSheet];
                         const processedData = processExcelData(worksheet);
-                        const finalData = processedData.map(item => (Object.assign(Object.assign({}, item), { Month: selectedMonth, Year: selectedYear })));
-                        setTableData(finalData);
+                        setTableData(processedData);
                         const payload = {
-                            json: JSON.stringify(finalData),
+                            json: JSON.stringify(processedData),
                             month: selectedMonth,
                             year: selectedYear
                         };
@@ -947,7 +1656,7 @@ const UploadDocument = (props) => {
         setLoading(true);
         setError(null);
         const updatedPayload = Object.assign(Object.assign({}, payload), { json: JSON.stringify(tableData) });
-        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'GetDataFromExcel', updatedPayload, {}).then((res) => {
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'UploadGovernanceDocument', updatedPayload, {}).then((res) => {
             setSuccess(true);
             setShowUploadForm(false);
             setFile(null);
@@ -963,7 +1672,7 @@ const UploadDocument = (props) => {
         });
     };
     return (React.createElement(components_1.WidgetWrapper, null,
-        React.createElement(components_1.TitleBar, { title: 'ESG Data Upload' },
+        React.createElement(components_1.TitleBar, { title: 'Governance Data Upload' },
             React.createElement(components_1.FilterPanel, null)),
         React.createElement("div", { className: "ESGWrapper" },
             React.createElement("div", { className: "flex items-center space-x-4 border-b pb-4" },
@@ -989,6 +1698,1006 @@ const UploadDocument = (props) => {
             error && (React.createElement("div", { className: "text-red-600 text-sm" }, error)),
             loading && React.createElement(components_1.Loading, null)),
         React.createElement(components_1.Modal, { show: showEditModel, onClose: () => { setShowEditModel(false), setLoading(false); }, title: "Edit ESG Data" },
+            React.createElement("div", { className: "p-4" },
+                error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
+                success ? (React.createElement("div", { className: "p-4 bg-green-50 text-green-600 rounded" }, "Data successfully submitted for approval")) : (React.createElement(React.Fragment, null,
+                    React.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
+                            title: 'Edit ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Value',
+                                            label: 'Value',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Unit',
+                                            label: 'Unit',
+                                            type: 'text'
+                                        },
+                                    ]
+                                }
+                            ],
+                            onSubmit: (data, oldData) => __awaiter(void 0, void 0, void 0, function* () {
+                                setTableData(prevData => prevData.map(item => item === oldData ? Object.assign(Object.assign({}, data), { Status: "Uploaded", Uploaded: "yes" }) : item));
+                                return {
+                                    status: "done",
+                                    message: "Record updated successfully",
+                                };
+                            }),
+                            afterSave: () => { }
+                        }, add: {
+                            title: 'Add New ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'Unit',
+                                            label: 'Unit',
+                                            type: 'text'
+                                        },
+                                        {
+                                            name: 'Value',
+                                            label: 'Total',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: (data) => __awaiter(void 0, void 0, void 0, function* () {
+                                const newRecord = Object.assign(Object.assign({}, data), { Status: "Uploaded", Uploaded: "yes", Month: selectedMonth, Year: selectedYear });
+                                setTableData(prev => [...prev, newRecord]);
+                                return {
+                                    status: "done",
+                                    message: "Record added successfully",
+                                };
+                            }),
+                            afterSave: () => { }
+                        }, list: {
+                            search: {
+                                enabled: true,
+                                fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value', 'Unit']
+                            },
+                            data: { getData: tableData },
+                            defaultPageSize: 10,
+                            title: 'ESG Data',
+                            columns: [
+                                { id: 'ActivityID', label: 'Activity ID' },
+                                { id: 'ActivityCategory', label: 'Category' },
+                                { id: 'ActivityGroup', label: 'Group' },
+                                { id: 'Unit', label: 'Unit' },
+                                { id: 'Value', label: 'Total' }
+                            ]
+                        } }),
+                    React.createElement("div", { className: "mt-4 flex justify-end" },
+                        React.createElement(components_1.Button, { className: "approve", title: "Submit for Approval", onClick: handleApprove }, "Submit for Approval"))))))));
+};
+exports["default"] = UploadDocumentGovernance;
+
+
+/***/ }),
+
+/***/ "./src/Components/UploadDocumentOHS.tsx":
+/*!**********************************************!*\
+  !*** ./src/Components/UploadDocumentOHS.tsx ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const React = __importStar(__webpack_require__(/*! react */ "react"));
+const react_1 = __webpack_require__(/*! react */ "react");
+const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
+const XLSX = __importStar(__webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.mjs"));
+__webpack_require__(/*! ./uploadstyles.scss */ "./src/Components/uploadstyles.scss");
+const getYears = () => {
+    const currentYear = new Date().getFullYear();
+    return Array.from({ length: 5 }, (_, i) => ({
+        label: String(currentYear - i),
+        value: String(currentYear - i)
+    }));
+};
+const processExcelData = (worksheet) => {
+    var _a;
+    const processedData = [];
+    const options = {
+        raw: true,
+        header: 1,
+        defval: '',
+        blankrows: false
+    };
+    const jsonData = XLSX.utils.sheet_to_json(worksheet, options);
+    console.log("Raw Excel Data:", jsonData);
+    let currentActivityGroup = "";
+    let currentActivityCategory = "";
+    let headers = [];
+    let headerRow = [];
+    // Month mapping for locating correct columns
+    const monthColumns = {
+        January: -1,
+        February: -1,
+        March: -1,
+        April: -1,
+        May: -1,
+        June: -1,
+        July: -1,
+        August: -1,
+        September: -1,
+        October: -1,
+        November: -1,
+        December: -1
+    };
+    const months = Object.keys(monthColumns);
+    for (let i = 0; i < jsonData.length; i++) {
+        const row = jsonData[i];
+        if (!row || !row.length)
+            continue;
+        const cleanRow = row.map(cell => String(cell || '').trim());
+        const firstCell = cleanRow[0];
+        // Check for Section/Activity Group
+        if (firstCell.toLowerCase().includes("section")) {
+            currentActivityGroup = ((_a = firstCell.split(":")[1]) === null || _a === void 0 ? void 0 : _a.trim()) || firstCell;
+            console.log("Found Activity Group:", currentActivityGroup);
+            continue;
+        }
+        // Check for Table header
+        if (firstCell.toLowerCase().includes("table")) {
+            currentActivityCategory = firstCell;
+            headers = [];
+            headerRow = [];
+            console.log("Found Activity Category:", currentActivityCategory);
+            continue;
+        }
+        // Look for header row and identify month columns
+        if (firstCell === "Criteria" || firstCell === "Criteria (English)") {
+            headerRow = cleanRow.map(header => String(header || '').trim());
+            headers = headerRow.filter(Boolean);
+            // Find month column indices
+            months.forEach(month => {
+                monthColumns[month] = headerRow.findIndex(header => String(header).trim().toLowerCase() === month.toLowerCase());
+            });
+            console.log("Headers Found:", headerRow);
+            console.log("Month Columns:", monthColumns);
+            continue;
+        }
+        // Process data rows
+        if (headers.length > 0 && firstCell &&
+            !firstCell.toLowerCase().includes("table") &&
+            !firstCell.toLowerCase().includes("section")) {
+            const rowData = {
+                ActivityID: firstCell,
+                ActivityCategory: currentActivityCategory,
+                ActivityGroup: currentActivityGroup,
+                Value: '',
+                Uploaded: "yes",
+                Status: "Uploaded"
+            };
+            // Add monthly values
+            months.forEach(month => {
+                const index = monthColumns[month];
+                if (index !== -1) {
+                    rowData[month] = cleanRow[index] || '';
+                }
+            });
+            // Calculate total if needed (sum of all months)
+            const monthlyValues = months
+                .map(month => Number(rowData[month]) || 0);
+            const total = monthlyValues.reduce((sum, val) => sum + val, 0);
+            rowData.Value = String(total || '');
+            processedData.push(rowData);
+        }
+    }
+    console.log("Processed Data:", processedData);
+    return processedData;
+};
+const UploadDocumentOHS = (props) => {
+    const crudRef = (0, react_1.useRef)(null);
+    const alert = (0, components_1.useAlert)();
+    const [file, setFile] = (0, react_1.useState)(null);
+    const [sheets, setSheets] = (0, react_1.useState)([]);
+    const [selectedSheet, setSelectedSheet] = (0, react_1.useState)("");
+    const [loading, setLoading] = (0, react_1.useState)(false);
+    const [success, setSuccess] = (0, react_1.useState)(false);
+    const [error, setError] = (0, react_1.useState)(null);
+    const [showUploadForm, setShowUploadForm] = (0, react_1.useState)(false);
+    const [selectedYear, setSelectedYear] = (0, react_1.useState)(String(new Date().getFullYear()));
+    const [showEditModel, setShowEditModel] = (0, react_1.useState)(false);
+    const [payload, setPayload] = (0, react_1.useState)();
+    const [tableData, setTableData] = (0, react_1.useState)([]);
+    const refreshCrud = () => {
+        if (crudRef.current) {
+            crudRef.current.refresh();
+        }
+    };
+    const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
+        const files = event.target.files;
+        if (files && files[0]) {
+            setFile(files[0]);
+            setError(null);
+            setLoading(true);
+            setSuccess(false);
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                var _a;
+                try {
+                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                    if (binary && typeof binary === 'string') {
+                        const workbook = XLSX.read(binary, { type: 'binary' });
+                        setSheets(workbook.SheetNames);
+                    }
+                    setLoading(false);
+                }
+                catch (error) {
+                    console.error('Error reading Excel file:', error);
+                    setError('Error reading Excel file. Please check the file format.');
+                    setLoading(false);
+                }
+            };
+            reader.onerror = () => {
+                setError('Error reading the file. Please try again.');
+                setLoading(false);
+            };
+            reader.readAsBinaryString(files[0]);
+        }
+    });
+    const handleSubmit = () => __awaiter(void 0, void 0, void 0, function* () {
+        if (!file || !selectedSheet) {
+            setError("Please select both a file and a sheet before submitting");
+            return;
+        }
+        setLoading(true);
+        setError(null);
+        setSuccess(false);
+        try {
+            const reader = new FileReader();
+            reader.onload = (e) => __awaiter(void 0, void 0, void 0, function* () {
+                var _a;
+                try {
+                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                    if (binary && typeof binary === 'string') {
+                        const workbook = XLSX.read(binary, { type: 'binary' });
+                        const worksheet = workbook.Sheets[selectedSheet];
+                        const processedData = processExcelData(worksheet);
+                        setTableData(processedData);
+                        const payload = {
+                            json: JSON.stringify(processedData),
+                            year: selectedYear
+                        };
+                        console.log("Final payload:", payload);
+                        setPayload(payload);
+                        setShowEditModel(true);
+                        setLoading(false);
+                    }
+                }
+                catch (error) {
+                    console.error('Error processing sheet:', error);
+                    setError('Error processing the Excel sheet. Please check the file format.');
+                    setLoading(false);
+                }
+            });
+            reader.onerror = () => {
+                setError('Error reading the file. Please try again.');
+                setLoading(false);
+            };
+            reader.readAsBinaryString(file);
+        }
+        catch (error) {
+            setError('Error processing the request');
+            setLoading(false);
+        }
+    });
+    const handleApprove = () => {
+        var _a;
+        console.log(tableData);
+        setLoading(true);
+        setError(null);
+        const updatedPayload = Object.assign(Object.assign({}, payload), { json: JSON.stringify(tableData) });
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'UploadOHSDocument', updatedPayload, {}).then((res) => {
+            setSuccess(true);
+            setShowUploadForm(false);
+            setFile(null);
+            setSelectedSheet("");
+            setSheets([]);
+            alert.show('Success', 'Data successfully submitted for approval'); // Using alert hook
+            setShowEditModel(false);
+        }).catch((error) => {
+            console.error('Error executing action:', error);
+            alert.show(`Error sending data to server.${error}`);
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
+    return (React.createElement(components_1.WidgetWrapper, null,
+        React.createElement(components_1.TitleBar, { title: 'OHS Data Upload' },
+            React.createElement(components_1.FilterPanel, null)),
+        React.createElement("div", { className: "ESGWrapper" },
+            React.createElement("div", { className: "flex items-center space-x-4 border-b pb-4" },
+                React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden", id: "file-upload" }),
+                React.createElement(components_1.Button, { className: "upload", title: "Upload Excel", onClick: () => setShowUploadForm(true) }, "Upload Excel")),
+            showUploadForm && (React.createElement("div", { className: "flex flex-col space-y-4 mt-4" },
+                React.createElement("div", { className: "flex items-center space-x-4" },
+                    React.createElement("label", null, "Selected File"),
+                    file && React.createElement("span", { className: "text-sm text-gray-600" }, file.name)),
+                React.createElement("div", { className: "flex items-details" },
+                    React.createElement("div", { className: "getYears" },
+                        React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
+                sheets.length > 0 && (React.createElement("div", { className: "submitSheet" },
+                    React.createElement("div", { className: "selectSheet" },
+                        React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
+                    React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet, className: "Submit" }, "Submit"))))),
+            success && (React.createElement("div", { className: "text-green-600 bg-green-50 p-4 rounded" },
+                "File \"", file === null || file === void 0 ? void 0 :
+                file.name,
+                "\" uploaded successfully and submitted for approval")),
+            error && (React.createElement("div", { className: "text-red-600 text-sm" }, error)),
+            loading && React.createElement(components_1.Loading, null)),
+        React.createElement(components_1.Modal, { show: showEditModel, onClose: () => { setShowEditModel(false), setLoading(false); }, title: "Edit ESG Data" },
+            React.createElement("div", { className: "p-4" },
+                error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
+                success ? (React.createElement("div", { className: "p-4 bg-green-50 text-green-600 rounded" }, "Data successfully submitted for approval")) : (React.createElement(React.Fragment, null,
+                    React.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
+                            title: 'Edit ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                    ]
+                                },
+                                {
+                                    title: 'Monthly Values',
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'January',
+                                            label: 'January',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'February',
+                                            label: 'February',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'March',
+                                            label: 'March',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'April',
+                                            label: 'April',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'May',
+                                            label: 'May',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'June',
+                                            label: 'June',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'July',
+                                            label: 'July',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'August',
+                                            label: 'August',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'September',
+                                            label: 'September',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'October',
+                                            label: 'October',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'November',
+                                            label: 'November',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'December',
+                                            label: 'December',
+                                            type: 'text',
+                                            value: '0'
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: (data, oldData) => __awaiter(void 0, void 0, void 0, function* () {
+                                // Calculate total value from monthly values
+                                const monthlyTotal = [
+                                    'January', 'February', 'March', 'April', 'May', 'June',
+                                    'July', 'August', 'September', 'October', 'November', 'December'
+                                ].reduce((sum, month) => sum + (Number(data[month]) || 0), 0);
+                                const updatedData = Object.assign(Object.assign({}, data), { Value: String(monthlyTotal), Status: "Uploaded", Uploaded: "yes" });
+                                setTableData(prevData => prevData.map(item => item === oldData ? updatedData : item));
+                                return {
+                                    status: "done",
+                                    message: "Record updated successfully",
+                                };
+                            }),
+                            afterSave: () => { }
+                        }, add: {
+                            title: 'Add New ESG Data',
+                            formStructure: [
+                                {
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'ActivityID',
+                                            label: 'Activity ID',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityCategory',
+                                            label: 'Activity Category',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        },
+                                        {
+                                            name: 'ActivityGroup',
+                                            label: 'Activity Group',
+                                            type: 'text',
+                                            validate: { required: true }
+                                        }
+                                    ]
+                                },
+                                {
+                                    title: 'Monthly Values',
+                                    columns: 1,
+                                    fields: [
+                                        {
+                                            name: 'January',
+                                            label: 'January',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'February',
+                                            label: 'February',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'March',
+                                            label: 'March',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'April',
+                                            label: 'April',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'May',
+                                            label: 'May',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'June',
+                                            label: 'June',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'July',
+                                            label: 'July',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'August',
+                                            label: 'August',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'September',
+                                            label: 'September',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'October',
+                                            label: 'October',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'November',
+                                            label: 'November',
+                                            type: 'text',
+                                            value: '0'
+                                        },
+                                        {
+                                            name: 'December',
+                                            label: 'December',
+                                            type: 'text',
+                                            value: '0'
+                                        }
+                                    ]
+                                }
+                            ],
+                            onSubmit: (data) => __awaiter(void 0, void 0, void 0, function* () {
+                                // Calculate total value from monthly values
+                                const monthlyTotal = [
+                                    'January', 'February', 'March', 'April', 'May', 'June',
+                                    'July', 'August', 'September', 'October', 'November', 'December'
+                                ].reduce((sum, month) => sum + (Number(data[month]) || 0), 0);
+                                const newRecord = Object.assign(Object.assign({}, data), { Value: String(monthlyTotal), Status: "Uploaded", Uploaded: "yes", Year: selectedYear });
+                                setTableData(prev => [...prev, newRecord]);
+                                return {
+                                    status: "done",
+                                    message: "Record added successfully",
+                                };
+                            }),
+                            afterSave: () => { }
+                        }, list: {
+                            search: {
+                                enabled: true,
+                                fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value']
+                            },
+                            data: { getData: tableData },
+                            defaultPageSize: 10,
+                            title: 'ESG Data',
+                            columns: [
+                                { id: 'ActivityID', label: 'Activity ID' },
+                                { id: 'ActivityCategory', label: 'Category' },
+                                { id: 'ActivityGroup', label: 'Group' },
+                                { id: 'January', label: 'Jan' },
+                                { id: 'February', label: 'Feb' },
+                                { id: 'March', label: 'Mar' },
+                                { id: 'April', label: 'Apr' },
+                                { id: 'May', label: 'May' },
+                                { id: 'June', label: 'Jun' },
+                                { id: 'July', label: 'Jul' },
+                                { id: 'August', label: 'Aug' },
+                                { id: 'September', label: 'Sep' },
+                                { id: 'October', label: 'Oct' },
+                                { id: 'November', label: 'Nov' },
+                                { id: 'December', label: 'Dec' }
+                            ]
+                        } }),
+                    React.createElement("div", { className: "mt-4 flex justify-end" },
+                        React.createElement(components_1.Button, { className: "approve", title: "Submit for Approval", onClick: handleApprove }, "Submit for Approval"))))))));
+};
+exports["default"] = UploadDocumentOHS;
+
+
+/***/ }),
+
+/***/ "./src/Components/UploadDocumentSocial.tsx":
+/*!*************************************************!*\
+  !*** ./src/Components/UploadDocumentSocial.tsx ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const React = __importStar(__webpack_require__(/*! react */ "react"));
+const react_1 = __webpack_require__(/*! react */ "react");
+const components_1 = __webpack_require__(/*! uxp/components */ "uxp/components");
+const XLSX = __importStar(__webpack_require__(/*! xlsx */ "./node_modules/xlsx/xlsx.mjs"));
+__webpack_require__(/*! ./uploadstyles.scss */ "./src/Components/uploadstyles.scss");
+const getMonths = () => [
+    { label: 'January', value: '1' },
+    { label: 'February', value: '2' },
+    { label: 'March', value: '3' },
+    { label: 'April', value: '4' },
+    { label: 'May', value: '5' },
+    { label: 'June', value: '6' },
+    { label: 'July', value: '7' },
+    { label: 'August', value: '8' },
+    { label: 'September', value: '9' },
+    { label: 'October', value: '10' },
+    { label: 'November', value: '11' },
+    { label: 'December', value: '12' }
+];
+const getYears = () => {
+    const currentYear = new Date().getFullYear();
+    return Array.from({ length: 5 }, (_, i) => ({
+        label: String(currentYear - i),
+        value: String(currentYear - i)
+    }));
+};
+const processExcelData = (worksheet) => {
+    var _a;
+    const processedData = [];
+    const options = {
+        raw: true,
+        header: 1,
+        defval: '',
+        blankrows: false
+    };
+    const jsonData = XLSX.utils.sheet_to_json(worksheet, options);
+    console.log("Raw Excel Data:", jsonData);
+    let currentActivityGroup = "";
+    let currentActivityCategory = "";
+    let headers = [];
+    let headerRow = [];
+    for (let i = 0; i < jsonData.length; i++) {
+        const row = jsonData[i];
+        if (!row || !row.length)
+            continue;
+        const cleanRow = row.map(cell => String(cell || '').trim());
+        const firstCell = cleanRow[0];
+        if (firstCell.toLowerCase().includes("section")) {
+            currentActivityGroup = ((_a = firstCell.split(":")[1]) === null || _a === void 0 ? void 0 : _a.trim()) || firstCell;
+            continue;
+        }
+        if (firstCell.toLowerCase().includes("table")) {
+            currentActivityCategory = firstCell;
+            headers = [];
+            headerRow = [];
+            continue;
+        }
+        if (firstCell === "Criteria" || firstCell === "Criteria (English)") {
+            headerRow = cleanRow.map(header => String(header || '').trim());
+            headers = headerRow.filter(Boolean);
+            continue;
+        }
+        if (headers.length > 0 && firstCell &&
+            !firstCell.toLowerCase().includes("table") &&
+            !firstCell.toLowerCase().includes("section")) {
+            let totalIndex = headerRow.findIndex(header => {
+                const headerStr = String(header || '').trim();
+                return headerStr === 'Total';
+            });
+            if (totalIndex === -1 && cleanRow.length > 0) {
+                totalIndex = cleanRow.length - 1;
+            }
+            const maleIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'male' ||
+                String(header).toLowerCase().trim() === 'm');
+            const femaleIndex = headerRow.findIndex(header => String(header).toLowerCase().trim() === 'female' ||
+                String(header).toLowerCase().trim() === 'f');
+            const rowData = {
+                ActivityID: firstCell,
+                ActivityCategory: currentActivityCategory,
+                ActivityGroup: currentActivityGroup,
+                Value: totalIndex > -1 ? cleanRow[totalIndex] || '' : '',
+                Uploaded: "yes",
+                Status: "Uploaded",
+                MaleValue: maleIndex > -1 ? cleanRow[maleIndex] || '' : '',
+                FemaleValue: femaleIndex > -1 ? cleanRow[femaleIndex] || '' : ''
+            };
+            processedData.push(rowData);
+        }
+    }
+    return processedData;
+};
+const UploadDocumentSocial = (props) => {
+    const crudRef = (0, react_1.useRef)(null);
+    const alert = (0, components_1.useAlert)();
+    const [file, setFile] = (0, react_1.useState)(null);
+    const [sheets, setSheets] = (0, react_1.useState)([]);
+    const [selectedSheet, setSelectedSheet] = (0, react_1.useState)("");
+    const [loading, setLoading] = (0, react_1.useState)(false);
+    const [success, setSuccess] = (0, react_1.useState)(false);
+    const [error, setError] = (0, react_1.useState)(null);
+    const [showUploadForm, setShowUploadForm] = (0, react_1.useState)(false);
+    const [isDragging, setIsDragging] = (0, react_1.useState)(false);
+    const [selectedMonth, setSelectedMonth] = (0, react_1.useState)(String(new Date().getMonth() + 1));
+    const [selectedYear, setSelectedYear] = (0, react_1.useState)(String(new Date().getFullYear()));
+    const [showEditModel, setShowEditModel] = (0, react_1.useState)(false);
+    const [payload, setPayload] = (0, react_1.useState)();
+    const [tableData, setTableData] = (0, react_1.useState)([]);
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(true);
+    };
+    const handleDragLeave = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(false);
+    };
+    const handleDrop = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDragging(false);
+        const files = e.dataTransfer.files;
+        if (files && files[0]) {
+            const file = files[0];
+            if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                file.type === 'application/vnd.ms-excel') {
+                handleFileUpload({ target: { files: [file] } });
+            }
+            else {
+                setError('Please upload only Excel files (.xlsx or .xls)');
+            }
+        }
+    };
+    const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
+        const files = event.target.files;
+        if (files && files[0]) {
+            setFile(files[0]);
+            setError(null);
+            setLoading(true);
+            setSuccess(false);
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                var _a;
+                try {
+                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                    if (binary && typeof binary === 'string') {
+                        const workbook = XLSX.read(binary, { type: 'binary' });
+                        setSheets(workbook.SheetNames);
+                    }
+                    setLoading(false);
+                }
+                catch (error) {
+                    console.error('Error reading Excel file:', error);
+                    setError('Error reading Excel file. Please check the file format.');
+                    setLoading(false);
+                }
+            };
+            reader.onerror = () => {
+                setError('Error reading the file. Please try again.');
+                setLoading(false);
+            };
+            reader.readAsBinaryString(files[0]);
+        }
+    });
+    const handleSubmit = () => __awaiter(void 0, void 0, void 0, function* () {
+        if (!file || !selectedSheet) {
+            setError("Please select both a file and a sheet before submitting");
+            return;
+        }
+        setLoading(true);
+        setError(null);
+        setSuccess(false);
+        try {
+            const reader = new FileReader();
+            reader.onload = (e) => __awaiter(void 0, void 0, void 0, function* () {
+                var _a;
+                try {
+                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                    if (binary && typeof binary === 'string') {
+                        const workbook = XLSX.read(binary, { type: 'binary' });
+                        const worksheet = workbook.Sheets[selectedSheet];
+                        const processedData = processExcelData(worksheet);
+                        setTableData(processedData);
+                        const payload = {
+                            json: JSON.stringify(processedData),
+                            month: selectedMonth,
+                            year: selectedYear
+                        };
+                        setPayload(payload);
+                        setShowEditModel(true);
+                        setLoading(false);
+                    }
+                }
+                catch (error) {
+                    console.error('Error processing sheet:', error);
+                    setError('Error processing the Excel sheet. Please check the file format.');
+                    setLoading(false);
+                }
+            });
+            reader.onerror = () => {
+                setError('Error reading the file. Please try again.');
+                setLoading(false);
+            };
+            reader.readAsBinaryString(file);
+        }
+        catch (error) {
+            setError('Error processing the request');
+            setLoading(false);
+        }
+    });
+    const handleApprove = () => {
+        var _a;
+        setLoading(true);
+        setError(null);
+        const updatedPayload = Object.assign(Object.assign({}, payload), { json: JSON.stringify(tableData) });
+        (_a = props.uxpContext) === null || _a === void 0 ? void 0 : _a.executeAction('ESG', 'UploadSocialDocument', updatedPayload, {}).then((res) => {
+            setSuccess(true);
+            setShowUploadForm(false);
+            setFile(null);
+            setSelectedSheet("");
+            setSheets([]);
+            alert.show('Success', 'Data successfully submitted for approval');
+            setShowEditModel(false);
+        }).catch((error) => {
+            console.error('Error executing action:', error);
+            alert.show(`Error sending data to server.${error}`);
+        }).finally(() => {
+            setLoading(false);
+        });
+    };
+    return (React.createElement(components_1.WidgetWrapper, null,
+        React.createElement(components_1.TitleBar, { title: 'Social Data Upload' },
+            React.createElement(components_1.FilterPanel, null)),
+        React.createElement("div", { className: "ESGWrapper" },
+            React.createElement("div", { className: "upload-section" },
+                React.createElement("div", { className: "upload-form" },
+                    React.createElement("div", { className: "file-upload-container" },
+                        React.createElement("div", { className: `drag-drop-area ${isDragging ? 'dragging' : ''} ${file ? 'has-file' : ''}`, onDragOver: handleDragOver, onDragLeave: handleDragLeave, onDrop: handleDrop },
+                            React.createElement("div", { className: "upload-icon" },
+                                React.createElement("i", { className: "fas fa-cloud-upload-alt" })),
+                            React.createElement("div", { className: "upload-text" },
+                                React.createElement("p", null, "Drag and drop your Excel file here"),
+                                React.createElement("p", null, "or"),
+                                React.createElement("label", { htmlFor: "file-upload", className: "custom-file-upload" }, "Browse Files")),
+                            React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden-input", id: "file-upload" }),
+                            file && (React.createElement("div", { className: "file-info" },
+                                React.createElement("span", { className: "file-name" }, file.name),
+                                React.createElement("button", { className: "remove-file", onClick: (e) => {
+                                        e.stopPropagation();
+                                        setFile(null);
+                                        setSheets([]);
+                                        setSelectedSheet("");
+                                    } }))))),
+                    React.createElement("div", { className: "selection-controls" },
+                        React.createElement("div", { className: "date-selectors" },
+                            React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Month"),
+                                React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                            React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Year"),
+                                React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
+                        sheets.length > 0 && (React.createElement("div", { className: "sheet-selection" },
+                            React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Sheet"),
+                                React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
+                            React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet, className: "submit-btn" }, "Submit")))),
+                    success && (React.createElement("div", { className: "success-message" },
+                        "File \"", file === null || file === void 0 ? void 0 :
+                        file.name,
+                        "\" uploaded successfully and submitted for approval")),
+                    error && (React.createElement("div", { className: "error-message" }, error)),
+                    loading && React.createElement(components_1.Loading, null)))),
+        React.createElement(components_1.Modal, { show: showEditModel, onClose: () => {
+                setShowEditModel(false);
+                setLoading(false);
+            }, title: "Edit ESG Data" },
             React.createElement("div", { className: "p-4" },
                 error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
                 success ? (React.createElement("div", { className: "p-4 bg-green-50 text-green-600 rounded" }, "Data successfully submitted for approval")) : (React.createElement(React.Fragment, null,
@@ -1115,7 +2824,7 @@ const UploadDocument = (props) => {
                     React.createElement("div", { className: "mt-4 flex justify-end" },
                         React.createElement(components_1.Button, { className: "approve", title: "Submit for Approval", onClick: handleApprove }, "Submit for Approval"))))))));
 };
-exports["default"] = UploadDocument;
+exports["default"] = UploadDocumentSocial;
 
 
 /***/ }),
@@ -1158,16 +2867,47 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const React = __importStar(__webpack_require__(/*! react */ "react"));
 const uxp_1 = __webpack_require__(/*! ./uxp */ "./src/uxp.ts");
 __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
-const UploadDocument_1 = __importDefault(__webpack_require__(/*! ./Components/UploadDocument */ "./src/Components/UploadDocument.tsx"));
-const Approval_1 = __importDefault(__webpack_require__(/*! ./Components/Approval */ "./src/Components/Approval.tsx"));
+const UploadDocumentSocial_1 = __importDefault(__webpack_require__(/*! ./Components/UploadDocumentSocial */ "./src/Components/UploadDocumentSocial.tsx"));
+const UploadDocumentOHS_1 = __importDefault(__webpack_require__(/*! ./Components/UploadDocumentOHS */ "./src/Components/UploadDocumentOHS.tsx"));
+const SocialDataApproval_1 = __importDefault(__webpack_require__(/*! ./Components/SocialDataApproval */ "./src/Components/SocialDataApproval.tsx"));
+const GovernanceDataApproval_1 = __importDefault(__webpack_require__(/*! ./Components/GovernanceDataApproval */ "./src/Components/GovernanceDataApproval.tsx"));
+const UploadDocumentGovernance_1 = __importDefault(__webpack_require__(/*! ./Components/UploadDocumentGovernance */ "./src/Components/UploadDocumentGovernance.tsx"));
+const OHSDataApproval_1 = __importDefault(__webpack_require__(/*! ./Components/OHSDataApproval */ "./src/Components/OHSDataApproval.tsx"));
 const ESGWidget = (props) => {
     return (React.createElement(React.Fragment, null,
-        React.createElement(UploadDocument_1.default, null),
-        React.createElement(Approval_1.default, null)));
+        React.createElement(UploadDocumentSocial_1.default, null),
+        React.createElement(SocialDataApproval_1.default, null),
+        React.createElement(GovernanceDataApproval_1.default, null),
+        React.createElement(OHSDataApproval_1.default, null),
+        React.createElement(UploadDocumentGovernance_1.default, null)));
 };
 (0, uxp_1.registerWidget)({
-    id: "UploadDocument",
-    widget: UploadDocument_1.default,
+    id: "UploadDocumentSocial",
+    widget: UploadDocumentSocial_1.default,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+(0, uxp_1.registerWidget)({
+    id: "UploadDocumentGovernance",
+    widget: UploadDocumentGovernance_1.default,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+(0, uxp_1.registerWidget)({
+    id: "UploadDocumentOHS",
+    widget: UploadDocumentOHS_1.default,
     configs: {
         layout: {
             w: 12,
@@ -25966,7 +27706,7 @@ const version = XLSX.version;
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"","widgets":[{"id":"UploadDocument","name":"UploadDocument","description":"A sample widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"Approval","name":"Approval","description":"A sample widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
+module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"","widgets":[{"id":"UploadDocumentSocial","name":"Upload Document Social","description":"A widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"UploadDocumentOHS","name":"Upload Document OHS","description":"A widget to OHS documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"UploadDocumentGovernance","name":"Upload Document Governance","description":"A widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"SocialDataApproval","name":"Social Data Approval","description":"A widget to approve Social documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"OHSDataApproval","name":"OHS Data Approval","description":"A widget to approve OHS documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"GovernanceDataApproval","name":"Governance Data Approval","description":"A widget to approve Governance documents","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
 
 /***/ }),
 

@@ -19,8 +19,13 @@ import {
 } from "uxp/components";
 import * as XLSX from 'xlsx';
 import './styles.scss'
-import UploadDocument from "./Components/UploadDocument";
-import Approval from "./Components/Approval";
+import UploadDocumentSocial from "./Components/UploadDocumentSocial";
+import UploadDocumentOHS from "./Components/UploadDocumentOHS";
+import SocialDataApproval from "./Components/SocialDataApproval";
+import GovernanceDataApproval from "./Components/GovernanceDataApproval";
+import UploadDocumentGovernance from "./Components/UploadDocumentGovernance";
+import OHSDataApproval from "./Components/OHSDataApproval";
+
 
 export interface IWidgetProps {
     uxpContext?: IContextProvider,
@@ -31,8 +36,11 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
      
         return (
         <>
-            <UploadDocument></UploadDocument>
-            <Approval></Approval>
+            <UploadDocumentSocial></UploadDocumentSocial>
+            <SocialDataApproval></SocialDataApproval>
+            <GovernanceDataApproval></GovernanceDataApproval>
+            <OHSDataApproval></OHSDataApproval>
+            <UploadDocumentGovernance></UploadDocumentGovernance>
         </>
         )
     
@@ -40,8 +48,8 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
 
 
 registerWidget({
-    id: "UploadDocument",
-    widget: UploadDocument,
+    id: "UploadDocumentSocial",
+    widget: UploadDocumentSocial,
     configs: {
         layout: {
             w: 12,
@@ -51,4 +59,30 @@ registerWidget({
         }
     }
 });
+registerWidget({
+    id: "UploadDocumentGovernance",
+    widget: UploadDocumentGovernance,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+
+registerWidget({
+    id: "UploadDocumentOHS",
+    widget: UploadDocumentOHS,
+    configs: {
+        layout: {
+            w: 12,
+            h: 12,
+            minH: 12,
+            minW: 12
+        }
+    }
+});
+
 export default ESGWidget;

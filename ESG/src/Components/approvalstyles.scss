@@ -1,0 +1,183 @@
+
+.widget-wrapper {
+    padding: 0 !important;
+  }
+  
+  .approval-table-container {
+    height: calc(100vh - 130px);
+    overflow: auto;
+    padding: 1rem;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+  
+    thead {
+      top: 0;
+      z-index: 1;
+      background: white;
+    }
+  
+    th {
+      background: #f3f4f6;
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #e5e7eb;
+    }
+  
+    td {
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+    }
+  
+    tr:hover {
+      background-color: #f9fafb;
+    }
+  }
+  
+  .approve-all-button {
+    margin-bottom: 1rem;
+  }
+  
+  .no-documents-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #6b7280;
+  }
+  
+  .filter-panel {
+    padding: 1rem;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  // approvalstyles.scss
+.governance-approval-widget, .OHS-approval-widget ,.social-approval-widget {
+  padding: 20px;
+  
+  .approval-table-container {
+      margin-top: 20px;
+  }
+
+  .approval-header {
+      margin-bottom: 16px;
+      
+      .approve-all-button {
+          background-color: #4CAF50;
+          color: white;
+          
+          &:hover {
+              background-color: #45a049;
+          }
+      }
+  }
+
+  .table-wrapper {
+      overflow-x: auto;
+  }
+
+  .approval-table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      th, td {
+          padding: 12px;
+          border: 1px solid #ddd;
+          text-align: left;
+      }
+      
+      th {
+          background-color: #f5f5f5;
+          font-weight: 600;
+      }
+      
+      tr:hover {
+          background-color: #f9f9f9;
+      }
+
+      .action-button {
+          background-color: #2196F3;
+          color: white;
+          
+          &:disabled {
+              background-color: #cccccc;
+              cursor: not-allowed;
+          }
+          
+          &:hover:not(:disabled) {
+              background-color: #1976D2;
+          }
+      }
+  }
+
+  .no-documents-message {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+  }
+}
+
+// Modal Styles
+.activity-modal {
+  padding: 20px;
+
+  .activity-details {
+      margin-bottom: 24px;
+
+      .modal-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 16px;
+      }
+
+      .details-grid {
+          display: grid;
+          gap: 12px;
+      }
+
+      .detail-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
+
+          .detail-label {
+              font-weight: 500;
+              color: #666;
+          }
+
+          .detail-value {
+              color: #333;
+          }
+      }
+  }
+
+  .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+
+      .reject-button {
+          background-color: #f44336;
+          color: white;
+          
+          &:hover {
+              background-color: #d32f2f;
+          }
+      }
+
+      .approve-button {
+          background-color: #4CAF50;
+          color: white;
+          
+          &:hover {
+              background-color: #45a049;
+          }
+      }
+  }
+}

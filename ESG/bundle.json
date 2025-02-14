@@ -4,18 +4,54 @@
     "widgets": [
 
         {
-            "id": "UploadDocument",
-            "name": "UploadDocument",
-            "description": "A sample widget to upload documents",
+            "id": "UploadDocumentSocial",
+            "name": "Upload Document Social",
+            "description": "A widget to upload documents",
             "icon": "",
             "tags":[],
             "category":"",
             "isTemplate": false
         },
         {
-            "id": "Approval",
-            "name": "Approval",
-            "description": "A sample widget to upload documents",
+            "id": "UploadDocumentOHS",
+            "name": "Upload Document OHS",
+            "description": "A widget to OHS documents",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "UploadDocumentGovernance",
+            "name": "Upload Document Governance",
+            "description": "A widget to upload documents",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "SocialDataApproval",
+            "name": "Social Data Approval",
+            "description": "A widget to approve Social documents",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "OHSDataApproval",
+            "name": "OHS Data Approval",
+            "description": "A widget to approve OHS documents",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "GovernanceDataApproval",
+            "name": "Governance Data Approval",
+            "description": "A widget to approve Governance documents",
             "icon": "",
             "tags":[],
             "category":"",

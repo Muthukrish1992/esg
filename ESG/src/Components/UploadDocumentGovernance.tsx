@@ -34,8 +34,7 @@ interface TableData {
     Status: string;
     Month?: string;
     Year?: string;
-    MaleValue?: string;
-    FemaleValue?: string;
+    Unit?:string;
 
 }
 
@@ -129,14 +128,8 @@ const processExcelData = (worksheet: XLSX.WorkSheet): TableData[] => {
                 totalIndex = cleanRow.length - 1;
             }
 
-            // Find male/female indices
-            const maleIndex = headerRow.findIndex(header => 
-                String(header).toLowerCase().trim() === 'male' || 
-                String(header).toLowerCase().trim() === 'm'
-            );
-            const femaleIndex = headerRow.findIndex(header => 
-                String(header).toLowerCase().trim() === 'female' || 
-                String(header).toLowerCase().trim() === 'f'
+            const unitIndex = headerRow.findIndex(header => 
+                String(header).toLowerCase().trim() === 'unit'
             );
 
             console.log("Processing row:", {
@@ -153,8 +146,7 @@ const processExcelData = (worksheet: XLSX.WorkSheet): TableData[] => {
                 Value: totalIndex > -1 ? cleanRow[totalIndex] || '' : '',
                 Uploaded: "yes",
                 Status: "Uploaded",
-                MaleValue: maleIndex > -1 ? cleanRow[maleIndex] || '' : '',
-                FemaleValue: femaleIndex > -1 ? cleanRow[femaleIndex] || '' : ''
+                Unit: unitIndex > -1 ? cleanRow[unitIndex] || '' : '',
             };
 
             processedData.push(rowData);
@@ -165,7 +157,7 @@ const processExcelData = (worksheet: XLSX.WorkSheet): TableData[] => {
     return processedData;
 };
 
-const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
+const UploadDocumentGovernance: React.FunctionComponent<IWidgetProps> = (props) => {
     const crudRef = useRef(null);
     const alert = useAlert();
     const [file, setFile] = useState<File | null>(null);
@@ -239,19 +231,12 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
                         const workbook = XLSX.read(binary, { type: 'binary' });
                         const worksheet = workbook.Sheets[selectedSheet];
                         const processedData = processExcelData(worksheet);
-                        
-                        const finalData = processedData.map(item => ({
-                            ...item,
-                            Month: selectedMonth,
-                            Year: selectedYear
-                        }));
-                        setTableData(finalData);
+                        setTableData(processedData);
                         const payload = {
-                            json: JSON.stringify(finalData),
+                            json: JSON.stringify(processedData),
                             month: selectedMonth,
                             year: selectedYear
                         };
-
                         console.log("Final payload:", payload);
                         setPayload(payload)
                         setShowEditModel(true)
@@ -284,7 +269,7 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
             json: JSON.stringify(tableData)
         };
 
-        props.uxpContext?.executeAction('ESG', 'GetDataFromExcel', updatedPayload, {})
+        props.uxpContext?.executeAction('ESG', 'UploadGovernanceDocument', updatedPayload, {})
         .then((res) => {
             
             setSuccess(true);
@@ -306,7 +291,7 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
 
     return (
         <WidgetWrapper>
-            <TitleBar title='ESG Data Upload'>
+            <TitleBar title='Governance Data Upload'>
                 <FilterPanel>
                 </FilterPanel>
             </TitleBar>
@@ -438,20 +423,16 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
                                         },
                                         {
                                             name: 'Value',
-                                            label: 'Total Value',
+                                            label: 'Value',
                                             type: 'text',
                                             validate: { required: true }
                                         },
                                         {
-                                            name: 'MaleValue',
-                                            label: 'Male Value',
+                                            name: 'Unit',
+                                            label: 'Unit',
                                             type: 'text'
                                         },
-                                        {
-                                            name: 'FemaleValue',
-                                            label: 'Female Value',
-                                            type: 'text'
-                                        }
+
                                     ]
                                 }
                             ],
@@ -493,20 +474,15 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
                                             validate: { required: true }
                                         },
                                         {
+                                            name: 'Unit',
+                                            label: 'Unit',
+                                            type: 'text'
+                                        },
+                                        {
                                             name: 'Value',
-                                            label: 'Total Value',
+                                            label: 'Total',
                                             type: 'text',
                                             validate: { required: true }
-                                        },
-                                        {
-                                            name: 'MaleValue',
-                                            label: 'Male Value',
-                                            type: 'text'
-                                        },
-                                        {
-                                            name: 'FemaleValue',
-                                            label: 'Female Value',
-                                            type: 'text'
                                         }
                                     ]
                                 }
@@ -531,7 +507,7 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
                         list={{
                             search: { 
                                 enabled: true, 
-                                fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value'] 
+                                fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value','Unit'] 
                             },
                             data: { getData:tableData },
                             defaultPageSize: 10,
@@ -540,9 +516,8 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
                                 { id: 'ActivityID', label: 'Activity ID' },
                                 { id: 'ActivityCategory', label: 'Category' },
                                 { id: 'ActivityGroup', label: 'Group' },
-                                { id: 'Value', label: 'Total Value' },
-                                { id: 'MaleValue', label: 'Male Value' },
-                                { id: 'FemaleValue', label: 'Female Value' }
+                                { id: 'Unit', label: 'Unit' },
+                                { id: 'Value', label: 'Total' }
                             ]
                         }}
                     />
@@ -564,4 +539,4 @@ const UploadDocument: React.FunctionComponent<IWidgetProps> = (props) => {
     );
 };
 
-export default UploadDocument;
+export default UploadDocumentGovernance;
