@@ -16,6 +16,8 @@ import {
     CRUDComponent,
     CRUDComponentInstanceProps,
     ActionResponse,
+    FileInput,
+    IconButton,
 } from "uxp/components";
 import * as XLSX from 'xlsx';
 import './uploadstyles.scss';
@@ -164,70 +166,78 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
     const [showEditModel, setShowEditModel] = useState<boolean>(false);
     const [payload, setPayload] = useState<any>();
     const [tableData, setTableData] = useState<TableData[]>([]);
-
-    const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsDragging(true);
-    };
-
-    const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsDragging(false);
-    };
-
-    const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsDragging(false);
-
-        const files = e.dataTransfer.files;
-        if (files && files[0]) {
-            const file = files[0];
-            if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || 
-                file.type === 'application/vnd.ms-excel') {
-                handleFileUpload({ target: { files: [file] } } as any);
-            } else {
-                setError('Please upload only Excel files (.xlsx or .xls)');
-            }
+    const handleFileChange = async (file: File, isValid: boolean) => {
+        if (!isValid) {
+            setError('Please upload only Excel files (.xlsx or .xls)');
+            return;
         }
-    };
 
-    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-        if (files && files[0]) {
-            setFile(files[0]);
-            setError(null);
-            setLoading(true);
-            setSuccess(false);
+        setFile(file);
+        setError(null);
+        setLoading(true);
+        setSuccess(false);
 
-            const reader = new FileReader();
-            reader.onload = (e: ProgressEvent<FileReader>) => {
-                try {
-                    const binary = e.target?.result;
-                    if (binary && typeof binary === 'string') {
-                        const workbook = XLSX.read(binary, { type: 'binary' });
-                        setSheets(workbook.SheetNames);
-                    }
-                    setLoading(false);
-                } catch (error) {
-                    console.error('Error reading Excel file:', error);
-                    setError('Error reading Excel file. Please check the file format.');
-                    setLoading(false);
+        const reader = new FileReader();
+        reader.onload = (e: ProgressEvent<FileReader>) => {
+            try {
+                const binary = e.target?.result;
+                if (binary && typeof binary === 'string') {
+                    const workbook = XLSX.read(binary, { type: 'binary' });
+                    setSheets(workbook.SheetNames);
                 }
-            };
-            reader.onerror = () => {
-                setError('Error reading the file. Please try again.');
                 setLoading(false);
-            };
-            reader.readAsBinaryString(files[0]);
-        }
+            } catch (error) {
+                console.error('Error reading Excel file:', error);
+                setError('Error reading Excel file. Please check the file format.');
+                setLoading(false);
+            }
+        };
+        reader.onerror = () => {
+            setError('Error reading the file. Please try again.');
+            setLoading(false);
+        };
+        reader.readAsBinaryString(file);
     };
+
+
+    const validateUpload = (): boolean => {
+        if (!file) {
+            setError("Please select a file to upload");
+            return false;
+        }
+
+        if (sheets.length === 0) {
+            setError("No sheets found in the uploaded file");
+            return false;
+        }
+
+        if (!selectedSheet) {
+            setError("Please select a sheet from the dropdown");
+            return false;
+        }
+
+        if (!selectedMonth) {
+            setError("Please select a month");
+            return false;
+        }
+
+        if (!selectedYear) {
+            setError("Please select a year");
+            return false;
+        }
+
+        return true;
+    };
+
+    const handleCancelUpload = async () =>{
+        setFile(null)
+        setSelectedSheet("");
+        setSheets([]);
+    }
 
     const handleSubmit = async () => {
-        if (!file || !selectedSheet) {
-            setError("Please select both a file and a sheet before submitting");
+        
+        if (!validateUpload()) {
             return;
         }
 
@@ -301,286 +311,278 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
     };
 
     return (
-        <WidgetWrapper>
-            <TitleBar title='Social Data Upload'>
+        <WidgetWrapper className="esg-upload-wrapper">
+            <TitleBar title='Social Data Upload' className="title-bar">
                 <FilterPanel>
                 </FilterPanel>
             </TitleBar>
-            <div className="ESGWrapper">
-                <div className="upload-section">
-                    <div className="upload-form">
-                        <div className="file-upload-container">
-                            <div 
-                                className={`drag-drop-area ${isDragging ? 'dragging' : ''} ${file ? 'has-file' : ''}`}
-                                onDragOver={handleDragOver}
-                                onDragLeave={handleDragLeave}
-                                onDrop={handleDrop}
-                            >
-                                <div className="upload-icon">
-                                    <i className="fas fa-cloud-upload-alt"></i>
-                                </div>
-                                <div className="upload-text">
-                                    <p>Drag and drop your Excel file here</p>
-                                    <p>or</p>
-                                    <label htmlFor="file-upload" className="custom-file-upload">
-                                        Browse Files
-                                    </label>
-                                </div>
-                                <input
-                                    type="file"
-                                    accept=".xlsx,.xls"
-                                    onChange={handleFileUpload}
-                                    className="hidden-input"
-                                    id="file-upload"
-                                />
-                                {file && (
+            <div className="esg-content-wrapper">
+                <div className="ESGWrapper">
+                    <div className="upload-section">
+                        <div className="upload-form">
+                            <div className="file-upload-container">
+                                {file ? (
                                     <div className="file-info">
-                                        <span className="file-name">{file.name}</span>
-                                        <button 
-                                            className="remove-file"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setFile(null);
-                                                setSheets([]);
-                                                setSelectedSheet("");
-                                            }}
-                                        >
+                                        <div className="file-details">
+                                            <span className="file-name">{file.name}</span>
+                                            <IconButton
+                                                type="close"
+                                                onClick={handleCancelUpload}
+                                                className="cancel-upload"
+                                                size="small"
+                                            />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <FileInput
+                                        value={file}
+                                        onChange={handleFileChange}
+                                        
+                                        className="esg-file-input"
+                                        dropAreaIcon={'file'}
+                                        dropAreaLabel="Drag and drop your Excel file here or click to browse"
+                                        preview={{
+                                            showName: true,
+                                            showPreview: false
+                                        }}
+                                    />
+                                )}
+                            </div>
+
+                            <div className="selection-controls">
+                                <div className="controls-row">
+                                {sheets.length > 0 && (
+                                        <div className="select-container">
+                                            <label>Sheet</label>
+                                            <Select
+                                                options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
+                                                selected={selectedSheet}
+                                                onChange={(value) => setSelectedSheet(value as string)}
+                                                placeholder="Select Sheet"
+                                                
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="select-container">
+                                        <label>Month</label>
+                                        <Select
+                                            options={getMonths()}
+                                            selected={selectedMonth}
+                                            onChange={(value) => setSelectedMonth(value as string)}
+                                            placeholder="Select Month"
+                                           
+                                        />
+                                    </div>
+                                    <div className="select-container">
+                                        <label>Year</label>
+                                        <Select
+                                            options={getYears()}
+                                            selected={selectedYear}
+                                            onChange={(value) => setSelectedYear(value as string)}
+                                            placeholder="Select Year"
                                             
-                                        </button>
+                                        />
+                                    </div>
+
+                                </div>
+                                {sheets.length > 0 && (
+                                    <div className="button-container">
+                                        <Button
+                                            title="Submit"
+                                            onClick={handleSubmit}
+                                            className="submit-btn"
+                                        >
+                                            Submit
+                                        </Button>
                                     </div>
                                 )}
                             </div>
-                        </div>
 
-                        <div className="selection-controls">
-                            <div className="date-selectors">
-                                <div className="select-container">
-                                    <label>Month</label>
-                                    <Select
-                                        options={getMonths()}
-                                        selected={selectedMonth}
-                                        onChange={(value) => setSelectedMonth(value as string)}
-                                        placeholder="Select Month"
-                                    />
-                                </div>
-                                <div className="select-container">
-                                    <label>Year</label>
-                                    <Select
-                                        options={getYears()}
-                                        selected={selectedYear}
-                                        onChange={(value) => setSelectedYear(value as string)}
-                                        placeholder="Select Year"
-                                    />
-                                </div>
-                            </div>
-
-                            {sheets.length > 0 && (
-                                <div className="sheet-selection">
-                                    <div className="select-container">
-                                        <label>Sheet</label>
-                                        <Select
-                                            options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
-                                            selected={selectedSheet}
-                                            onChange={(value) => setSelectedSheet(value as string)}
-                                            placeholder="Select Sheet"
-                                        />
-                                    </div>
-                                    <Button
-                                        title="Submit"
-                                        onClick={handleSubmit}
-                                        disabled={!selectedSheet}
-                                        className="submit-btn"
-                                    >
-                                        Submit
-                                    </Button>
+                            {success && (
+                                <div className="success-message">
+                                    File "{file?.name}" uploaded successfully and submitted for approval
                                 </div>
                             )}
+
+                            {error && (
+                                <div className="error-message">
+                                    {error}
+                                </div>
+                            )}
+
+                            {loading && <Loading />}
                         </div>
-
-                        {success && (
-                            <div className="success-message">
-                                File "{file?.name}" uploaded successfully and submitted for approval
-                            </div>
-                        )}
-
-                        {error && (
-                            <div className="error-message">
-                                {error}
-                            </div>
-                        )}
-
-                        {loading && <Loading />}
                     </div>
                 </div>
             </div>
             <Modal 
-    show={showEditModel}
-    onClose={() => {
-        setShowEditModel(false);
-        setLoading(false);
-    }}
-    title="Edit ESG Data"
->
-    <div className="p-4">
-        {error && (
-            <div className="mb-4 p-4 bg-red-50 text-red-600 rounded">
-                {error}
-            </div>
-        )}
-        {success ? (
-            <div className="p-4 bg-green-50 text-green-600 rounded">
-                Data successfully submitted for approval
-            </div>
-        ) : (
-            <>
-                <CRUDComponent
-                    ref={crudRef}
-                    edit={{
-                        title: 'Edit ESG Data',
-                        formStructure: [
-                            {
-                                columns: 1,
-                                fields: [
-                                    {
-                                        name: 'ActivityID',
-                                        label: 'Activity ID',
-                                        type: 'text',
-                                        validate: { required: true }
+                show={showEditModel}
+                onClose={() => {
+                    setShowEditModel(false);
+                    setLoading(false);
+                }}
+                title="Edit ESG Data"
+            >
+                <div className="p-4">
+                    {error && (
+                        <div className="mb-4 p-4 bg-red-50 text-red-600 rounded">
+                            {error}
+                        </div>
+                    )}
+                    {success ? (
+                        <div className="p-4 bg-green-50 text-green-600 rounded">
+                            Data successfully submitted for approval
+                        </div>
+                    ) : (
+                        <>
+                            <CRUDComponent
+                                ref={crudRef}
+                                edit={{
+                                    title: 'Edit ESG Data',
+                                    formStructure: [
+                                        {
+                                            columns: 1,
+                                            fields: [
+                                                {
+                                                    name: 'ActivityID',
+                                                    label: 'Activity ID',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'ActivityCategory',
+                                                    label: 'Activity Category',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'ActivityGroup',
+                                                    label: 'Activity Group',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'Value',
+                                                    label: 'Total Value',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'MaleValue',
+                                                    label: 'Male Value',
+                                                    type: 'text'
+                                                },
+                                                {
+                                                    name: 'FemaleValue',
+                                                    label: 'Female Value',
+                                                    type: 'text'
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    onSubmit: async (data: any, oldData: any): Promise<ActionResponse> => {
+                                        setTableData(prevData => 
+                                            prevData.map(item => 
+                                                item === oldData ? { ...data, Status: "Uploaded", Uploaded: "yes" } : item
+                                            )
+                                        );
+                                        return {
+                                            status: "done",
+                                            message: "Record updated successfully",
+                                        };
                                     },
-                                    {
-                                        name: 'ActivityCategory',
-                                        label: 'Activity Category',
-                                        type: 'text',
-                                        validate: { required: true }
+                                    afterSave: () => {}
+                                }}
+                                add={{
+                                    title: 'Add New ESG Data',
+                                    formStructure: [
+                                        {
+                                            columns: 1,
+                                            fields: [
+                                                {
+                                                    name: 'ActivityID',
+                                                    label: 'Activity ID',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'ActivityCategory',
+                                                    label: 'Activity Category',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'ActivityGroup',
+                                                    label: 'Activity Group',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'Value',
+                                                    label: 'Total Value',
+                                                    type: 'text',
+                                                    validate: { required: true }
+                                                },
+                                                {
+                                                    name: 'MaleValue',
+                                                    label: 'Male Value',
+                                                    type: 'text'
+                                                },
+                                                {
+                                                    name: 'FemaleValue',
+                                                    label: 'Female Value',
+                                                    type: 'text'
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    onSubmit: async (data: any): Promise<ActionResponse> => {
+                                        const newRecord = {
+                                            ...data,
+                                            Status: "Uploaded",
+                                            Uploaded: "yes",
+                                            Month: selectedMonth,
+                                            Year: selectedYear
+                                        };
+                                        setTableData(prev => [...prev, newRecord]);
+                                        return {
+                                            status: "done",
+                                            message: "Record added successfully",
+                                        };
                                     },
-                                    {
-                                        name: 'ActivityGroup',
-                                        label: 'Activity Group',
-                                        type: 'text',
-                                        validate: { required: true }
+                                    afterSave: () => {}
+                                }}
+                                list={{
+                                    search: { 
+                                        enabled: true, 
+                                        fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value'] 
                                     },
-                                    {
-                                        name: 'Value',
-                                        label: 'Total Value',
-                                        type: 'text',
-                                        validate: { required: true }
-                                    },
-                                    {
-                                        name: 'MaleValue',
-                                        label: 'Male Value',
-                                        type: 'text'
-                                    },
-                                    {
-                                        name: 'FemaleValue',
-                                        label: 'Female Value',
-                                        type: 'text'
-                                    }
-                                ]
-                            }
-                        ],
-                        onSubmit: async (data: any, oldData: any): Promise<ActionResponse> => {
-                            setTableData(prevData => 
-                                prevData.map(item => 
-                                    item === oldData ? { ...data, Status: "Uploaded", Uploaded: "yes" } : item
-                                )
-                            );
-                            return {
-                                status: "done",
-                                message: "Record updated successfully",
-                            };
-                        },
-                        afterSave: () => {}
-                    }}
-                    add={{
-                        title: 'Add New ESG Data',
-                        formStructure: [
-                            {
-                                columns: 1,
-                                fields: [
-                                    {
-                                        name: 'ActivityID',
-                                        label: 'Activity ID',
-                                        type: 'text',
-                                        validate: { required: true }
-                                    },
-                                    {
-                                        name: 'ActivityCategory',
-                                        label: 'Activity Category',
-                                        type: 'text',
-                                        validate: { required: true }
-                                    },
-                                    {
-                                        name: 'ActivityGroup',
-                                        label: 'Activity Group',
-                                        type: 'text',
-                                        validate: { required: true }
-                                    },
-                                    {
-                                        name: 'Value',
-                                        label: 'Total Value',
-                                        type: 'text',
-                                        validate: { required: true }
-                                    },
-                                    {
-                                        name: 'MaleValue',
-                                        label: 'Male Value',
-                                        type: 'text'
-                                    },
-                                    {
-                                        name: 'FemaleValue',
-                                        label: 'Female Value',
-                                        type: 'text'
-                                    }
-                                ]
-                            }
-                        ],
-                        onSubmit: async (data: any): Promise<ActionResponse> => {
-                            const newRecord = {
-                                ...data,
-                                Status: "Uploaded",
-                                Uploaded: "yes",
-                                Month: selectedMonth,
-                                Year: selectedYear
-                            };
-                            setTableData(prev => [...prev, newRecord]);
-                            return {
-                                status: "done",
-                                message: "Record added successfully",
-                            };
-                        },
-                        afterSave: () => {}
-                    }}
-                    list={{
-                        search: { 
-                            enabled: true, 
-                            fields: ['ActivityID', 'ActivityCategory', 'ActivityGroup', 'Value'] 
-                        },
-                        data: { getData: tableData },
-                        defaultPageSize: 10,
-                        title: 'ESG Data',
-                        columns: [
-                            { id: 'ActivityID', label: 'Activity ID' },
-                            { id: 'ActivityCategory', label: 'Category' },
-                            { id: 'ActivityGroup', label: 'Group' },
-                            { id: 'Value', label: 'Total Value' },
-                            { id: 'MaleValue', label: 'Male Value' },
-                            { id: 'FemaleValue', label: 'Female Value' }
-                        ]
-                    }}
-                />
-                <div className="mt-4 flex justify-end">
-                    <Button
-                        className="approve"
-                        title="Submit for Approval"
-                        onClick={handleApprove}
-                    >
-                        Submit for Approval
-                    </Button>
+                                    data: { getData: tableData },
+                                    defaultPageSize: 10,
+                                    title: 'ESG Data',
+                                    columns: [
+                                        { id: 'ActivityID', label: 'Activity ID' },
+                                        { id: 'ActivityCategory', label: 'Category' },
+                                        { id: 'ActivityGroup', label: 'Group' },
+                                        { id: 'Value', label: 'Total Value' },
+                                        { id: 'MaleValue', label: 'Male Value' },
+                                        { id: 'FemaleValue', label: 'Female Value' }
+                                    ]
+                                }}
+                            />
+                            <div className="mt-4 flex justify-end">
+                                <Button
+                                    className="approve"
+                                    title="Submit for Approval"
+                                    onClick={handleApprove}
+                                >
+                                    Submit for Approval
+                                </Button>
+                            </div>
+                        </>
+                    )}
                 </div>
-            </>
-        )}
-    </div>
-</Modal>
+            </Modal>
         </WidgetWrapper>
     );
 };

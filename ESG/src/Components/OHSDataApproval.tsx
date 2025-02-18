@@ -252,7 +252,7 @@ const OHSDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
 
     return (
         <WidgetWrapper className="OHS-approval-widget">
-            <TitleBar title='OHS Document Approval'>
+            <TitleBar title='OHS Document Approval' className="title-bar">
                 <FilterPanel onClear={() => {
                     setSelectedYear("");
                 }}>

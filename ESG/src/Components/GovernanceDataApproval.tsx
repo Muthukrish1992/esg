@@ -263,7 +263,7 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
 
     return (
         <WidgetWrapper className="governance-approval-widget">
-            <TitleBar title='Governance Document Approval'>
+            <TitleBar title='Governance Document Approval' className="title-bar">
                 <FilterPanel onClear={() => {
                     setSelectedMonth("");
                     setSelectedYear("");

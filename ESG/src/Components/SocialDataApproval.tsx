@@ -255,7 +255,7 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
 
     return (
         <WidgetWrapper className="social-approval-widget">
-            <TitleBar title='Social Document Approval'>
+            <TitleBar title='Social Document Approval' className="title-bar">
                 <FilterPanel onClear={() => {
                     setSelectedMonth("");
                     setSelectedYear("");

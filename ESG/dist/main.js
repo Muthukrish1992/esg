@@ -28,7 +28,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, ".ESGWrapper {\n  padding: 15px;\n}\n.ESGWrapper .upload {\n  margin: 5px;\n}\n.ESGWrapper .getMonths {\n  padding: 10px;\n}\n.ESGWrapper .getYears {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .selectSheet {\n  padding: 10px;\n}\n.ESGWrapper .submitSheet .Submit {\n  padding: 10px;\n}\n.ESGWrapper .widget-wrapper {\n  padding: 0 !important;\n}\n.ESGWrapper .approval-table-container {\n  height: calc(100vh - 130px);\n  overflow: auto;\n  padding: 1rem;\n}\n.ESGWrapper .approval-table-container table {\n  width: 100%;\n  border-collapse: collapse;\n  background: white;\n}\n.ESGWrapper .approval-table-container thead {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  background: white;\n}\n.ESGWrapper .approval-table-container th {\n  background: #f3f4f6;\n  padding: 12px;\n  text-align: left;\n  border: 1px solid #e5e7eb;\n}\n.ESGWrapper .approval-table-container td {\n  padding: 12px;\n  border: 1px solid #e5e7eb;\n}\n.ESGWrapper .approval-table-container tr:hover {\n  background-color: #f9fafb;\n}\n.ESGWrapper .approve-all-button {\n  margin-bottom: 1rem;\n}\n.ESGWrapper .no-documents-message {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 200px;\n  color: #6b7280;\n}\n.ESGWrapper .filter-panel {\n  padding: 1rem;\n  background: white;\n  border-bottom: 1px solid #e5e7eb;\n}\n\n.ESGWrapper {\n  padding: 20px;\n  overflow: auto;\n}\n.ESGWrapper .upload-section {\n  border-bottom: 1px solid #e5e7eb;\n  padding-bottom: 1rem;\n  margin-bottom: 1rem;\n}\n.ESGWrapper .upload-section .upload-btn {\n  background-color: #3b82f6;\n  color: white;\n  transition: background-color 0.2s;\n}\n.ESGWrapper .upload-section .upload-btn:hover {\n  background-color: #2563eb;\n}\n.ESGWrapper .upload-form {\n  background: #fff;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.ESGWrapper .upload-form .file-upload-container {\n  margin-bottom: 24px;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area {\n  border: 2px dashed #cbd5e1;\n  border-radius: 8px;\n  padding: 40px 20px;\n  text-align: center;\n  transition: all 0.3s ease;\n  background: #f8fafc;\n  cursor: pointer;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area.dragging {\n  border-color: #3b82f6;\n  background: #eff6ff;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area.has-file {\n  border-style: solid;\n  background: #f0f9ff;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-icon {\n  font-size: 48px;\n  color: #64748b;\n  margin-bottom: 16px;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text {\n  color: #475569;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text p {\n  margin: 8px 0;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text .custom-file-upload {\n  display: inline-block;\n  padding: 8px 16px;\n  background: #3b82f6;\n  color: white;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.2s;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .upload-text .custom-file-upload:hover {\n  background: #2563eb;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .hidden-input {\n  display: none;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info {\n  margin-top: 16px;\n  padding: 8px 16px;\n  background: white;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info .file-name {\n  color: #1e293b;\n  font-weight: 500;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info .remove-file {\n  background: none;\n  border: none;\n  color: #ef4444;\n  font-size: 20px;\n  cursor: pointer;\n  padding: 4px 8px;\n}\n.ESGWrapper .upload-form .file-upload-container .drag-drop-area .file-info .remove-file:hover {\n  color: #dc2626;\n}\n.ESGWrapper .upload-form .selection-controls .date-selectors {\n  display: flex;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-form .selection-controls .select-container {\n  flex: 1;\n}\n.ESGWrapper .upload-form .selection-controls .select-container label {\n  display: block;\n  margin-bottom: 8px;\n  color: #475569;\n  font-weight: 500;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection {\n  display: flex;\n  gap: 20px;\n  align-items: flex-end;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .select-container {\n  flex: 1;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .submit-btn {\n  background: #3b82f6;\n  color: white;\n  transition: background-color 0.2s;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .submit-btn:hover {\n  background: #2563eb;\n}\n.ESGWrapper .upload-form .selection-controls .sheet-selection .submit-btn:disabled {\n  background: #94a3b8;\n  cursor: not-allowed;\n}\n.ESGWrapper .upload-form .success-message {\n  margin-top: 16px;\n  padding: 12px;\n  background: #f0fdf4;\n  border: 1px solid #86efac;\n  color: #166534;\n  border-radius: 4px;\n}\n.ESGWrapper .upload-form .error-message {\n  margin-top: 16px;\n  padding: 12px;\n  background: #fef2f2;\n  border: 1px solid #fecaca;\n  color: #991b1b;\n  border-radius: 4px;\n}\n\n.Modal .approve {\n  background: #3b82f6;\n  color: white;\n  transition: background-color 0.2s;\n}\n.Modal .approve:hover {\n  background: #2563eb;\n}", ""]);
+exports.push([module.id, ".title-bar {\n  padding: 16px 24px;\n  border-bottom: 1px solid #eef0f2;\n}\n.title-bar h1 {\n  font-size: 18px;\n  font-weight: 500;\n  color: #2d3748;\n}\n\n.esg-upload-wrapper {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  background-color: #fff;\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n}\n.esg-upload-wrapper .esg-content-wrapper {\n  flex: 1;\n  padding: 24px;\n  background-color: #fff;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar {\n  width: 6px;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar-track {\n  background: #f7fafc;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar-thumb {\n  background: #cbd5e0;\n  border-radius: 3px;\n}\n\n.ESGWrapper {\n  padding: 20px;\n  min-height: 100%;\n}\n.ESGWrapper .upload-section .upload-form {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n  border-radius: 8px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container {\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container {\n  width: 100%;\n  height: 100px;\n  background-color: #ebf8ff !important;\n  border-radius: 10px;\n  margin-top: 10px;\n  position: relative;\n  z-index: 1;\n  border: 2px dashed #4299e1 !important;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container:hover {\n  background-color: #bee3f8 !important;\n  border-color: #3182ce !important;\n  cursor: pointer;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container .drop-text {\n  color: #2b6cb0 !important;\n  font-size: 14px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container .file-icon {\n  color: #2b6cb0 !important;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container.has-file .input-container {\n  background-color: #ebf8ff !important;\n  border-color: #4299e1 !important;\n}\n.ESGWrapper .upload-section .upload-form .file-info {\n  border: 2px solid #4299e1;\n  padding: 15px;\n  border-radius: 8px;\n  background: #ebf8ff;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .file-name {\n  flex: 1;\n  word-break: break-all;\n  color: #2b6cb0;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .cancel-upload {\n  flex-shrink: 0;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .cancel-upload:hover {\n  background-color: #fed7d7;\n  color: #e53e3e;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .controls-row {\n  display: grid;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container {\n  flex: 1;\n  min-width: 200px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container label {\n  display: block;\n  margin-bottom: 8px;\n  color: #4a5568;\n  font-size: 14px;\n  font-weight: 500;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) {\n  border: 1px solid #e2e8f0;\n  border-radius: 6px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper):hover {\n  border-color: #4299e1;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options {\n  border: 1px solid #e2e8f0;\n  border-radius: 6px;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  max-height: 200px;\n  overflow-y: auto;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar {\n  width: 8px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 4px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container {\n  display: flex;\n  justify-content: center;\n  margin-top: 24px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container .submit-btn {\n  background: #4299e1;\n  color: white;\n  padding: 8px 24px;\n  border-radius: 6px;\n  font-weight: 500;\n  transition: all 0.2s;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container .submit-btn:hover {\n  background: #3182ce;\n}\n.ESGWrapper .upload-section .upload-form .success-message {\n  padding: 16px;\n  background-color: #c6f6d5;\n  color: #2f855a;\n  border-radius: 6px;\n  margin-top: 16px;\n  font-size: 14px;\n}\n.ESGWrapper .upload-section .upload-form .error-message {\n  padding: 16px;\n  background-color: #fed7d7;\n  color: #c53030;\n  border-radius: 6px;\n  margin-top: 16px;\n  font-size: 14px;\n}\n\n:global(.modal-dialog) {\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);\n}\n:global(.modal-dialog) .modal-header {\n  padding: 16px 24px;\n  border-bottom: 1px solid #e2e8f0;\n}\n:global(.modal-dialog) .modal-header .modal-title {\n  font-size: 18px;\n  color: #2d3748;\n}\n:global(.modal-dialog) .modal-content {\n  padding: 24px;\n  flex: 1;\n  overflow-y: auto;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar {\n  width: 8px;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 4px;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n:global(.modal-dialog) .modal-content .approve {\n  background: #4299e1;\n  color: white;\n  padding: 8px 24px;\n  border-radius: 6px;\n  font-weight: 500;\n}\n:global(.modal-dialog) .modal-content .approve:hover {\n  background: #3182ce;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -733,7 +733,7 @@ const GovernanceDataApproval = (props) => {
                                 }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
     };
     return (react_1.default.createElement(components_1.WidgetWrapper, { className: "governance-approval-widget" },
-        react_1.default.createElement(components_1.TitleBar, { title: 'Governance Document Approval' },
+        react_1.default.createElement(components_1.TitleBar, { title: 'Governance Document Approval', className: "title-bar" },
             react_1.default.createElement(components_1.FilterPanel, { onClear: () => {
                     setSelectedMonth("");
                     setSelectedYear("");
@@ -1020,7 +1020,7 @@ const OHSDataApproval = (props) => {
                                 }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
     };
     return (react_1.default.createElement(components_1.WidgetWrapper, { className: "OHS-approval-widget" },
-        react_1.default.createElement(components_1.TitleBar, { title: 'OHS Document Approval' },
+        react_1.default.createElement(components_1.TitleBar, { title: 'OHS Document Approval', className: "title-bar" },
             react_1.default.createElement(components_1.FilterPanel, { onClear: () => {
                     setSelectedYear("");
                 } },
@@ -1315,7 +1315,7 @@ const SocialDataApproval = (props) => {
                                 }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
     };
     return (react_1.default.createElement(components_1.WidgetWrapper, { className: "social-approval-widget" },
-        react_1.default.createElement(components_1.TitleBar, { title: 'Social Document Approval' },
+        react_1.default.createElement(components_1.TitleBar, { title: 'Social Document Approval', className: "title-bar" },
             react_1.default.createElement(components_1.FilterPanel, { onClear: () => {
                     setSelectedMonth("");
                     setSelectedYear("");
@@ -1572,40 +1572,64 @@ const UploadDocumentGovernance = (props) => {
             crudRef.current.refresh();
         }
     };
-    const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
-        const files = event.target.files;
-        if (files && files[0]) {
-            setFile(files[0]);
-            setError(null);
-            setLoading(true);
-            setSuccess(false);
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                var _a;
-                try {
-                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
-                    if (binary && typeof binary === 'string') {
-                        const workbook = XLSX.read(binary, { type: 'binary' });
-                        setSheets(workbook.SheetNames);
-                    }
-                    setLoading(false);
-                }
-                catch (error) {
-                    console.error('Error reading Excel file:', error);
-                    setError('Error reading Excel file. Please check the file format.');
-                    setLoading(false);
-                }
-            };
-            reader.onerror = () => {
-                setError('Error reading the file. Please try again.');
-                setLoading(false);
-            };
-            reader.readAsBinaryString(files[0]);
+    const validateUpload = () => {
+        if (!file) {
+            setError("Please select a file to upload");
+            return false;
         }
+        if (sheets.length === 0) {
+            setError("No sheets found in the uploaded file");
+            return false;
+        }
+        if (!selectedSheet) {
+            setError("Please select a sheet from the dropdown");
+            return false;
+        }
+        if (!selectedYear) {
+            setError("Please select a year");
+            return false;
+        }
+        return true;
+    };
+    const handleCancelUpload = () => __awaiter(void 0, void 0, void 0, function* () {
+        setFile(null);
+        setSelectedSheet("");
+        setSheets([]);
+    });
+    const handleFileChange = (file, isValid) => __awaiter(void 0, void 0, void 0, function* () {
+        if (!isValid) {
+            setError('Please upload only Excel files (.xlsx or .xls)');
+            return;
+        }
+        setFile(file);
+        setError(null);
+        setLoading(true);
+        setSuccess(false);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            var _a;
+            try {
+                const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                if (binary && typeof binary === 'string') {
+                    const workbook = XLSX.read(binary, { type: 'binary' });
+                    setSheets(workbook.SheetNames);
+                }
+                setLoading(false);
+            }
+            catch (error) {
+                console.error('Error reading Excel file:', error);
+                setError('Error reading Excel file. Please check the file format.');
+                setLoading(false);
+            }
+        };
+        reader.onerror = () => {
+            setError('Error reading the file. Please try again.');
+            setLoading(false);
+        };
+        reader.readAsBinaryString(file);
     });
     const handleSubmit = () => __awaiter(void 0, void 0, void 0, function* () {
-        if (!file || !selectedSheet) {
-            setError("Please select both a file and a sheet before submitting");
+        if (!validateUpload()) {
             return;
         }
         setLoading(true);
@@ -1671,32 +1695,38 @@ const UploadDocumentGovernance = (props) => {
             setLoading(false);
         });
     };
-    return (React.createElement(components_1.WidgetWrapper, null,
-        React.createElement(components_1.TitleBar, { title: 'Governance Data Upload' },
+    return (React.createElement(components_1.WidgetWrapper, { className: "esg-upload-wrapper" },
+        React.createElement(components_1.TitleBar, { title: 'Governance Data Upload', className: "title-bar" },
             React.createElement(components_1.FilterPanel, null)),
         React.createElement("div", { className: "ESGWrapper" },
-            React.createElement("div", { className: "flex items-center space-x-4 border-b pb-4" },
-                React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden", id: "file-upload" }),
-                React.createElement(components_1.Button, { className: "upload", title: "Upload Excel", onClick: () => setShowUploadForm(true) }, "Upload Excel")),
-            showUploadForm && (React.createElement("div", { className: "flex flex-col space-y-4 mt-4" },
-                React.createElement("div", { className: "flex items-center space-x-4" },
-                    React.createElement("label", null, "Selected File"),
-                    file && React.createElement("span", { className: "text-sm text-gray-600" }, file.name)),
-                React.createElement("div", { className: "flex items-details" },
-                    React.createElement("div", { className: "getMonths" },
-                        React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
-                    React.createElement("div", { className: "getYears" },
-                        React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
-                sheets.length > 0 && (React.createElement("div", { className: "submitSheet" },
-                    React.createElement("div", { className: "selectSheet" },
-                        React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
-                    React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet, className: "Submit" }, "Submit"))))),
-            success && (React.createElement("div", { className: "text-green-600 bg-green-50 p-4 rounded" },
-                "File \"", file === null || file === void 0 ? void 0 :
-                file.name,
-                "\" uploaded successfully and submitted for approval")),
-            error && (React.createElement("div", { className: "text-red-600 text-sm" }, error)),
-            loading && React.createElement(components_1.Loading, null)),
+            React.createElement("div", { className: "upload-section" },
+                React.createElement("div", { className: "upload-form" },
+                    React.createElement("div", { className: "file-upload-container" }, file ? (React.createElement("div", { className: "file-info" },
+                        React.createElement("div", { className: "file-details" },
+                            React.createElement("span", { className: "file-name" }, file.name),
+                            React.createElement(components_1.IconButton, { type: "close", onClick: handleCancelUpload, className: "cancel-upload", size: "small" })))) : (React.createElement(components_1.FileInput, { value: file, onChange: handleFileChange, className: "esg-file-input", dropAreaIcon: 'file', dropAreaLabel: "Drag and drop your Excel file here or click to browse", preview: {
+                            showName: true,
+                            showPreview: false
+                        } }))),
+                    React.createElement("div", { className: "selection-controls" },
+                        React.createElement("div", { className: "controls-row" },
+                            sheets.length > 0 && (React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Sheet"),
+                                React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" }))),
+                            React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Month"),
+                                React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                            React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Year"),
+                                React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
+                        sheets.length > 0 && (React.createElement("div", { className: "button-container" },
+                            React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, className: "submit-btn" }, "Submit")))),
+                    success && (React.createElement("div", { className: "success-message" },
+                        "File \"", file === null || file === void 0 ? void 0 :
+                        file.name,
+                        "\" uploaded successfully and submitted for approval")),
+                    error && (React.createElement("div", { className: "error-message" }, error)),
+                    loading && React.createElement(components_1.Loading, null)))),
         React.createElement(components_1.Modal, { show: showEditModel, onClose: () => { setShowEditModel(false), setLoading(false); }, title: "Edit ESG Data" },
             React.createElement("div", { className: "p-4" },
                 error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
@@ -1983,6 +2013,62 @@ const UploadDocumentOHS = (props) => {
             crudRef.current.refresh();
         }
     };
+    const handleCancelUpload = () => __awaiter(void 0, void 0, void 0, function* () {
+        setFile(null);
+        setSelectedSheet("");
+        setSheets([]);
+    });
+    const validateUpload = () => {
+        if (!file) {
+            setError("Please select a file to upload");
+            return false;
+        }
+        if (sheets.length === 0) {
+            setError("No sheets found in the uploaded file");
+            return false;
+        }
+        if (!selectedSheet) {
+            setError("Please select a sheet from the dropdown");
+            return false;
+        }
+        if (!selectedYear) {
+            setError("Please select a year");
+            return false;
+        }
+        return true;
+    };
+    const handleFileChange = (file, isValid) => __awaiter(void 0, void 0, void 0, function* () {
+        if (!isValid) {
+            setError('Please upload only Excel files (.xlsx or .xls)');
+            return;
+        }
+        setFile(file);
+        setError(null);
+        setLoading(true);
+        setSuccess(false);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            var _a;
+            try {
+                const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                if (binary && typeof binary === 'string') {
+                    const workbook = XLSX.read(binary, { type: 'binary' });
+                    setSheets(workbook.SheetNames);
+                }
+                setLoading(false);
+            }
+            catch (error) {
+                console.error('Error reading Excel file:', error);
+                setError('Error reading Excel file. Please check the file format.');
+                setLoading(false);
+            }
+        };
+        reader.onerror = () => {
+            setError('Error reading the file. Please try again.');
+            setLoading(false);
+        };
+        reader.readAsBinaryString(file);
+    });
     const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
         const files = event.target.files;
         if (files && files[0]) {
@@ -2015,8 +2101,7 @@ const UploadDocumentOHS = (props) => {
         }
     });
     const handleSubmit = () => __awaiter(void 0, void 0, void 0, function* () {
-        if (!file || !selectedSheet) {
-            setError("Please select both a file and a sheet before submitting");
+        if (!validateUpload()) {
             return;
         }
         setLoading(true);
@@ -2081,30 +2166,35 @@ const UploadDocumentOHS = (props) => {
             setLoading(false);
         });
     };
-    return (React.createElement(components_1.WidgetWrapper, null,
-        React.createElement(components_1.TitleBar, { title: 'OHS Data Upload' },
+    return (React.createElement(components_1.WidgetWrapper, { className: "esg-upload-wrapper" },
+        React.createElement(components_1.TitleBar, { title: 'OHS Data Upload', className: "title-bar" },
             React.createElement(components_1.FilterPanel, null)),
         React.createElement("div", { className: "ESGWrapper" },
-            React.createElement("div", { className: "flex items-center space-x-4 border-b pb-4" },
-                React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden", id: "file-upload" }),
-                React.createElement(components_1.Button, { className: "upload", title: "Upload Excel", onClick: () => setShowUploadForm(true) }, "Upload Excel")),
-            showUploadForm && (React.createElement("div", { className: "flex flex-col space-y-4 mt-4" },
-                React.createElement("div", { className: "flex items-center space-x-4" },
-                    React.createElement("label", null, "Selected File"),
-                    file && React.createElement("span", { className: "text-sm text-gray-600" }, file.name)),
-                React.createElement("div", { className: "flex items-details" },
-                    React.createElement("div", { className: "getYears" },
-                        React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
-                sheets.length > 0 && (React.createElement("div", { className: "submitSheet" },
-                    React.createElement("div", { className: "selectSheet" },
-                        React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
-                    React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet, className: "Submit" }, "Submit"))))),
-            success && (React.createElement("div", { className: "text-green-600 bg-green-50 p-4 rounded" },
-                "File \"", file === null || file === void 0 ? void 0 :
-                file.name,
-                "\" uploaded successfully and submitted for approval")),
-            error && (React.createElement("div", { className: "text-red-600 text-sm" }, error)),
-            loading && React.createElement(components_1.Loading, null)),
+            React.createElement("div", { className: "upload-section" },
+                React.createElement("div", { className: "upload-form" },
+                    React.createElement("div", { className: "file-upload-container" }, file ? (React.createElement("div", { className: "file-info" },
+                        React.createElement("div", { className: "file-details" },
+                            React.createElement("span", { className: "file-name" }, file.name),
+                            React.createElement(components_1.IconButton, { type: "close", onClick: handleCancelUpload, className: "cancel-upload", size: "small" })))) : (React.createElement(components_1.FileInput, { value: file, onChange: handleFileChange, className: "esg-file-input", dropAreaIcon: 'file', dropAreaLabel: "Drag and drop your Excel file here or click to browse", preview: {
+                            showName: true,
+                            showPreview: false
+                        } }))),
+                    React.createElement("div", { className: "selection-controls" },
+                        React.createElement("div", { className: "controls-row" },
+                            sheets.length > 0 && (React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Sheet"),
+                                React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" }))),
+                            React.createElement("div", { className: "select-container" },
+                                React.createElement("label", null, "Year"),
+                                React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
+                        sheets.length > 0 && (React.createElement("div", { className: "button-container" },
+                            React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, className: "submit-btn" }, "Submit")))),
+                    success && (React.createElement("div", { className: "success-message" },
+                        "File \"", file === null || file === void 0 ? void 0 :
+                        file.name,
+                        "\" uploaded successfully and submitted for approval")),
+                    error && (React.createElement("div", { className: "error-message" }, error)),
+                    loading && React.createElement(components_1.Loading, null)))),
         React.createElement(components_1.Modal, { show: showEditModel, onClose: () => { setShowEditModel(false), setLoading(false); }, title: "Edit ESG Data" },
             React.createElement("div", { className: "p-4" },
                 error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
@@ -2529,66 +2619,68 @@ const UploadDocumentSocial = (props) => {
     const [showEditModel, setShowEditModel] = (0, react_1.useState)(false);
     const [payload, setPayload] = (0, react_1.useState)();
     const [tableData, setTableData] = (0, react_1.useState)([]);
-    const handleDragOver = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsDragging(true);
-    };
-    const handleDragLeave = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsDragging(false);
-    };
-    const handleDrop = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsDragging(false);
-        const files = e.dataTransfer.files;
-        if (files && files[0]) {
-            const file = files[0];
-            if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
-                file.type === 'application/vnd.ms-excel') {
-                handleFileUpload({ target: { files: [file] } });
-            }
-            else {
-                setError('Please upload only Excel files (.xlsx or .xls)');
-            }
+    const handleFileChange = (file, isValid) => __awaiter(void 0, void 0, void 0, function* () {
+        if (!isValid) {
+            setError('Please upload only Excel files (.xlsx or .xls)');
+            return;
         }
-    };
-    const handleFileUpload = (event) => __awaiter(void 0, void 0, void 0, function* () {
-        const files = event.target.files;
-        if (files && files[0]) {
-            setFile(files[0]);
-            setError(null);
-            setLoading(true);
-            setSuccess(false);
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                var _a;
-                try {
-                    const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
-                    if (binary && typeof binary === 'string') {
-                        const workbook = XLSX.read(binary, { type: 'binary' });
-                        setSheets(workbook.SheetNames);
-                    }
-                    setLoading(false);
+        setFile(file);
+        setError(null);
+        setLoading(true);
+        setSuccess(false);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            var _a;
+            try {
+                const binary = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                if (binary && typeof binary === 'string') {
+                    const workbook = XLSX.read(binary, { type: 'binary' });
+                    setSheets(workbook.SheetNames);
                 }
-                catch (error) {
-                    console.error('Error reading Excel file:', error);
-                    setError('Error reading Excel file. Please check the file format.');
-                    setLoading(false);
-                }
-            };
-            reader.onerror = () => {
-                setError('Error reading the file. Please try again.');
                 setLoading(false);
-            };
-            reader.readAsBinaryString(files[0]);
+            }
+            catch (error) {
+                console.error('Error reading Excel file:', error);
+                setError('Error reading Excel file. Please check the file format.');
+                setLoading(false);
+            }
+        };
+        reader.onerror = () => {
+            setError('Error reading the file. Please try again.');
+            setLoading(false);
+        };
+        reader.readAsBinaryString(file);
+    });
+    const validateUpload = () => {
+        if (!file) {
+            setError("Please select a file to upload");
+            return false;
         }
+        if (sheets.length === 0) {
+            setError("No sheets found in the uploaded file");
+            return false;
+        }
+        if (!selectedSheet) {
+            setError("Please select a sheet from the dropdown");
+            return false;
+        }
+        if (!selectedMonth) {
+            setError("Please select a month");
+            return false;
+        }
+        if (!selectedYear) {
+            setError("Please select a year");
+            return false;
+        }
+        return true;
+    };
+    const handleCancelUpload = () => __awaiter(void 0, void 0, void 0, function* () {
+        setFile(null);
+        setSelectedSheet("");
+        setSheets([]);
     });
     const handleSubmit = () => __awaiter(void 0, void 0, void 0, function* () {
-        if (!file || !selectedSheet) {
-            setError("Please select both a file and a sheet before submitting");
+        if (!validateUpload()) {
             return;
         }
         setLoading(true);
@@ -2652,48 +2744,39 @@ const UploadDocumentSocial = (props) => {
             setLoading(false);
         });
     };
-    return (React.createElement(components_1.WidgetWrapper, null,
-        React.createElement(components_1.TitleBar, { title: 'Social Data Upload' },
+    return (React.createElement(components_1.WidgetWrapper, { className: "esg-upload-wrapper" },
+        React.createElement(components_1.TitleBar, { title: 'Social Data Upload', className: "title-bar" },
             React.createElement(components_1.FilterPanel, null)),
-        React.createElement("div", { className: "ESGWrapper" },
-            React.createElement("div", { className: "upload-section" },
-                React.createElement("div", { className: "upload-form" },
-                    React.createElement("div", { className: "file-upload-container" },
-                        React.createElement("div", { className: `drag-drop-area ${isDragging ? 'dragging' : ''} ${file ? 'has-file' : ''}`, onDragOver: handleDragOver, onDragLeave: handleDragLeave, onDrop: handleDrop },
-                            React.createElement("div", { className: "upload-icon" },
-                                React.createElement("i", { className: "fas fa-cloud-upload-alt" })),
-                            React.createElement("div", { className: "upload-text" },
-                                React.createElement("p", null, "Drag and drop your Excel file here"),
-                                React.createElement("p", null, "or"),
-                                React.createElement("label", { htmlFor: "file-upload", className: "custom-file-upload" }, "Browse Files")),
-                            React.createElement("input", { type: "file", accept: ".xlsx,.xls", onChange: handleFileUpload, className: "hidden-input", id: "file-upload" }),
-                            file && (React.createElement("div", { className: "file-info" },
+        React.createElement("div", { className: "esg-content-wrapper" },
+            React.createElement("div", { className: "ESGWrapper" },
+                React.createElement("div", { className: "upload-section" },
+                    React.createElement("div", { className: "upload-form" },
+                        React.createElement("div", { className: "file-upload-container" }, file ? (React.createElement("div", { className: "file-info" },
+                            React.createElement("div", { className: "file-details" },
                                 React.createElement("span", { className: "file-name" }, file.name),
-                                React.createElement("button", { className: "remove-file", onClick: (e) => {
-                                        e.stopPropagation();
-                                        setFile(null);
-                                        setSheets([]);
-                                        setSelectedSheet("");
-                                    } }))))),
-                    React.createElement("div", { className: "selection-controls" },
-                        React.createElement("div", { className: "date-selectors" },
-                            React.createElement("div", { className: "select-container" },
-                                React.createElement("label", null, "Month"),
-                                React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
-                            React.createElement("div", { className: "select-container" },
-                                React.createElement("label", null, "Year"),
-                                React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
-                        sheets.length > 0 && (React.createElement("div", { className: "sheet-selection" },
-                            React.createElement("div", { className: "select-container" },
-                                React.createElement("label", null, "Sheet"),
-                                React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" })),
-                            React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, disabled: !selectedSheet, className: "submit-btn" }, "Submit")))),
-                    success && (React.createElement("div", { className: "success-message" },
-                        "File \"", file === null || file === void 0 ? void 0 :
-                        file.name,
-                        "\" uploaded successfully and submitted for approval")),
-                    error && (React.createElement("div", { className: "error-message" }, error)),
-                    loading && React.createElement(components_1.Loading, null)))),
+                                React.createElement(components_1.IconButton, { type: "close", onClick: handleCancelUpload, className: "cancel-upload", size: "small" })))) : (React.createElement(components_1.FileInput, { value: file, onChange: handleFileChange, className: "esg-file-input", dropAreaIcon: 'file', dropAreaLabel: "Drag and drop your Excel file here or click to browse", preview: {
+                                showName: true,
+                                showPreview: false
+                            } }))),
+                        React.createElement("div", { className: "selection-controls" },
+                            React.createElement("div", { className: "controls-row" },
+                                sheets.length > 0 && (React.createElement("div", { className: "select-container" },
+                                    React.createElement("label", null, "Sheet"),
+                                    React.createElement(components_1.Select, { options: sheets.map(sheet => ({ label: sheet, value: sheet })), selected: selectedSheet, onChange: (value) => setSelectedSheet(value), placeholder: "Select Sheet" }))),
+                                React.createElement("div", { className: "select-container" },
+                                    React.createElement("label", null, "Month"),
+                                    React.createElement(components_1.Select, { options: getMonths(), selected: selectedMonth, onChange: (value) => setSelectedMonth(value), placeholder: "Select Month" })),
+                                React.createElement("div", { className: "select-container" },
+                                    React.createElement("label", null, "Year"),
+                                    React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
+                            sheets.length > 0 && (React.createElement("div", { className: "button-container" },
+                                React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, className: "submit-btn" }, "Submit")))),
+                        success && (React.createElement("div", { className: "success-message" },
+                            "File \"", file === null || file === void 0 ? void 0 :
+                            file.name,
+                            "\" uploaded successfully and submitted for approval")),
+                        error && (React.createElement("div", { className: "error-message" }, error)),
+                        loading && React.createElement(components_1.Loading, null))))),
         React.createElement(components_1.Modal, { show: showEditModel, onClose: () => {
                 setShowEditModel(false);
                 setLoading(false);

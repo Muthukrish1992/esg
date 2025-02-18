@@ -16,6 +16,8 @@ import {
     CRUDComponent,
     CRUDComponentInstanceProps,
     ActionResponse,
+    FileInput,
+    IconButton,
 } from "uxp/components";
 import * as XLSX from 'xlsx';
 import './uploadstyles.scss'
@@ -180,43 +182,74 @@ const UploadDocumentGovernance: React.FunctionComponent<IWidgetProps> = (props) 
             crudRef.current.refresh();
         }
     };
-
-    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-        if (files && files[0]) {
-            setFile(files[0]);
-            setError(null);
-            setLoading(true);
-            setSuccess(false);
-
-            const reader = new FileReader();
-            reader.onload = (e: ProgressEvent<FileReader>) => {
-                try {
-                    const binary = e.target?.result;
-                    if (binary && typeof binary === 'string') {
-                        const workbook = XLSX.read(binary, { type: 'binary' });
-                        setSheets(workbook.SheetNames);
-                    }
-                    setLoading(false);
-                } catch (error) {
-                    console.error('Error reading Excel file:', error);
-                    setError('Error reading Excel file. Please check the file format.');
-                    setLoading(false);
-                }
-            };
-            reader.onerror = () => {
-                setError('Error reading the file. Please try again.');
-                setLoading(false);
-            };
-            reader.readAsBinaryString(files[0]);
+    const validateUpload = (): boolean => {
+        if (!file) {
+            setError("Please select a file to upload");
+            return false;
         }
-    };
 
-    const handleSubmit = async () => {
-        if (!file || !selectedSheet) {
-            setError("Please select both a file and a sheet before submitting");
+        if (sheets.length === 0) {
+            setError("No sheets found in the uploaded file");
+            return false;
+        }
+
+        if (!selectedSheet) {
+            setError("Please select a sheet from the dropdown");
+            return false;
+        }
+
+
+        if (!selectedYear) {
+            setError("Please select a year");
+            return false;
+        }
+
+        return true;
+    };
+    const handleCancelUpload = async () =>{
+        setFile(null)
+        setSelectedSheet("");
+        setSheets([]);
+    }
+    const handleFileChange = async (file: File, isValid: boolean) => {
+        if (!isValid) {
+            setError('Please upload only Excel files (.xlsx or .xls)');
             return;
         }
+
+        setFile(file);
+        setError(null);
+        setLoading(true);
+        setSuccess(false);
+
+        const reader = new FileReader();
+        reader.onload = (e: ProgressEvent<FileReader>) => {
+            try {
+                const binary = e.target?.result;
+                if (binary && typeof binary === 'string') {
+                    const workbook = XLSX.read(binary, { type: 'binary' });
+                    setSheets(workbook.SheetNames);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error('Error reading Excel file:', error);
+                setError('Error reading Excel file. Please check the file format.');
+                setLoading(false);
+            }
+        };
+        reader.onerror = () => {
+            setError('Error reading the file. Please try again.');
+            setLoading(false);
+        };
+        reader.readAsBinaryString(file);
+    };
+
+
+    const handleSubmit = async () => {
+        if (!validateUpload()) {
+            return;
+        }
+
 
         setLoading(true);
         setError(null);
@@ -290,95 +323,108 @@ const UploadDocumentGovernance: React.FunctionComponent<IWidgetProps> = (props) 
     };
 
     return (
-        <WidgetWrapper>
-            <TitleBar title='Governance Data Upload'>
+        <WidgetWrapper className="esg-upload-wrapper">
+            <TitleBar title='Governance Data Upload' className="title-bar">
                 <FilterPanel>
                 </FilterPanel>
             </TitleBar>
             <div className="ESGWrapper">
-                <div className="flex items-center space-x-4 border-b pb-4">
-                    <input
-                        type="file"
-                        accept=".xlsx,.xls"
-                        onChange={handleFileUpload}
-                        className="hidden"
-                        id="file-upload"
-                    />
-                    <Button
-                    className="upload"
-                        title="Upload Excel"
-                        onClick={() => setShowUploadForm(true)}
-                    >
-                        Upload Excel
-                    </Button>
-
-                </div>
-
-                {showUploadForm && (
-                    <div className="flex flex-col space-y-4 mt-4">
-                        <div className="flex items-center space-x-4">
-                            <label>
-                                Selected File
-                            </label>
-                            
-                            {file && <span className="text-sm text-gray-600">{file.name}</span>}
-                        </div>
-
-                        <div className="flex items-details">
-                            <div className="getMonths">
-                                <Select
-                                    options={getMonths()}
-                                    selected={selectedMonth}
-                                    onChange={(value) => setSelectedMonth(value as string)}
-                                    placeholder="Select Month"
-                                />
-                            </div>
-                            <div className="getYears">
-                                <Select
-                                    options={getYears()}
-                                    selected={selectedYear}
-                                    onChange={(value) => setSelectedYear(value as string)}
-                                    placeholder="Select Year"
-                                />
-                            </div>
-                        </div>
-
-                        {sheets.length > 0 && (
-                            <div className="submitSheet">
-                                <div className="selectSheet">
-                                    <Select
-                                        options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
-                                        selected={selectedSheet}
-                                        onChange={(value) => setSelectedSheet(value as string)}
-                                        placeholder="Select Sheet"
+            <div className="upload-section">
+                        <div className="upload-form">
+                            <div className="file-upload-container">
+                                {file ? (
+                                    <div className="file-info">
+                                        <div className="file-details">
+                                            <span className="file-name">{file.name}</span>
+                                            <IconButton
+                                                type="close"
+                                                onClick={handleCancelUpload}
+                                                className="cancel-upload"
+                                                size="small"
+                                            />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <FileInput
+                                        value={file}
+                                        onChange={handleFileChange}
+                                        
+                                        className="esg-file-input"
+                                        dropAreaIcon={'file'}
+                                        dropAreaLabel="Drag and drop your Excel file here or click to browse"
+                                        preview={{
+                                            showName: true,
+                                            showPreview: false
+                                        }}
                                     />
-                                </div>
-                                <Button
-                                    title="Submit"
-                                    onClick={handleSubmit}
-                                    disabled={!selectedSheet}
-                                    className="Submit"
-                                >
-                                    Submit
-                                </Button>
+                                )}
                             </div>
-                        )}
-                    </div>
-                )}
 
-                {success && (
-                    <div className="text-green-600 bg-green-50 p-4 rounded">
-                        File "{file?.name}" uploaded successfully and submitted for approval
-                    </div>
-                )}
+                            <div className="selection-controls">
+                                <div className="controls-row">
+                                {sheets.length > 0 && (
+                                        <div className="select-container">
+                                            <label>Sheet</label>
+                                            <Select
+                                                options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
+                                                selected={selectedSheet}
+                                                onChange={(value) => setSelectedSheet(value as string)}
+                                                placeholder="Select Sheet"
+                                                
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="select-container">
+                                        <label>Month</label>
+                                        <Select
+                                            options={getMonths()}
+                                            selected={selectedMonth}
+                                            onChange={(value) => setSelectedMonth(value as string)}
+                                            placeholder="Select Month"
+                                           
+                                        />
+                                    </div>
+                                    <div className="select-container">
+                                        <label>Year</label>
+                                        <Select
+                                            options={getYears()}
+                                            selected={selectedYear}
+                                            onChange={(value) => setSelectedYear(value as string)}
+                                            placeholder="Select Year"
+                                            
+                                        />
+                                    </div>
 
-                {error && (
-                    <div className="text-red-600 text-sm">
-                        {error}
-                    </div>
-                )}
+                                </div>
+                                {sheets.length > 0 && (
+                                    <div className="button-container">
+                                        <Button
+                                            title="Submit"
+                                            onClick={handleSubmit}
+                                            className="submit-btn"
+                                        >
+                                            Submit
+                                        </Button>
+                                    </div>
+                                )}
+                            </div>
 
-                {loading && <Loading />}
+                            {success && (
+                                <div className="success-message">
+                                    File "{file?.name}" uploaded successfully and submitted for approval
+                                </div>
+                            )}
+
+                            {error && (
+                                <div className="error-message">
+                                    {error}
+                                </div>
+                            )}
+
+                            {loading && <Loading />}
+                        </div>
+                    </div>
+
             </div>
             <Modal show={showEditModel}
                 onClose={() => {setShowEditModel(false),setLoading(false)}}
