@@ -190,6 +190,21 @@ const OHSDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
             }
         })
     };
+    const handleDelete = (activity: Document) => {
+        alert.confirm(`Do you want to delete transaction ${activity.TransactionID}?`)
+            .then((hasConfirmed: any) => {
+                if(hasConfirmed) {
+                    props.uxpContext.executeAction('ESG', 'deleteOHSTransaction', { TransactionID: activity.TransactionID }, {})
+                        .then((res) => {
+                            alert.show(`Deleted transaction: ${activity.TransactionID}`);
+                            fetchDocuments(); // Refresh the list after deletion
+                        })
+                        .catch((error) => {
+                            alert.show(`Error deleting transaction: ${error}`);
+                        });
+                }
+            });
+    };
     const renderContent = () => {
         if (loading) {
             return <Loading />;
@@ -239,6 +254,11 @@ const OHSDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
                                             }}
                                             className="action-button"
                                             disabled={doc.Status === 'Approved'}
+                                        />
+                                        <Button
+                                            title="Delete Document"
+                                            onClick={() => handleDelete(doc)}
+                                            className="delete-button"
                                         />
                                     </td>
                                 </tr>

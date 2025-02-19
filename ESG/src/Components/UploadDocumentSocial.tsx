@@ -142,7 +142,7 @@ const processExcelData = (worksheet: XLSX.WorkSheet): TableData[] => {
             processedData.push(rowData);
         }
     }
-
+    console.log("processedData",processedData)
     return processedData;
 };
 
@@ -298,12 +298,12 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
             setFile(null);
             setSelectedSheet("");
             setSheets([]);
-            alert.show('Success', 'Data successfully submitted for approval');
+            alert.show('Document successfully submitted for approval');
             setShowEditModel(false);
         })
         .catch((error) => {
             console.error('Error executing action:', error);
-            alert.show(`Error sending data to server.${error}`);
+            alert.show(`${error}`);
         })
         .finally(() => {
             setLoading(false);
@@ -400,7 +400,7 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
 
                             {success && (
                                 <div className="success-message">
-                                    File "{file?.name}" uploaded successfully and submitted for approval
+                                    Document successfully and submitted for approval
                                 </div>
                             )}
 
@@ -431,7 +431,7 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                     )}
                     {success ? (
                         <div className="p-4 bg-green-50 text-green-600 rounded">
-                            Data successfully submitted for approval
+                            Document successfully submitted for approval
                         </div>
                     ) : (
                         <>
@@ -566,8 +566,8 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                                         { id: 'ActivityGroup', label: 'Group' },
                                         { id: 'Value', label: 'Total Value' },
                                         { id: 'MaleValue', label: 'Male Value' },
-                                        { id: 'FemaleValue', label: 'Female Value' }
-                                    ]
+                                        { id: 'FemaleValue', label: 'Female Value' },
+                                    ],
                                 }}
                             />
                             <div className="mt-4 flex justify-end">

@@ -11,7 +11,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, ".widget-wrapper {\n  padding: 0 !important;\n}\n\n.approval-table-container {\n  height: calc(100vh - 130px);\n  overflow: auto;\n  padding: 1rem;\n}\n.approval-table-container table {\n  width: 100%;\n  border-collapse: collapse;\n  background: white;\n}\n.approval-table-container thead {\n  top: 0;\n  z-index: 1;\n  background: white;\n}\n.approval-table-container th {\n  background: #f3f4f6;\n  padding: 12px;\n  text-align: left;\n  border: 1px solid #e5e7eb;\n}\n.approval-table-container td {\n  padding: 12px;\n  border: 1px solid #e5e7eb;\n}\n.approval-table-container tr:hover {\n  background-color: #f9fafb;\n}\n\n.approve-all-button {\n  margin-bottom: 1rem;\n}\n\n.no-documents-message {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 200px;\n  color: #6b7280;\n}\n\n.filter-panel {\n  padding: 1rem;\n  background: white;\n  border-bottom: 1px solid #e5e7eb;\n}\n\n.governance-approval-widget, .OHS-approval-widget, .social-approval-widget {\n  padding: 20px;\n}\n.governance-approval-widget .approval-table-container, .OHS-approval-widget .approval-table-container, .social-approval-widget .approval-table-container {\n  margin-top: 20px;\n}\n.governance-approval-widget .approval-header, .OHS-approval-widget .approval-header, .social-approval-widget .approval-header {\n  margin-bottom: 16px;\n}\n.governance-approval-widget .approval-header .approve-all-button, .OHS-approval-widget .approval-header .approve-all-button, .social-approval-widget .approval-header .approve-all-button {\n  background-color: #4CAF50;\n  color: white;\n}\n.governance-approval-widget .approval-header .approve-all-button:hover, .OHS-approval-widget .approval-header .approve-all-button:hover, .social-approval-widget .approval-header .approve-all-button:hover {\n  background-color: #45a049;\n}\n.governance-approval-widget .table-wrapper, .OHS-approval-widget .table-wrapper, .social-approval-widget .table-wrapper {\n  overflow-x: auto;\n}\n.governance-approval-widget .approval-table, .OHS-approval-widget .approval-table, .social-approval-widget .approval-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n.governance-approval-widget .approval-table th, .governance-approval-widget .approval-table td, .OHS-approval-widget .approval-table th, .OHS-approval-widget .approval-table td, .social-approval-widget .approval-table th, .social-approval-widget .approval-table td {\n  padding: 12px;\n  border: 1px solid #ddd;\n  text-align: left;\n}\n.governance-approval-widget .approval-table th, .OHS-approval-widget .approval-table th, .social-approval-widget .approval-table th {\n  background-color: #f5f5f5;\n  font-weight: 600;\n}\n.governance-approval-widget .approval-table tr:hover, .OHS-approval-widget .approval-table tr:hover, .social-approval-widget .approval-table tr:hover {\n  background-color: #f9f9f9;\n}\n.governance-approval-widget .approval-table .action-button, .OHS-approval-widget .approval-table .action-button, .social-approval-widget .approval-table .action-button {\n  background-color: #2196F3;\n  color: white;\n}\n.governance-approval-widget .approval-table .action-button:disabled, .OHS-approval-widget .approval-table .action-button:disabled, .social-approval-widget .approval-table .action-button:disabled {\n  background-color: #cccccc;\n  cursor: not-allowed;\n}\n.governance-approval-widget .approval-table .action-button:hover:not(:disabled), .OHS-approval-widget .approval-table .action-button:hover:not(:disabled), .social-approval-widget .approval-table .action-button:hover:not(:disabled) {\n  background-color: #1976D2;\n}\n.governance-approval-widget .no-documents-message, .OHS-approval-widget .no-documents-message, .social-approval-widget .no-documents-message {\n  text-align: center;\n  padding: 20px;\n  color: #666;\n}\n\n.activity-modal {\n  padding: 20px;\n}\n.activity-modal .activity-details {\n  margin-bottom: 24px;\n}\n.activity-modal .activity-details .modal-title {\n  font-size: 1.25rem;\n  font-weight: 600;\n  margin-bottom: 16px;\n}\n.activity-modal .activity-details .details-grid {\n  display: grid;\n  gap: 12px;\n}\n.activity-modal .activity-details .detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.activity-modal .activity-details .detail-row .detail-label {\n  font-weight: 500;\n  color: #666;\n}\n.activity-modal .activity-details .detail-row .detail-value {\n  color: #333;\n}\n.activity-modal .modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 24px;\n}\n.activity-modal .modal-actions .reject-button {\n  background-color: #f44336;\n  color: white;\n}\n.activity-modal .modal-actions .reject-button:hover {\n  background-color: #d32f2f;\n}\n.activity-modal .modal-actions .approve-button {\n  background-color: #4CAF50;\n  color: white;\n}\n.activity-modal .modal-actions .approve-button:hover {\n  background-color: #45a049;\n}", ""]);
+exports.push([module.id, ".widget-wrapper {\n  padding: 0 !important;\n}\n\n.approval-table-container {\n  height: calc(100vh - 130px);\n  overflow: auto;\n  padding: 1rem;\n}\n.approval-table-container table {\n  width: 100%;\n  border-collapse: collapse;\n  background: white;\n}\n.approval-table-container thead {\n  top: 0;\n  z-index: 1;\n  background: white;\n}\n.approval-table-container th {\n  background: #f3f4f6;\n  padding: 12px;\n  text-align: left;\n  border: 1px solid #e5e7eb;\n}\n.approval-table-container td {\n  padding: 12px;\n  border: 1px solid #e5e7eb;\n}\n.approval-table-container tr:hover {\n  background-color: #f9fafb;\n}\n\n.approve-all-button {\n  margin-bottom: 1rem;\n}\n\n.delete-button {\n  margin-left: 3%;\n  background-color: #d32f2f;\n  color: #fff;\n}\n\n.no-documents-message {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 200px;\n  color: #6b7280;\n}\n\n.filter-panel {\n  padding: 1rem;\n  background: white;\n  border-bottom: 1px solid #e5e7eb;\n}\n\n.governance-approval-widget, .OHS-approval-widget, .social-approval-widget {\n  padding: 20px;\n}\n.governance-approval-widget .approval-table-container, .OHS-approval-widget .approval-table-container, .social-approval-widget .approval-table-container {\n  margin-top: 20px;\n}\n.governance-approval-widget .approval-header, .OHS-approval-widget .approval-header, .social-approval-widget .approval-header {\n  margin-bottom: 16px;\n}\n.governance-approval-widget .approval-header .approve-all-button, .OHS-approval-widget .approval-header .approve-all-button, .social-approval-widget .approval-header .approve-all-button {\n  background-color: #4CAF50;\n  color: white;\n}\n.governance-approval-widget .approval-header .approve-all-button:hover, .OHS-approval-widget .approval-header .approve-all-button:hover, .social-approval-widget .approval-header .approve-all-button:hover {\n  background-color: #45a049;\n}\n.governance-approval-widget .table-wrapper, .OHS-approval-widget .table-wrapper, .social-approval-widget .table-wrapper {\n  overflow-x: auto;\n}\n.governance-approval-widget .approval-table, .OHS-approval-widget .approval-table, .social-approval-widget .approval-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n.governance-approval-widget .approval-table th, .governance-approval-widget .approval-table td, .OHS-approval-widget .approval-table th, .OHS-approval-widget .approval-table td, .social-approval-widget .approval-table th, .social-approval-widget .approval-table td {\n  padding: 12px;\n  border: 1px solid #ddd;\n  text-align: left;\n}\n.governance-approval-widget .approval-table th, .OHS-approval-widget .approval-table th, .social-approval-widget .approval-table th {\n  background-color: #f5f5f5;\n  font-weight: 600;\n}\n.governance-approval-widget .approval-table tr:hover, .OHS-approval-widget .approval-table tr:hover, .social-approval-widget .approval-table tr:hover {\n  background-color: #f9f9f9;\n}\n.governance-approval-widget .approval-table .action-button, .OHS-approval-widget .approval-table .action-button, .social-approval-widget .approval-table .action-button {\n  background-color: #2196F3;\n  color: white;\n}\n.governance-approval-widget .approval-table .action-button:disabled, .OHS-approval-widget .approval-table .action-button:disabled, .social-approval-widget .approval-table .action-button:disabled {\n  background-color: #cccccc;\n  cursor: not-allowed;\n}\n.governance-approval-widget .approval-table .action-button:hover:not(:disabled), .OHS-approval-widget .approval-table .action-button:hover:not(:disabled), .social-approval-widget .approval-table .action-button:hover:not(:disabled) {\n  background-color: #1976D2;\n}\n.governance-approval-widget .no-documents-message, .OHS-approval-widget .no-documents-message, .social-approval-widget .no-documents-message {\n  text-align: center;\n  padding: 20px;\n  color: #666;\n}\n\n.activity-modal {\n  padding: 20px;\n}\n.activity-modal .activity-details {\n  margin-bottom: 24px;\n}\n.activity-modal .activity-details .modal-title {\n  font-size: 1.25rem;\n  font-weight: 600;\n  margin-bottom: 16px;\n}\n.activity-modal .activity-details .details-grid {\n  display: grid;\n  gap: 12px;\n}\n.activity-modal .activity-details .detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.activity-modal .activity-details .detail-row .detail-label {\n  font-weight: 500;\n  color: #666;\n}\n.activity-modal .activity-details .detail-row .detail-value {\n  color: #333;\n}\n.activity-modal .modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 24px;\n}\n.activity-modal .modal-actions .reject-button {\n  background-color: #f44336;\n  color: white;\n}\n.activity-modal .modal-actions .reject-button:hover {\n  background-color: #d32f2f;\n}\n.activity-modal .modal-actions .approve-button {\n  background-color: #4CAF50;\n  color: white;\n}\n.activity-modal .modal-actions .approve-button:hover {\n  background-color: #45a049;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -28,7 +28,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.id, ".title-bar {\n  padding: 16px 24px;\n  border-bottom: 1px solid #eef0f2;\n}\n.title-bar h1 {\n  font-size: 18px;\n  font-weight: 500;\n  color: #2d3748;\n}\n\n.esg-upload-wrapper {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  background-color: #fff;\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n}\n.esg-upload-wrapper .esg-content-wrapper {\n  flex: 1;\n  padding: 24px;\n  background-color: #fff;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar {\n  width: 6px;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar-track {\n  background: #f7fafc;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar-thumb {\n  background: #cbd5e0;\n  border-radius: 3px;\n}\n\n.ESGWrapper {\n  padding: 20px;\n  min-height: 100%;\n}\n.ESGWrapper .upload-section .upload-form {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n  border-radius: 8px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container {\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container {\n  width: 100%;\n  height: 100px;\n  background-color: #ebf8ff !important;\n  border-radius: 10px;\n  margin-top: 10px;\n  position: relative;\n  z-index: 1;\n  border: 2px dashed #4299e1 !important;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container:hover {\n  background-color: #bee3f8 !important;\n  border-color: #3182ce !important;\n  cursor: pointer;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container .drop-text {\n  color: #2b6cb0 !important;\n  font-size: 14px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container .file-icon {\n  color: #2b6cb0 !important;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container.has-file .input-container {\n  background-color: #ebf8ff !important;\n  border-color: #4299e1 !important;\n}\n.ESGWrapper .upload-section .upload-form .file-info {\n  border: 2px solid #4299e1;\n  padding: 15px;\n  border-radius: 8px;\n  background: #ebf8ff;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .file-name {\n  flex: 1;\n  word-break: break-all;\n  color: #2b6cb0;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .cancel-upload {\n  flex-shrink: 0;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .cancel-upload:hover {\n  background-color: #fed7d7;\n  color: #e53e3e;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .controls-row {\n  display: grid;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container {\n  flex: 1;\n  min-width: 200px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container label {\n  display: block;\n  margin-bottom: 8px;\n  color: #4a5568;\n  font-size: 14px;\n  font-weight: 500;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) {\n  border: 1px solid #e2e8f0;\n  border-radius: 6px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper):hover {\n  border-color: #4299e1;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options {\n  border: 1px solid #e2e8f0;\n  border-radius: 6px;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  max-height: 200px;\n  overflow-y: auto;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar {\n  width: 8px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 4px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container {\n  display: flex;\n  justify-content: center;\n  margin-top: 24px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container .submit-btn {\n  background: #4299e1;\n  color: white;\n  padding: 8px 24px;\n  border-radius: 6px;\n  font-weight: 500;\n  transition: all 0.2s;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container .submit-btn:hover {\n  background: #3182ce;\n}\n.ESGWrapper .upload-section .upload-form .success-message {\n  padding: 16px;\n  background-color: #c6f6d5;\n  color: #2f855a;\n  border-radius: 6px;\n  margin-top: 16px;\n  font-size: 14px;\n}\n.ESGWrapper .upload-section .upload-form .error-message {\n  padding: 16px;\n  background-color: #fed7d7;\n  color: #c53030;\n  border-radius: 6px;\n  margin-top: 16px;\n  font-size: 14px;\n}\n\n:global(.modal-dialog) {\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);\n}\n:global(.modal-dialog) .modal-header {\n  padding: 16px 24px;\n  border-bottom: 1px solid #e2e8f0;\n}\n:global(.modal-dialog) .modal-header .modal-title {\n  font-size: 18px;\n  color: #2d3748;\n}\n:global(.modal-dialog) .modal-content {\n  padding: 24px;\n  flex: 1;\n  overflow-y: auto;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar {\n  width: 8px;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 4px;\n}\n:global(.modal-dialog) .modal-content::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n:global(.modal-dialog) .modal-content .approve {\n  background: #4299e1;\n  color: white;\n  padding: 8px 24px;\n  border-radius: 6px;\n  font-weight: 500;\n}\n:global(.modal-dialog) .modal-content .approve:hover {\n  background: #3182ce;\n}", ""]);
+exports.push([module.id, ".uxp-widget-title-bar .title-section {\n  color: white;\n}\n\n.title-bar {\n  padding: 16px 24px;\n  border-bottom: 1px solid #eef0f2;\n  background-color: #4db09a;\n}\n.title-bar h1 {\n  font-size: 18px;\n  font-weight: 500;\n  color: #ffffff;\n}\n\n.mt-4.flex.justify-end .approve {\n  background-color: #4db09a;\n  color: #fff;\n}\n.mt-4.flex.justify-end .approve:hover {\n  border-color: #38a169 !important;\n  cursor: pointer;\n}\n\n.esg-upload-wrapper {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  background-color: #fff;\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n}\n.esg-upload-wrapper .esg-content-wrapper {\n  flex: 1;\n  padding: 24px;\n  background-color: #fff;\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar {\n  width: 6px;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar-track {\n  background: #f7fafc;\n}\n.esg-upload-wrapper .esg-content-wrapper::-webkit-scrollbar-thumb {\n  background: #cbd5e0;\n  border-radius: 3px;\n}\n\n.ESGWrapper {\n  padding: 20px;\n  min-height: 100%;\n}\n.ESGWrapper .upload-section .upload-form {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n  border-radius: 8px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container {\n  margin-bottom: 20px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container {\n  width: 100%;\n  height: 100px;\n  background-color: #f0fff4 !important;\n  border-radius: 10px;\n  margin-top: 10px;\n  position: relative;\n  z-index: 1;\n  border: 2px dashed #48bb78 !important;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container:hover {\n  background-color: #e6ffed !important;\n  border-color: #38a169 !important;\n  cursor: pointer;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container .drop-text {\n  color: #2f855a !important;\n  font-size: 14px;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container .input-container .file-icon {\n  color: #2f855a !important;\n}\n.ESGWrapper .upload-section .upload-form .uxp-file-input-container.has-file .input-container {\n  background-color: #f0fff4 !important;\n  border-color: #48bb78 !important;\n}\n.ESGWrapper .upload-section .upload-form .file-info {\n  border: 2px solid #48bb78;\n  padding: 15px;\n  border-radius: 8px;\n  background: #f0fff4;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .file-name {\n  flex: 1;\n  word-break: break-all;\n  color: #2f855a;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .cancel-upload {\n  flex-shrink: 0;\n}\n.ESGWrapper .upload-section .upload-form .file-info .file-details .cancel-upload:hover {\n  background-color: #fed7d7;\n  color: #e53e3e;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .controls-row {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 15%;\n  margin-bottom: 40px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container {\n  flex: 1;\n  min-width: 10%;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container label {\n  display: block;\n  margin-bottom: 8px;\n  color: #4a5568;\n  font-size: 14px;\n  font-weight: 500;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) {\n  border: 1px solid #e2e8f0;\n  border-radius: 6px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper):hover {\n  border-color: #48bb78;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .select-container :global(.select-wrapper) .select-options {\n  border: 1px solid #e2e8f0;\n  border-radius: 6px;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  max-height: 200px;\n  overflow-y: auto;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container {\n  display: flex;\n  justify-content: center;\n  margin-top: 24px;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container .submit-btn {\n  background: #038f70;\n  color: white;\n  padding: 8px 24px;\n  border-radius: 6px;\n  font-weight: 500;\n  transition: all 0.2s;\n}\n.ESGWrapper .upload-section .upload-form .selection-controls .button-container .submit-btn:hover {\n  background: #005b47;\n}\n.ESGWrapper .upload-section .upload-form .success-message {\n  padding: 16px;\n  background-color: #c6f6d5;\n  color: #2f855a;\n  border-radius: 6px;\n  margin-top: 16px;\n  font-size: 14px;\n}\n.ESGWrapper .upload-section .upload-form .error-message {\n  padding: 16px;\n  background-color: #fed7d7;\n  color: #c53030;\n  border-radius: 6px;\n  margin-top: 16px;\n  font-size: 14px;\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -700,6 +700,21 @@ const GovernanceDataApproval = (props) => {
             }
         });
     };
+    const handleDelete = (activity) => {
+        alert.confirm(`Do you want to delete transaction ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'deleteGovernanceTransaction', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    alert.show(`Deleted transaction: ${activity.TransactionID}`);
+                    fetchDocuments(); // Refresh the list after deletion
+                })
+                    .catch((error) => {
+                    alert.show(`Error deleting transaction: ${error}`);
+                });
+            }
+        });
+    };
     const renderContent = () => {
         if (loading) {
             return react_1.default.createElement(components_1.Loading, null);
@@ -730,7 +745,8 @@ const GovernanceDataApproval = (props) => {
                                     setSelectedDocument(doc);
                                     fetchTransactionDetails(doc.TransactionID);
                                     setShowApprovalDocument(true);
-                                }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
+                                }, className: "action-button", disabled: doc.Status === 'Approved' }),
+                            react_1.default.createElement(components_1.Button, { title: "Delete Document", onClick: () => handleDelete(doc), className: "delete-button" }))))))))));
     };
     return (react_1.default.createElement(components_1.WidgetWrapper, { className: "governance-approval-widget" },
         react_1.default.createElement(components_1.TitleBar, { title: 'Governance Document Approval', className: "title-bar" },
@@ -989,6 +1005,21 @@ const OHSDataApproval = (props) => {
             }
         });
     };
+    const handleDelete = (activity) => {
+        alert.confirm(`Do you want to delete transaction ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'deleteOHSTransaction', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    alert.show(`Deleted transaction: ${activity.TransactionID}`);
+                    fetchDocuments(); // Refresh the list after deletion
+                })
+                    .catch((error) => {
+                    alert.show(`Error deleting transaction: ${error}`);
+                });
+            }
+        });
+    };
     const renderContent = () => {
         if (loading) {
             return react_1.default.createElement(components_1.Loading, null);
@@ -1017,7 +1048,8 @@ const OHSDataApproval = (props) => {
                                     setSelectedDocument(doc);
                                     fetchTransactionDetails(doc.TransactionID);
                                     setShowApprovalDocument(true);
-                                }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
+                                }, className: "action-button", disabled: doc.Status === 'Approved' }),
+                            react_1.default.createElement(components_1.Button, { title: "Delete Document", onClick: () => handleDelete(doc), className: "delete-button" }))))))))));
     };
     return (react_1.default.createElement(components_1.WidgetWrapper, { className: "OHS-approval-widget" },
         react_1.default.createElement(components_1.TitleBar, { title: 'OHS Document Approval', className: "title-bar" },
@@ -1199,6 +1231,21 @@ const SocialDataApproval = (props) => {
             };
         }
     });
+    const handleDelete = (activity) => {
+        alert.confirm(`Do you want to delete transaction ${activity.TransactionID}?`)
+            .then((hasConfirmed) => {
+            if (hasConfirmed) {
+                props.uxpContext.executeAction('ESG', 'deleteSocialTransaction', { TransactionID: activity.TransactionID }, {})
+                    .then((res) => {
+                    alert.show(`Deleted transaction: ${activity.TransactionID}`);
+                    fetchDocuments(); // Refresh the list after deletion
+                })
+                    .catch((error) => {
+                    alert.show(`Error deleting transaction: ${error}`);
+                });
+            }
+        });
+    };
     const getMonths = () => [
         { label: 'January', value: '1' },
         { label: 'February', value: '2' },
@@ -1272,7 +1319,7 @@ const SocialDataApproval = (props) => {
             if (hasConfirmed) {
                 props.uxpContext.executeAction('ESG', 'rejectSocialDocument', { TransactionID: activity.TransactionID }, {})
                     .then((res) => {
-                    alert.show(`Rejected document: ${activity.ActivityID}`);
+                    alert.show(`Rejected document: ${activity.TransactionID}`);
                     setShowApprovalDocument(false);
                     fetchDocuments();
                 })
@@ -1312,7 +1359,8 @@ const SocialDataApproval = (props) => {
                                     setSelectedDocument(doc);
                                     fetchTransactionDetails(doc.TransactionID);
                                     setShowApprovalDocument(true);
-                                }, className: "action-button", disabled: doc.Status === 'Approved' }))))))))));
+                                }, className: "action-button", disabled: doc.Status === 'Approved' }),
+                            react_1.default.createElement(components_1.Button, { title: "Delete Document", onClick: () => handleDelete(doc), className: "delete-button" }))))))))));
     };
     return (react_1.default.createElement(components_1.WidgetWrapper, { className: "social-approval-widget" },
         react_1.default.createElement(components_1.TitleBar, { title: 'Social Document Approval', className: "title-bar" },
@@ -1686,11 +1734,11 @@ const UploadDocumentGovernance = (props) => {
             setFile(null);
             setSelectedSheet("");
             setSheets([]);
-            alert.show('Success', 'Data successfully submitted for approval'); // Using alert hook
+            alert.show('Document successfully submitted for approval');
             setShowEditModel(false);
         }).catch((error) => {
             console.error('Error executing action:', error);
-            alert.show(`Error sending data to server.${error}`);
+            alert.show(`${error}`);
         }).finally(() => {
             setLoading(false);
         });
@@ -2157,11 +2205,11 @@ const UploadDocumentOHS = (props) => {
             setFile(null);
             setSelectedSheet("");
             setSheets([]);
-            alert.show('Success', 'Data successfully submitted for approval'); // Using alert hook
+            alert.show('Document successfully submitted for approval');
             setShowEditModel(false);
         }).catch((error) => {
             console.error('Error executing action:', error);
-            alert.show(`Error sending data to server.${error}`);
+            alert.show(`${error}`);
         }).finally(() => {
             setLoading(false);
         });
@@ -2601,6 +2649,7 @@ const processExcelData = (worksheet) => {
             processedData.push(rowData);
         }
     }
+    console.log("processedData", processedData);
     return processedData;
 };
 const UploadDocumentSocial = (props) => {
@@ -2735,11 +2784,11 @@ const UploadDocumentSocial = (props) => {
             setFile(null);
             setSelectedSheet("");
             setSheets([]);
-            alert.show('Success', 'Data successfully submitted for approval');
+            alert.show('Document successfully submitted for approval');
             setShowEditModel(false);
         }).catch((error) => {
             console.error('Error executing action:', error);
-            alert.show(`Error sending data to server.${error}`);
+            alert.show(`${error}`);
         }).finally(() => {
             setLoading(false);
         });
@@ -2771,10 +2820,7 @@ const UploadDocumentSocial = (props) => {
                                     React.createElement(components_1.Select, { options: getYears(), selected: selectedYear, onChange: (value) => setSelectedYear(value), placeholder: "Select Year" }))),
                             sheets.length > 0 && (React.createElement("div", { className: "button-container" },
                                 React.createElement(components_1.Button, { title: "Submit", onClick: handleSubmit, className: "submit-btn" }, "Submit")))),
-                        success && (React.createElement("div", { className: "success-message" },
-                            "File \"", file === null || file === void 0 ? void 0 :
-                            file.name,
-                            "\" uploaded successfully and submitted for approval")),
+                        success && (React.createElement("div", { className: "success-message" }, "Document successfully and submitted for approval")),
                         error && (React.createElement("div", { className: "error-message" }, error)),
                         loading && React.createElement(components_1.Loading, null))))),
         React.createElement(components_1.Modal, { show: showEditModel, onClose: () => {
@@ -2783,7 +2829,7 @@ const UploadDocumentSocial = (props) => {
             }, title: "Edit ESG Data" },
             React.createElement("div", { className: "p-4" },
                 error && (React.createElement("div", { className: "mb-4 p-4 bg-red-50 text-red-600 rounded" }, error)),
-                success ? (React.createElement("div", { className: "p-4 bg-green-50 text-green-600 rounded" }, "Data successfully submitted for approval")) : (React.createElement(React.Fragment, null,
+                success ? (React.createElement("div", { className: "p-4 bg-green-50 text-green-600 rounded" }, "Document successfully submitted for approval")) : (React.createElement(React.Fragment, null,
                     React.createElement(components_1.CRUDComponent, { ref: crudRef, edit: {
                             title: 'Edit ESG Data',
                             formStructure: [
@@ -2901,8 +2947,8 @@ const UploadDocumentSocial = (props) => {
                                 { id: 'ActivityGroup', label: 'Group' },
                                 { id: 'Value', label: 'Total Value' },
                                 { id: 'MaleValue', label: 'Male Value' },
-                                { id: 'FemaleValue', label: 'Female Value' }
-                            ]
+                                { id: 'FemaleValue', label: 'Female Value' },
+                            ],
                         } }),
                     React.createElement("div", { className: "mt-4 flex justify-end" },
                         React.createElement(components_1.Button, { className: "approve", title: "Submit for Approval", onClick: handleApprove }, "Submit for Approval"))))))));
@@ -27789,7 +27835,7 @@ const version = XLSX.version;
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"","widgets":[{"id":"UploadDocumentSocial","name":"Upload Document Social","description":"A widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"UploadDocumentOHS","name":"Upload Document OHS","description":"A widget to OHS documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"UploadDocumentGovernance","name":"Upload Document Governance","description":"A widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"SocialDataApproval","name":"Social Data Approval","description":"A widget to approve Social documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"OHSDataApproval","name":"OHS Data Approval","description":"A widget to approve OHS documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"GovernanceDataApproval","name":"Governance Data Approval","description":"A widget to approve Governance documents","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
+module.exports = /*#__PURE__*/JSON.parse('{"id":"e5ccd88a-312d-4d72-c302-be4ffc207fe2","author":"Muthukrishnan Sankar","widgets":[{"id":"UploadDocumentSocial","name":"Upload Document Social","description":"A widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"UploadDocumentOHS","name":"Upload Document OHS","description":"A widget to OHS documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"UploadDocumentGovernance","name":"Upload Document Governance","description":"A widget to upload documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"SocialDataApproval","name":"Social Data Approval","description":"A widget to approve Social documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"OHSDataApproval","name":"OHS Data Approval","description":"A widget to approve OHS documents","icon":"","tags":[],"category":"","isTemplate":false},{"id":"GovernanceDataApproval","name":"Governance Data Approval","description":"A widget to approve Governance documents","icon":"","tags":[],"category":"","isTemplate":false}],"sidebarLinks":[],"uis":[],"menuItems":[]}');
 
 /***/ }),
 

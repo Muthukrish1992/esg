@@ -185,7 +185,7 @@
               }
             ],
             "published": false,
-            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
             "schemaFrozen": false,
             "static": true
           },
@@ -261,6 +261,81 @@
             ],
             "published": false,
             "schema": "{\"type\":\"object\",\"properties\":{\"matchedCount\":{\"type\":\"integer\"},\"modifiedCount\":{\"type\":\"integer\"}},\"required\":[\"matchedCount\",\"modifiedCount\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "deleteGovernanceTransaction",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "deleteOHSTransaction",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "deleteSocialTransaction",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "",
             "schemaFrozen": false,
             "static": true
           },
@@ -1060,6 +1135,154 @@
               "UpdateAsAttributes": true
             },
             {
+              "CollectionName": "0545ee77-37fc-471d-f0ab-6fb97d90341a",
+              "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "9fc85ee2-14f4-44e3-a795-b39be219069c:output:TransactionID",
+                    "target": "7d51e821-9f0c-4957-9e9a-c6426efd0610:input:TransactionID"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "7d51e821-9f0c-4957-9e9a-c6426efd0610:output:output",
+                    "target": "0268f6af-eece-43b1-9837-da8f6977888f:input:input"
+                  }
+                ]
+              },
+              "id": "7d51e821-9f0c-4957-9e9a-c6426efd0610",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 323,
+                "top": 62
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "deleteGovernanceTransaction",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Delete all document",
+              "type": "modelcollections:deleteall",
+              "UpdateAsAttributes": false
+            },
+            {
+              "CollectionName": "60c054d5-d6ab-44dc-9e7b-53ab359aa1e6",
+              "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "380b0bd5-4b61-4a21-cb01-f2ccd1c4d338:output:TransactionID",
+                    "target": "ef21240d-ce97-4ce7-a2c3-50ad847125d5:input:TransactionID"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "ef21240d-ce97-4ce7-a2c3-50ad847125d5:output:output",
+                    "target": "d47c7cfa-4ebc-46df-ad17-91feab3c0759:input:input"
+                  }
+                ]
+              },
+              "id": "ef21240d-ce97-4ce7-a2c3-50ad847125d5",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 323,
+                "top": 63
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "deleteOHSTransaction",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Delete all document",
+              "type": "modelcollections:deleteall",
+              "UpdateAsAttributes": false
+            },
+            {
               "CollectionName": "60c054d5-d6ab-44dc-9e7b-53ab359aa1e6",
               "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
               "connections": {
@@ -1679,6 +1902,80 @@
               "title": "Update one document",
               "type": "modelcollections:updateone",
               "UpdateAsAttributes": true
+            },
+            {
+              "CollectionName": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
+              "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "19eb8cfa-408d-4dbe-9dd0-f3eb7794d506:output:TransactionID",
+                    "target": "7b72359c-e806-4d83-d147-be001fae7752:input:TransactionID"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "7b72359c-e806-4d83-d147-be001fae7752:output:output",
+                    "target": "0a28a67f-3463-4c9d-abf5-ab59ce9586ae:input:input"
+                  }
+                ]
+              },
+              "id": "7b72359c-e806-4d83-d147-be001fae7752",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 322,
+                "top": 63
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "deleteSocialTransaction",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Delete all document",
+              "type": "modelcollections:deleteall",
+              "UpdateAsAttributes": false
             },
             {
               "CollectionName": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
@@ -2597,7 +2894,7 @@
               "preProcessService": "",
               "published": false,
               "roles": [],
-              "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
+              "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
               "static": true,
               "surface": "UploadSocialDocument",
               "title": "Action",
@@ -2780,6 +3077,186 @@
               "schema": "{\"type\":\"object\",\"properties\":{\"matchedCount\":{\"type\":\"integer\"},\"modifiedCount\":{\"type\":\"integer\"}},\"required\":[\"matchedCount\",\"modifiedCount\"]}",
               "static": true,
               "surface": "approveSocialDocument",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "deleteGovernanceTransaction",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "9fc85ee2-14f4-44e3-a795-b39be219069c:output:TransactionID",
+                    "target": "7d51e821-9f0c-4957-9e9a-c6426efd0610:input:TransactionID"
+                  }
+                ]
+              },
+              "debug": true,
+              "docs": "",
+              "id": "9fc85ee2-14f4-44e3-a795-b39be219069c",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 60,
+                "top": 60
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "",
+              "static": true,
+              "surface": "deleteGovernanceTransaction",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "deleteOHSTransaction",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "380b0bd5-4b61-4a21-cb01-f2ccd1c4d338:output:TransactionID",
+                    "target": "ef21240d-ce97-4ce7-a2c3-50ad847125d5:input:TransactionID"
+                  }
+                ]
+              },
+              "debug": true,
+              "docs": "",
+              "id": "380b0bd5-4b61-4a21-cb01-f2ccd1c4d338",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 60,
+                "top": 60
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "",
+              "static": true,
+              "surface": "deleteOHSTransaction",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "deleteSocialTransaction",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "19eb8cfa-408d-4dbe-9dd0-f3eb7794d506:output:TransactionID",
+                    "target": "7b72359c-e806-4d83-d147-be001fae7752:input:TransactionID"
+                  }
+                ]
+              },
+              "debug": true,
+              "docs": "",
+              "id": "19eb8cfa-408d-4dbe-9dd0-f3eb7794d506",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 60,
+                "top": 60
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "",
+              "static": true,
+              "surface": "deleteSocialTransaction",
               "title": "Action",
               "type": "actionstart"
             },
@@ -3778,7 +4255,7 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { json, month, year, TransactionID} = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\nconst recordsToInsert = [];\n\n(async () => {\n try {\n   const data = JSON.parse(json);\n   \n   if (!data || !Array.isArray(data) || data.length === 0) {\n     throw new Error(\"Insert failed: Empty JSON data provided\");\n   }\n\n   const validationErrors = [];\n   \n   // Validate all activities against ActivityMaster\n   for (const activity of data) {\n     const masterRecord = await collections.findOne(\"ActivityMaster\", {\n       ActivityID: activity.ActivityID,\n       ActivityGroup: activity.ActivityGroup,\n       ActivityCategory: activity.ActivityCategory,\n       Category:\"Governance\"\n     }, {});\n\n     if (JSON.stringify(masterRecord) === '{}') {\n       validationErrors.push(activity.ActivityID,activity.ActivityGroup,activity.ActivityCategory);\n     } else {\n       activity.Month = month;\n       activity.Year = year;\n     }\n   }\n\n   if (validationErrors.length > 0) {\n     runtime.error(`Activity validation failed for: ${validationErrors.join(', ')}`);\n     return;\n   }\n\n        // Check for duplicates in the Activities collection\n        for (const activity of data) {\n            const existingRecord = await collections.findOne(\"GovernanceActivities\", {\n                ActivityID: activity.ActivityID,\n                Month: activity.Month,\n                Year: activity.Year\n            },{});\n\n            // If record doesn't exist, add it to recordsToInsert array\n            if (!existingRecord || Object.keys(existingRecord).length === 0) {\n                activity.TransactionID = TransactionID;\n                recordsToInsert.push(activity);\n            }\n\n        }\n\n        // Insert only non-duplicate records\n        if (recordsToInsert.length > 0) {\n            await collections.insertMany(\"GovernanceActivities\", recordsToInsert, {});\n            runtime.done({ done: `Inserted ${recordsToInsert.length} records successfully.` });\n        } else {\n            runtime.error({ done: \"No new records to insert - all records were duplicates.\" });\n        }\n\n } catch (error) {\n   runtime.error({ done: `Error:catch` });\n }\n})();",
+              "code": "let { json, month, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingMonthRecord = await collections.findOne(\"GovernanceActivities\", {\n            Month: month,\n            Year: year\n        }, {});\n        \n        if (existingMonthRecord && Object.keys(existingMonthRecord).length > 0) {\n            runtime.error(`Records already exist for ${month}/${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"Governance\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n                activity.Month = month;\n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"GovernanceActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for ${month}/${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
               "connections": {
                 "inputs": [
                   {
@@ -3894,7 +4371,7 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { json, month, year, TransactionID} = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\nconst recordsToInsert = [];\n\n(async () => {\n try {\n   const data = JSON.parse(json);\n   if (!data || !Array.isArray(data) || data.length === 0) {\n     throw new Error(\"Insert failed: Empty JSON data provided\");\n   }\n\n   const validationErrors = [];\n   \n   // Validate all activities against ActivityMaster\n   for (const activity of data) {\n     const masterRecord = await collections.findOne(\"ActivityMaster\", {\n       ActivityID: activity.ActivityID,\n       ActivityGroup: activity.ActivityGroup,\n       ActivityCategory: activity.ActivityCategory\n     }, {});\n\n     if (JSON.stringify(masterRecord) === '{}') {\n       validationErrors.push(activity.ActivityID);\n     } else {\n       activity.Month = month;\n       activity.Year = year;\n     }\n   }\n\n   if (validationErrors.length > 0) {\n     runtime.error(`Activity validation failed for: ${validationErrors.join(', ')}`);\n     return;\n   }\n\n        // Check for duplicates in the Activities collection\n        for (const activity of data) {\n            const existingRecord = await collections.findOne(\"SocialActivities\", {\n                ActivityID: activity.ActivityID,\n                Month: activity.Month,\n                Year: activity.Year\n            },{});\n\n            // If record doesn't exist, add it to recordsToInsert array\n            if (!existingRecord || Object.keys(existingRecord).length === 0) {\n                activity.TransactionID = TransactionID;\n                recordsToInsert.push(activity);\n            }\n\n        }\n\n        // Insert only non-duplicate records\n        if (recordsToInsert.length > 0) {\n            await collections.insertMany(\"SocialActivities\", recordsToInsert, {});\n            runtime.done({ done: `Inserted ${recordsToInsert.length} records successfully.` });\n        } else {\n            runtime.error({ done: \"No new records to insert - all records were duplicates.\" });\n        }\n\n } catch (error) {\n   runtime.error({ done: `Error:catch` });\n }\n})();",
+              "code": "let { json, month, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingMonthRecord = await collections.findOne(\"SocialActivities\", {\n            Month: month,\n            Year: year\n        }, {});\n        \n        if (existingMonthRecord && Object.keys(existingMonthRecord).length > 0) {\n            runtime.error(`Records already exist for ${month}/${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"Social\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n                activity.Month = month;\n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"SocialActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for ${month}/${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
               "connections": {
                 "inputs": [
                   {
@@ -4001,7 +4478,7 @@
                 }
               ],
               "position": {
-                "left": 480,
+                "left": 481,
                 "top": 117
               },
               "surface": "UploadSocialDocument",
@@ -4010,7 +4487,7 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { json, year, TransactionID} = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\nconst recordsToInsert = [];\n\n(async () => {\n try {\n   const data = JSON.parse(json);\n   if (!data || !Array.isArray(data) || data.length === 0) {\n     throw new Error(\"Insert failed: Empty JSON data provided\");\n   }\n\n   const validationErrors = [];\n   \n   // Validate all activities against ActivityMaster\n   for (const activity of data) {\n     const masterRecord = await collections.findOne(\"ActivityMaster\", {\n       ActivityID: activity.ActivityID,\n       ActivityGroup: activity.ActivityGroup,\n       ActivityCategory: activity.ActivityCategory\n     }, {});\n\n     if (JSON.stringify(masterRecord) === '{}') {\n       validationErrors.push(activity.ActivityID);\n     } else {\n       activity.Year = year;\n     }\n   }\n\n   if (validationErrors.length > 0) {\n     runtime.error(`Activity validation failed for: ${validationErrors.join(', ')}`);\n     return;\n   }\n\n        // Check for duplicates in the Activities collection\n        for (const activity of data) {\n            const existingRecord = await collections.findOne(\"OHSActivities\", {\n                ActivityID: activity.ActivityID,\n                Year: activity.Year\n            },{});\n\n            // If record doesn't exist, add it to recordsToInsert array\n            if (!existingRecord || Object.keys(existingRecord).length === 0) {\n                activity.TransactionID = TransactionID;\n                recordsToInsert.push(activity);\n            }\n\n        }\n\n        // Insert only non-duplicate records\n        if (recordsToInsert.length > 0) {\n            await collections.insertMany(\"OHSActivities\", recordsToInsert, {});\n            runtime.done({ done: `Inserted ${recordsToInsert.length} records successfully.` });\n        } else {\n            runtime.error({ done: \"No new records to insert - all records were duplicates.\" });\n        }\n\n } catch (error) {\n   runtime.error({ done: `Error:catch` });\n }\n})();",
+              "code": "let { json, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingMonthRecord = await collections.findOne(\"OHSActivities\", {\n            \n            Year: year\n        }, {});\n        \n        if (existingMonthRecord && Object.keys(existingMonthRecord).length > 0) {\n            runtime.error(`Records already exist for ${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"OHS\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"OHSActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for    ${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
               "connections": {
                 "inputs": [
                   {
@@ -4832,6 +5309,51 @@
               "connections": {
                 "inputs": [
                   {
+                    "source": "7b72359c-e806-4d83-d147-be001fae7752:output:output",
+                    "target": "0a28a67f-3463-4c9d-abf5-ab59ce9586ae:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "0a28a67f-3463-4c9d-abf5-ab59ce9586ae",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 577,
+                "top": 82
+              },
+              "surface": "deleteSocialTransaction",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
                     "source": "7ce0712e-9c2f-4551-da8d-268fa361db28:output:done",
                     "target": "6b1b7149-b02b-48fc-8b35-e5cb52a7e5d9:input:input"
                   }
@@ -4870,6 +5392,51 @@
                 "top": 100
               },
               "surface": "UploadGovernanceDocument",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "7d51e821-9f0c-4957-9e9a-c6426efd0610:output:output",
+                    "target": "0268f6af-eece-43b1-9837-da8f6977888f:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "0268f6af-eece-43b1-9837-da8f6977888f",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 577,
+                "top": 82
+              },
+              "surface": "deleteGovernanceTransaction",
               "title": "Output",
               "type": "actionoutput2"
             },
@@ -6009,6 +6576,51 @@
               "connections": {
                 "inputs": [
                   {
+                    "source": "ef21240d-ce97-4ce7-a2c3-50ad847125d5:output:output",
+                    "target": "d47c7cfa-4ebc-46df-ad17-91feab3c0759:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "d47c7cfa-4ebc-46df-ad17-91feab3c0759",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 577,
+                "top": 82
+              },
+              "surface": "deleteOHSTransaction",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
                     "source": "f46e9478-4676-4c4e-a7dd-740d57b8403f:output:output",
                     "target": "c2fdcdb5-17a6-4723-a076-adefa99bfee9:input:input"
                   }
@@ -6283,7 +6895,7 @@
               }
             ],
             "published": false,
-            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"query\":{\"type\":\"object\",\"properties\":{\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}},\"required\":[\"ActivityID\",\"ActivityGroup\",\"ActivityCategory\"]},\"result\":{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Unit\":{\"type\":\"string\"},\"Category\":{\"type\":\"string\"},\"GenderBased\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"}}}},\"required\":[\"query\",\"result\"]}}",
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
             "schemaFrozen": false,
             "static": true
           },
@@ -6359,6 +6971,81 @@
             ],
             "published": false,
             "schema": "{\"type\":\"object\",\"properties\":{\"matchedCount\":{\"type\":\"integer\"},\"modifiedCount\":{\"type\":\"integer\"}},\"required\":[\"matchedCount\",\"modifiedCount\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "deleteGovernanceTransaction",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "deleteOHSTransaction",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "deleteSocialTransaction",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "",
             "schemaFrozen": false,
             "static": true
           },

@@ -304,18 +304,17 @@ const UploadDocumentGovernance: React.FunctionComponent<IWidgetProps> = (props) 
 
         props.uxpContext?.executeAction('ESG', 'UploadGovernanceDocument', updatedPayload, {})
         .then((res) => {
-            
             setSuccess(true);
             setShowUploadForm(false);
             setFile(null);
             setSelectedSheet("");
             setSheets([]);
-            alert.show('Success', 'Data successfully submitted for approval'); // Using alert hook
+            alert.show('Document successfully submitted for approval');
             setShowEditModel(false);
         })
         .catch((error) => {
             console.error('Error executing action:', error);
-            alert.show(`Error sending data to server.${error}`); 
+            alert.show(`${error}`);
         })
         .finally(() => {
             setLoading(false);
