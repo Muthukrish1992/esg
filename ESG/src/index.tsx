@@ -25,6 +25,9 @@ import SocialDataApproval from "./Components/SocialDataApproval";
 import GovernanceDataApproval from "./Components/GovernanceDataApproval";
 import UploadDocumentGovernance from "./Components/UploadDocumentGovernance";
 import OHSDataApproval from "./Components/OHSDataApproval";
+import SocialReport from "./Components/SocialReport";
+import GovernanceReport from "./Components/GovernanceReport";
+import OHSReport from "./Components/OHSReport";
 
 
 export interface IWidgetProps {
@@ -38,6 +41,9 @@ const ESGWidget: React.FunctionComponent<IWidgetProps> = (props) => {
         <>
             <UploadDocumentSocial></UploadDocumentSocial>
             <SocialDataApproval></SocialDataApproval>
+            <SocialReport></SocialReport>
+            <OHSReport></OHSReport>
+            <GovernanceReport></GovernanceReport>
             <GovernanceDataApproval></GovernanceDataApproval>
             <OHSDataApproval></OHSDataApproval>
             <UploadDocumentGovernance></UploadDocumentGovernance>
@@ -63,6 +69,9 @@ registerWidget({
     id: "UploadDocumentGovernance",
     widget: UploadDocumentGovernance,
     configs: {
+        props:[
+            
+        ],
         layout: {
             w: 12,
             h: 12,

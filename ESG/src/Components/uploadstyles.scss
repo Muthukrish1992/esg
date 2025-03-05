@@ -130,12 +130,6 @@
             }
 
             .selection-controls {
-                .controls-row {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 15%;
-                    margin-bottom: 40px;
-                }
 
                 .select-container {
                     flex: 1;

@@ -53,7 +53,7 @@ interface TableData {
 
 const getYears = () => {
     const currentYear = new Date().getFullYear();
-    return Array.from({ length: 5 }, (_, i) => ({
+    return Array.from({ length: 10 }, (_, i) => ({
         label: String(currentYear - i),
         value: String(currentYear - i)
     }));
@@ -207,7 +207,7 @@ const UploadDocumentOHS: React.FunctionComponent<IWidgetProps> = (props) => {
     const alert = useAlert();
     const [file, setFile] = useState<File | null>(null);
     const [sheets, setSheets] = useState<string[]>([]);
-    const [selectedSheet, setSelectedSheet] = useState<string>("");
+    const [selectedSheet, setSelectedSheet] = useState<string>("Input - OHS- Revised ");
     const [loading, setLoading] = useState<boolean>(false);
     const [success, setSuccess] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -235,17 +235,6 @@ const UploadDocumentOHS: React.FunctionComponent<IWidgetProps> = (props) => {
             return false;
         }
 
-        if (sheets.length === 0) {
-            setError("No sheets found in the uploaded file");
-            return false;
-        }
-
-        if (!selectedSheet) {
-            setError("Please select a sheet from the dropdown");
-            return false;
-        }
-
-
         if (!selectedYear) {
             setError("Please select a year");
             return false;
@@ -258,19 +247,25 @@ const UploadDocumentOHS: React.FunctionComponent<IWidgetProps> = (props) => {
             setError('Please upload only Excel files (.xlsx or .xls)');
             return;
         }
-
+    
         setFile(file);
         setError(null);
         setLoading(true);
         setSuccess(false);
-
+    
         const reader = new FileReader();
         reader.onload = (e: ProgressEvent<FileReader>) => {
             try {
                 const binary = e.target?.result;
                 if (binary && typeof binary === 'string') {
                     const workbook = XLSX.read(binary, { type: 'binary' });
-                    setSheets(workbook.SheetNames);
+                    const sheetNames = workbook.SheetNames;
+                    setSheets(sheetNames);
+                    
+                    // Check if the default sheet exists
+                    if (!sheetNames.includes("Input - OHS- Revised ")) {
+                        setError('Required sheet "Input - OHS- Revised " not found in the uploaded file');
+                    }
                 }
                 setLoading(false);
             } catch (error) {
@@ -285,36 +280,7 @@ const UploadDocumentOHS: React.FunctionComponent<IWidgetProps> = (props) => {
         };
         reader.readAsBinaryString(file);
     };
-    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-        if (files && files[0]) {
-            setFile(files[0]);
-            setError(null);
-            setLoading(true);
-            setSuccess(false);
 
-            const reader = new FileReader();
-            reader.onload = (e: ProgressEvent<FileReader>) => {
-                try {
-                    const binary = e.target?.result;
-                    if (binary && typeof binary === 'string') {
-                        const workbook = XLSX.read(binary, { type: 'binary' });
-                        setSheets(workbook.SheetNames);
-                    }
-                    setLoading(false);
-                } catch (error) {
-                    console.error('Error reading Excel file:', error);
-                    setError('Error reading Excel file. Please check the file format.');
-                    setLoading(false);
-                }
-            };
-            reader.onerror = () => {
-                setError('Error reading the file. Please try again.');
-                setLoading(false);
-            };
-            reader.readAsBinaryString(files[0]);
-        }
-    };
 
     const handleSubmit = async () => {
         
@@ -434,18 +400,7 @@ const UploadDocumentOHS: React.FunctionComponent<IWidgetProps> = (props) => {
 
                             <div className="selection-controls">
                                 <div className="controls-row">
-                                {sheets.length > 0 && (
-                                        <div className="select-container">
-                                            <label>Sheet</label>
-                                            <Select
-                                                options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
-                                                selected={selectedSheet}
-                                                onChange={(value) => setSelectedSheet(value as string)}
-                                                placeholder="Select Sheet"
-                                                
-                                            />
-                                        </div>
-                                    )}
+
                                     <div className="select-container">
                                         <label>Year</label>
                                         <Select

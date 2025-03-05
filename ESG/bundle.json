@@ -56,6 +56,33 @@
             "tags":[],
             "category":"",
             "isTemplate": false
+        },
+        {
+            "id": "SocialReport",
+            "name": "Social Report",
+            "description": "A widget to get Social documents report",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "GovernanceReport",
+            "name": "Governance Report",
+            "description": "A widget to get Governance documents report",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
+        },
+        {
+            "id": "OHSReport",
+            "name": "OHS Report",
+            "description": "A widget to get OHS documents report",
+            "icon": "",
+            "tags":[],
+            "category":"",
+            "isTemplate": false
         }
     ],
     "sidebarLinks": [

@@ -90,7 +90,6 @@
             ],
             "parameters": [
               "json",
-              "month",
               "year"
             ],
             "parametersExtended": [
@@ -99,12 +98,6 @@
                 "docs": "",
                 "example": "",
                 "id": "json"
-              },
-              {
-                "dataType": "",
-                "docs": "",
-                "example": "",
-                "id": "month"
               },
               {
                 "dataType": "",
@@ -161,7 +154,6 @@
             ],
             "parameters": [
               "json",
-              "month",
               "year"
             ],
             "parametersExtended": [
@@ -170,12 +162,6 @@
                 "docs": "",
                 "example": "",
                 "id": "json"
-              },
-              {
-                "dataType": "",
-                "docs": "",
-                "example": "",
-                "id": "month"
               },
               {
                 "dataType": "",
@@ -344,6 +330,81 @@
             "capability": "",
             "docs": "",
             "initiate": false,
+            "name": "downloadGovernanceTransactionReport",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "downloadOHSTransactionReport",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "downloadSocialTransactionReport",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
             "name": "rejectGovernanceDocument",
             "outputs": [
               ""
@@ -424,7 +485,6 @@
               ""
             ],
             "parameters": [
-              "selectedMonth",
               "selectedYear"
             ],
             "parametersExtended": [
@@ -432,8 +492,27 @@
                 "dataType": "",
                 "docs": "",
                 "example": "",
-                "id": "selectedMonth"
-              },
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "showGovernanceReportDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedYear"
+            ],
+            "parametersExtended": [
               {
                 "dataType": "",
                 "docs": "",
@@ -501,6 +580,31 @@
             "capability": "",
             "docs": "",
             "initiate": false,
+            "name": "showOHSReportDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedYear"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Year\",\"Status\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
             "name": "showOHSTransactionDetails",
             "outputs": [
               ""
@@ -531,7 +635,6 @@
               ""
             ],
             "parameters": [
-              "selectedMonth",
               "selectedYear"
             ],
             "parametersExtended": [
@@ -539,8 +642,27 @@
                 "dataType": "",
                 "docs": "",
                 "example": "",
-                "id": "selectedMonth"
-              },
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "showSocialReportDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedYear"
+            ],
+            "parametersExtended": [
               {
                 "dataType": "",
                 "docs": "",
@@ -993,17 +1115,6 @@
                   "transformationOptions": "",
                   "type": "",
                   "value": ""
-                },
-                {
-                  "description": "Data to be inserted",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "__data__",
-                  "label": "Data",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "text",
-                  "value": ""
                 }
               ],
               "outputValues": [
@@ -1133,6 +1244,80 @@
               "title": "Update all documents",
               "type": "modelcollections:updateall",
               "UpdateAsAttributes": true
+            },
+            {
+              "CollectionName": "0545ee77-37fc-471d-f0ab-6fb97d90341a",
+              "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "870e8f63-bb30-4464-a6d8-0852e381d098:output:TransactionID",
+                    "target": "d3def525-140b-4e37-9597-38fa87b56430:input:TransactionID"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "d3def525-140b-4e37-9597-38fa87b56430:output:output",
+                    "target": "f2e35aba-4d36-488f-f5ca-48aba5612ac9:input:input"
+                  }
+                ]
+              },
+              "id": "d3def525-140b-4e37-9597-38fa87b56430",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 338,
+                "top": 95
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "downloadGovernanceTransactionReport",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Find all documents",
+              "type": "modelcollections:findall",
+              "UpdateAsAttributes": false
             },
             {
               "CollectionName": "0545ee77-37fc-471d-f0ab-6fb97d90341a",
@@ -1377,6 +1562,80 @@
               "title": "Update all documents",
               "type": "modelcollections:updateall",
               "UpdateAsAttributes": true
+            },
+            {
+              "CollectionName": "60c054d5-d6ab-44dc-9e7b-53ab359aa1e6",
+              "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "7bf86f0f-b91a-4bd4-d3fd-be14e6c24982:output:TransactionID",
+                    "target": "098d05a1-8523-451c-ada7-588516036119:input:TransactionID"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "098d05a1-8523-451c-ada7-588516036119:output:output",
+                    "target": "f429f0bd-1a8f-4e9a-fee2-bc5e97862a0c:input:input"
+                  }
+                ]
+              },
+              "id": "098d05a1-8523-451c-ada7-588516036119",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 337,
+                "top": 70
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "downloadOHSTransactionReport",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Find all documents",
+              "type": "modelcollections:findall",
+              "UpdateAsAttributes": false
             },
             {
               "CollectionName": "60c054d5-d6ab-44dc-9e7b-53ab359aa1e6",
@@ -2198,17 +2457,6 @@
                   "transformationOptions": "",
                   "type": "",
                   "value": ""
-                },
-                {
-                  "description": "Data to be inserted",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "__data__",
-                  "label": "Data",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "text",
-                  "value": ""
                 }
               ],
               "outputValues": [
@@ -2242,6 +2490,80 @@
               "title": "Update all documents",
               "type": "modelcollections:updateall",
               "UpdateAsAttributes": true
+            },
+            {
+              "CollectionName": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
+              "configuration": "[{\"IsEither\":true,\"Conditions\":[{\"Attribute\":\"TransactionID\",\"Operator\":\"eq\",\"Value\":\"TransactionID\",\"IsPin\":true}],\"Groups\":[]}]",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "992830f6-4ed6-4055-ee49-89f005c008d4:output:TransactionID",
+                    "target": "8b0162b1-ddf5-4b54-bbb3-47bbca08de58:input:TransactionID"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "8b0162b1-ddf5-4b54-bbb3-47bbca08de58:output:output",
+                    "target": "a679147f-602f-4560-924a-531aa2c4bc9c:input:input"
+                  }
+                ]
+              },
+              "id": "8b0162b1-ddf5-4b54-bbb3-47bbca08de58",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 337,
+                "top": 70
+              },
+              "ReceiveIndividualFields": false,
+              "surface": "downloadSocialTransactionReport",
+              "TakeFilterFromPin": false,
+              "timeout": 5000,
+              "title": "Find all documents",
+              "type": "modelcollections:findall",
+              "UpdateAsAttributes": false
             },
             {
               "CollectionName": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
@@ -2655,10 +2977,6 @@
                     "target": "7ce0712e-9c2f-4551-da8d-268fa361db28:input:json"
                   },
                   {
-                    "source": "97229b00-2233-4f12-f72b-3b5634067e04:output:month",
-                    "target": "7ce0712e-9c2f-4551-da8d-268fa361db28:input:month"
-                  },
-                  {
                     "source": "97229b00-2233-4f12-f72b-3b5634067e04:output:output",
                     "target": "02df597f-f300-4057-cc67-c1ad9db751a5:input:trigger"
                   },
@@ -2690,15 +3008,6 @@
                   "example": "",
                   "id": "json",
                   "label": "json",
-                  "type": ""
-                },
-                {
-                  "dataType": "",
-                  "description": "",
-                  "documentation": "",
-                  "example": "",
-                  "id": "month",
-                  "label": "month",
                   "type": ""
                 },
                 {
@@ -2822,10 +3131,6 @@
                     "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:json"
                   },
                   {
-                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:month",
-                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:month"
-                  },
-                  {
                     "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:output",
                     "target": "073086ef-94dc-435c-ad59-68550a17b289:input:trigger"
                   },
@@ -2857,15 +3162,6 @@
                   "example": "",
                   "id": "json",
                   "label": "json",
-                  "type": ""
-                },
-                {
-                  "dataType": "",
-                  "description": "",
-                  "documentation": "",
-                  "example": "",
-                  "id": "month",
-                  "label": "month",
                   "type": ""
                 },
                 {
@@ -3261,6 +3557,186 @@
               "type": "actionstart"
             },
             {
+              "actionName": "downloadGovernanceTransactionReport",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "870e8f63-bb30-4464-a6d8-0852e381d098:output:TransactionID",
+                    "target": "d3def525-140b-4e37-9597-38fa87b56430:input:TransactionID"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "870e8f63-bb30-4464-a6d8-0852e381d098",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 70,
+                "top": 79
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+              "static": true,
+              "surface": "downloadGovernanceTransactionReport",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "downloadOHSTransactionReport",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "7bf86f0f-b91a-4bd4-d3fd-be14e6c24982:output:TransactionID",
+                    "target": "098d05a1-8523-451c-ada7-588516036119:input:TransactionID"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "7bf86f0f-b91a-4bd4-d3fd-be14e6c24982",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 56,
+                "top": 80
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+              "static": true,
+              "surface": "downloadOHSTransactionReport",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "downloadSocialTransactionReport",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "992830f6-4ed6-4055-ee49-89f005c008d4:output:TransactionID",
+                    "target": "8b0162b1-ddf5-4b54-bbb3-47bbca08de58:input:TransactionID"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "992830f6-4ed6-4055-ee49-89f005c008d4",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 100,
+                "top": 100
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+              "static": true,
+              "surface": "downloadSocialTransactionReport",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
               "actionName": "rejectGovernanceDocument",
               "canOverrideCredentials": false,
               "capability": "",
@@ -3448,10 +3924,6 @@
                 "inputs": [],
                 "outputs": [
                   {
-                    "source": "ecf64781-62f8-4fc2-825e-38242b7aedce:output:selectedMonth",
-                    "target": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:input:selectedMonth"
-                  },
-                  {
                     "source": "ecf64781-62f8-4fc2-825e-38242b7aedce:output:selectedYear",
                     "target": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:input:selectedYear"
                   }
@@ -3486,15 +3958,6 @@
                   "description": "",
                   "documentation": "",
                   "example": "",
-                  "id": "selectedMonth",
-                  "label": "selectedMonth",
-                  "type": ""
-                },
-                {
-                  "dataType": "",
-                  "description": "",
-                  "documentation": "",
-                  "example": "",
                   "id": "selectedYear",
                   "label": "selectedYear",
                   "type": ""
@@ -3510,6 +3973,66 @@
               "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
               "static": true,
               "surface": "showGovernanceApprovalDocuments",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "showGovernanceReportDocuments",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "231075c3-9fdd-4cce-952a-211bcb8b73b3:output:selectedYear",
+                    "target": "f53182d3-3f91-4003-f68c-56b320429c95:input:selectedYear"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "231075c3-9fdd-4cce-952a-211bcb8b73b3",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 100,
+                "top": 100
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
+              "static": true,
+              "surface": "showGovernanceReportDocuments",
               "title": "Action",
               "type": "actionstart"
             },
@@ -3634,6 +4157,66 @@
               "type": "actionstart"
             },
             {
+              "actionName": "showOHSReportDocuments",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "f765a2ad-0cf4-445b-de80-4097e97aa901:output:selectedYear",
+                    "target": "a0127b4b-055d-4818-d9af-104a92d0c10d:input:selectedYear"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "f765a2ad-0cf4-445b-de80-4097e97aa901",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 100,
+                "top": 100
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Year\",\"Status\"]}}",
+              "static": true,
+              "surface": "showOHSReportDocuments",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
               "actionName": "showOHSTransactionDetails",
               "canOverrideCredentials": false,
               "capability": "",
@@ -3701,10 +4284,6 @@
                 "inputs": [],
                 "outputs": [
                   {
-                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedMonth",
-                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedMonth"
-                  },
-                  {
                     "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedYear",
                     "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedYear"
                   }
@@ -3739,15 +4318,6 @@
                   "description": "",
                   "documentation": "",
                   "example": "",
-                  "id": "selectedMonth",
-                  "label": "selectedMonth",
-                  "type": ""
-                },
-                {
-                  "dataType": "",
-                  "description": "",
-                  "documentation": "",
-                  "example": "",
                   "id": "selectedYear",
                   "label": "selectedYear",
                   "type": ""
@@ -3763,6 +4333,66 @@
               "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
               "static": true,
               "surface": "showSocialApprovalDocuments",
+              "title": "Action",
+              "type": "actionstart"
+            },
+            {
+              "actionName": "showSocialReportDocuments",
+              "canOverrideCredentials": false,
+              "capability": "",
+              "connections": {
+                "inputs": [],
+                "outputs": [
+                  {
+                    "source": "82055682-8e93-4df1-96ba-772589b953ca:output:selectedYear",
+                    "target": "fafa900c-c5bf-4622-825c-8c99927be210:input:selectedYear"
+                  }
+                ]
+              },
+              "debug": false,
+              "docs": "",
+              "id": "82055682-8e93-4df1-96ba-772589b953ca",
+              "initiate": false,
+              "inputValues": [],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "output",
+                  "label": "All Output",
+                  "type": ""
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 99,
+                "top": 100
+              },
+              "preProcessService": "",
+              "published": false,
+              "roles": [],
+              "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
+              "static": true,
+              "surface": "showSocialReportDocuments",
               "title": "Action",
               "type": "actionstart"
             },
@@ -4029,7 +4659,7 @@
                 }
               ],
               "position": {
-                "left": 24,
+                "left": 23,
                 "top": 126
               },
               "preProcessService": "",
@@ -4040,6 +4670,148 @@
               "surface": "updateSocialDocument",
               "title": "Action",
               "type": "actionstart"
+            },
+            {
+              "code": "let {  selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Approved' };\n\n\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"GovernanceActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "231075c3-9fdd-4cce-952a-211bcb8b73b3:output:selectedYear",
+                    "target": "f53182d3-3f91-4003-f68c-56b320429c95:input:selectedYear"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "f53182d3-3f91-4003-f68c-56b320429c95:output:done",
+                    "target": "79971fd7-83f4-4410-de11-e3149f64bd35:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "f53182d3-3f91-4003-f68c-56b320429c95",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 320,
+                "top": 100
+              },
+              "surface": "showGovernanceReportDocuments",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
+            },
+            {
+              "code": "let {  selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Uploaded' };\n\n\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"GovernanceActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "ecf64781-62f8-4fc2-825e-38242b7aedce:output:selectedYear",
+                    "target": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:input:selectedYear"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:output:done",
+                    "target": "75cfea66-2e94-4da9-a989-84fd60be6650:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 450,
+                "top": 155
+              },
+              "surface": "showGovernanceApprovalDocuments",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
             },
             {
               "code": "let { documents } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\ntry {\n    // Parse the JSON input\n    const activitiesToUpdate = JSON.parse(documents);\n    \n    // Ensure we have an array of documents\n    const documentArray = Array.isArray(activitiesToUpdate) ? activitiesToUpdate : [activitiesToUpdate];\n    \n    // Get all _ids from the documents\n    const documentIds = documentArray.map(doc => doc.TransactionID);\n    \n    // Update all documents with matching _ids\n    collections.updateMany(\n        'GovernanceActivities',\n        { TransactionID: { $in: documentIds } },\n        { $set: { Status: 'Approved' } },\n        {}\n    )\n    .then(res => {\n        runtime.done({ done: res });\n    })\n    .catch(e => runtime.error(e));\n} catch (error) {\n    runtime.error(`Error parsing documents: ${error.message}`);\n}",
@@ -4255,7 +5027,7 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { json, month, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingMonthRecord = await collections.findOne(\"GovernanceActivities\", {\n            Month: month,\n            Year: year\n        }, {});\n        \n        if (existingMonthRecord && Object.keys(existingMonthRecord).length > 0) {\n            runtime.error(`Records already exist for ${month}/${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"Governance\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n                activity.Month = month;\n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"GovernanceActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for ${month}/${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
+              "code": "let { json, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingMonthRecord = await collections.findOne(\"GovernanceActivities\", {\n            Year: year\n        }, {});\n        \n        if (existingMonthRecord && Object.keys(existingMonthRecord).length > 0) {\n            runtime.error(`Records already exist for ${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"Governance\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"GovernanceActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for ${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
               "connections": {
                 "inputs": [
                   {
@@ -4265,10 +5037,6 @@
                   {
                     "source": "97229b00-2233-4f12-f72b-3b5634067e04:output:json",
                     "target": "7ce0712e-9c2f-4551-da8d-268fa361db28:input:json"
-                  },
-                  {
-                    "source": "97229b00-2233-4f12-f72b-3b5634067e04:output:month",
-                    "target": "7ce0712e-9c2f-4551-da8d-268fa361db28:input:month"
                   },
                   {
                     "source": "97229b00-2233-4f12-f72b-3b5634067e04:output:year",
@@ -4311,17 +5079,6 @@
                   "description": "",
                   "disablelog": "",
                   "documentation": "",
-                  "id": "month",
-                  "label": "month",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                },
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
                   "id": "trigger",
                   "label": "Trigger",
                   "transformation": "",
@@ -4362,126 +5119,10 @@
                 }
               ],
               "position": {
-                "left": 540,
+                "left": 621,
                 "top": 100
               },
               "surface": "UploadGovernanceDocument",
-              "timeoutMilliseconds": 5000,
-              "title": "ES6Javascript",
-              "type": "es6javascript"
-            },
-            {
-              "code": "let { json, month, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingMonthRecord = await collections.findOne(\"SocialActivities\", {\n            Month: month,\n            Year: year\n        }, {});\n        \n        if (existingMonthRecord && Object.keys(existingMonthRecord).length > 0) {\n            runtime.error(`Records already exist for ${month}/${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"Social\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n                activity.Month = month;\n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"SocialActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for ${month}/${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
-              "connections": {
-                "inputs": [
-                  {
-                    "source": "073086ef-94dc-435c-ad59-68550a17b289:output:output",
-                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:TransactionID"
-                  },
-                  {
-                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:json",
-                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:json"
-                  },
-                  {
-                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:month",
-                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:month"
-                  },
-                  {
-                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:year",
-                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:year"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "source": "04e10535-e357-4d25-81af-f735e0a7acb4:output:done",
-                    "target": "6c4a26d7-2397-4807-c4a6-8e2a71b7ae26:input:input"
-                  }
-                ]
-              },
-              "description": "",
-              "id": "04e10535-e357-4d25-81af-f735e0a7acb4",
-              "inputValues": [
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "TransactionID",
-                  "label": "TransactionID",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                },
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "json",
-                  "label": "json",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                },
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "month",
-                  "label": "month",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                },
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "trigger",
-                  "label": "Trigger",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                },
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "year",
-                  "label": "year",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                }
-              ],
-              "outputValues": [
-                {
-                  "dataType": "",
-                  "description": "",
-                  "documentation": "",
-                  "example": "",
-                  "id": "__error__",
-                  "label": "Error",
-                  "type": "error"
-                },
-                {
-                  "dataType": "",
-                  "description": "",
-                  "documentation": "",
-                  "example": "",
-                  "id": "done",
-                  "label": "done",
-                  "type": ""
-                }
-              ],
-              "position": {
-                "left": 481,
-                "top": 117
-              },
-              "surface": "UploadSocialDocument",
               "timeoutMilliseconds": 5000,
               "title": "ES6Javascript",
               "type": "es6javascript"
@@ -4588,34 +5229,38 @@
               "type": "es6javascript"
             },
             {
-              "code": "let { selectedMonth, selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Uploaded' };\n\n// Add month and year to filter only if they're not empty\nif (selectedMonth !== '') filterCondition.Month = selectedMonth;\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"GovernanceActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Month: item.Month,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
+              "code": "let { json, year, TransactionID } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n(async () => {\n    try {\n        const data = JSON.parse(json);\n        if (!data || !Array.isArray(data) || data.length === 0) {\n            throw new Error(\"Insert failed: Empty JSON data provided\");\n        }\n\n        // First, check if any records exist for the given month and year\n        const existingYearRecord = await collections.findOne(\"SocialActivities\", {\n            Year: year\n        }, {});\n        \n        if (existingYearRecord && Object.keys(existingYearRecord).length > 0) {\n            runtime.error(`Records already exist for ${year}.` );\n            return;\n        }\n\n        // If no records exist for the month/year, proceed with validation\n        const validationErrors = [];\n        \n        // Validate all activities against ActivityMaster\n        for (const activity of data) {\n            const masterRecord = await collections.findOne(\"ActivityMaster\", {\n                ActivityID: activity.ActivityID,\n                ActivityGroup: activity.ActivityGroup,\n                ActivityCategory: activity.ActivityCategory,\n                Category: \"Social\"\n            }, {});\n\n            if (JSON.stringify(masterRecord) === '{}') {\n                validationErrors.push(`ActivityID : ${activity.ActivityID}`);\n            } else {\n               \n                activity.Year = year;\n                activity.TransactionID = TransactionID;\n            }\n        }\n\n        if (validationErrors.length > 0) {\n            runtime.error(`Activity validation failed for ${validationErrors.join(', ')}`);\n            return;\n        }\n\n        // All validations passed, insert the records\n        await collections.insertMany(\"SocialActivities\", data, {});\n        runtime.done({ done: `Inserted ${data.length} records successfully for ${year}.` });\n\n    } catch (error) {\n        runtime.error({ done: `Error: ${error.message}` });\n    }\n})();",
               "connections": {
                 "inputs": [
                   {
-                    "source": "ecf64781-62f8-4fc2-825e-38242b7aedce:output:selectedMonth",
-                    "target": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:input:selectedMonth"
+                    "source": "073086ef-94dc-435c-ad59-68550a17b289:output:output",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:TransactionID"
                   },
                   {
-                    "source": "ecf64781-62f8-4fc2-825e-38242b7aedce:output:selectedYear",
-                    "target": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:input:selectedYear"
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:json",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:json"
+                  },
+                  {
+                    "source": "8b9db3c8-957d-4700-c965-c02ef8ef8876:output:year",
+                    "target": "04e10535-e357-4d25-81af-f735e0a7acb4:input:year"
                   }
                 ],
                 "outputs": [
                   {
-                    "source": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288:output:done",
-                    "target": "75cfea66-2e94-4da9-a989-84fd60be6650:input:input"
+                    "source": "04e10535-e357-4d25-81af-f735e0a7acb4:output:done",
+                    "target": "6c4a26d7-2397-4807-c4a6-8e2a71b7ae26:input:input"
                   }
                 ]
               },
               "description": "",
-              "id": "92c1fd77-4b40-4944-f9bf-d15e5b1a4288",
+              "id": "04e10535-e357-4d25-81af-f735e0a7acb4",
               "inputValues": [
                 {
                   "description": "",
                   "disablelog": "",
                   "documentation": "",
-                  "id": "selectedMonth",
-                  "label": "selectedMonth",
+                  "id": "TransactionID",
+                  "label": "TransactionID",
                   "transformation": "",
                   "transformationOptions": "",
                   "type": "",
@@ -4625,8 +5270,8 @@
                   "description": "",
                   "disablelog": "",
                   "documentation": "",
-                  "id": "selectedYear",
-                  "label": "selectedYear",
+                  "id": "json",
+                  "label": "json",
                   "transformation": "",
                   "transformationOptions": "",
                   "type": "",
@@ -4638,6 +5283,17 @@
                   "documentation": "",
                   "id": "trigger",
                   "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "year",
+                  "label": "year",
                   "transformation": "",
                   "transformationOptions": "",
                   "type": "",
@@ -4665,48 +5321,33 @@
                 }
               ],
               "position": {
-                "left": 450,
-                "top": 155
+                "left": 481,
+                "top": 117
               },
-              "surface": "showGovernanceApprovalDocuments",
+              "surface": "UploadSocialDocument",
               "timeoutMilliseconds": 5000,
               "title": "ES6Javascript",
               "type": "es6javascript"
             },
             {
-              "code": "let { selectedMonth, selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Uploaded' };\n\n// Add month and year to filter only if they're not empty\nif (selectedMonth !== '') filterCondition.Month = selectedMonth;\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"SocialActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Month: item.Month,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
+              "code": "let { selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Approved' };\n\n// Add month and year to filter only if they're not empty\n\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"SocialActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
               "connections": {
                 "inputs": [
                   {
-                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedMonth",
-                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedMonth"
-                  },
-                  {
-                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedYear",
-                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedYear"
+                    "source": "82055682-8e93-4df1-96ba-772589b953ca:output:selectedYear",
+                    "target": "fafa900c-c5bf-4622-825c-8c99927be210:input:selectedYear"
                   }
                 ],
                 "outputs": [
                   {
-                    "source": "51dd6d2e-6422-4614-9338-df0b6ebf8685:output:done",
-                    "target": "aa36ce72-57bf-45c7-c6a6-896e3453b652:input:input"
+                    "source": "fafa900c-c5bf-4622-825c-8c99927be210:output:done",
+                    "target": "48a6b6fe-329b-4f78-f7ed-f5f79e6508a4:input:input"
                   }
                 ]
               },
               "description": "",
-              "id": "51dd6d2e-6422-4614-9338-df0b6ebf8685",
+              "id": "fafa900c-c5bf-4622-825c-8c99927be210",
               "inputValues": [
-                {
-                  "description": "",
-                  "disablelog": "",
-                  "documentation": "",
-                  "id": "selectedMonth",
-                  "label": "selectedMonth",
-                  "transformation": "",
-                  "transformationOptions": "",
-                  "type": "",
-                  "value": ""
-                },
                 {
                   "description": "",
                   "disablelog": "",
@@ -4752,6 +5393,148 @@
               ],
               "position": {
                 "left": 320,
+                "top": 100
+              },
+              "surface": "showSocialReportDocuments",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
+            },
+            {
+              "code": "let { selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Approved' };\n\n\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"OHSActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "f765a2ad-0cf4-445b-de80-4097e97aa901:output:selectedYear",
+                    "target": "a0127b4b-055d-4818-d9af-104a92d0c10d:input:selectedYear"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "a0127b4b-055d-4818-d9af-104a92d0c10d:output:done",
+                    "target": "875fe30d-6e55-4212-c987-7aa04e324a89:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "a0127b4b-055d-4818-d9af-104a92d0c10d",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 320,
+                "top": 100
+              },
+              "surface": "showOHSReportDocuments",
+              "timeoutMilliseconds": 5000,
+              "title": "ES6Javascript",
+              "type": "es6javascript"
+            },
+            {
+              "code": "let { selectedYear } = runtime.inputs();\nlet { done } = runtime.outputs();\nlet collections = lucy.currentModel().collections();\n\n// Build filter condition starting with Status\nlet filterCondition = { Status: 'Uploaded' };\n\n// Add month and year to filter only if they're not empty\n// if (selectedMonth !== '') filterCondition.Month = selectedMonth;\nif (selectedYear !== '') filterCondition.Year = selectedYear;\n\ncollections.findMany(\"SocialActivities\", filterCondition, {})\n    .then((res) => {\n        // Group by TransactionID and keep additional details\n        let groupedData = res.reduce((acc, item) => {\n            if (!acc[item.TransactionID]) {\n                acc[item.TransactionID] = {\n                    TransactionID: item.TransactionID,\n                    Year: item.Year,\n                    Status: item.Status\n                };\n            }\n            return acc;\n        }, {});\n\n        // Convert object values into an array of objects\n        let formattedResponse = Object.values(groupedData);\n\n        runtime.done({ done: formattedResponse });\n    })\n    .catch((err) => {\n        runtime.error(err);\n    });\n",
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "3b923f8b-6d1a-466c-e898-31e0b8f1bc79:output:selectedYear",
+                    "target": "51dd6d2e-6422-4614-9338-df0b6ebf8685:input:selectedYear"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "source": "51dd6d2e-6422-4614-9338-df0b6ebf8685:output:done",
+                    "target": "aa36ce72-57bf-45c7-c6a6-896e3453b652:input:input"
+                  }
+                ]
+              },
+              "description": "",
+              "id": "51dd6d2e-6422-4614-9338-df0b6ebf8685",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "selectedYear",
+                  "label": "selectedYear",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "__error__",
+                  "label": "Error",
+                  "type": "error"
+                },
+                {
+                  "dataType": "",
+                  "description": "",
+                  "documentation": "",
+                  "example": "",
+                  "id": "done",
+                  "label": "done",
+                  "type": ""
+                }
+              ],
+              "position": {
+                "left": 319,
                 "top": 100
               },
               "surface": "showSocialApprovalDocuments",
@@ -4872,6 +5655,51 @@
                 "top": 100
               },
               "surface": "UploadSocialDocument",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "098d05a1-8523-451c-ada7-588516036119:output:output",
+                    "target": "f429f0bd-1a8f-4e9a-fee2-bc5e97862a0c:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "f429f0bd-1a8f-4e9a-fee2-bc5e97862a0c",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 562,
+                "top": 100
+              },
+              "surface": "downloadOHSTransactionReport",
               "title": "Output",
               "type": "actionoutput2"
             },
@@ -5388,7 +6216,7 @@
               ],
               "outputValues": [],
               "position": {
-                "left": 760,
+                "left": 868,
                 "top": 100
               },
               "surface": "UploadGovernanceDocument",
@@ -5527,6 +6355,51 @@
                 "top": 129
               },
               "surface": "ApproveAllSocialDocuments",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "8b0162b1-ddf5-4b54-bbb3-47bbca08de58:output:output",
+                    "target": "a679147f-602f-4560-924a-531aa2c4bc9c:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "a679147f-602f-4560-924a-531aa2c4bc9c",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 562,
+                "top": 100
+              },
+              "surface": "downloadSocialTransactionReport",
               "title": "Output",
               "type": "actionoutput2"
             },
@@ -5753,12 +6626,57 @@
                 }
               ],
               "position": {
-                "left": 320,
-                "top": 100
+                "left": 345,
+                "top": 71
               },
               "surface": "UploadGovernanceDocument",
               "title": "GenerateID",
               "type": "objectaction:System:GenerateID"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "a0127b4b-055d-4818-d9af-104a92d0c10d:output:done",
+                    "target": "875fe30d-6e55-4212-c987-7aa04e324a89:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "875fe30d-6e55-4212-c987-7aa04e324a89",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 540,
+                "top": 100
+              },
+              "surface": "showOHSReportDocuments",
+              "title": "Output",
+              "type": "actionoutput2"
             },
             {
               "connections": {
@@ -6107,8 +7025,8 @@
                 }
               ],
               "position": {
-                "left": 295,
-                "top": 95
+                "left": 307,
+                "top": 44
               },
               "surface": "updateSocialDocument",
               "title": "Extract Multiple Values",
@@ -6486,6 +7404,51 @@
               "connections": {
                 "inputs": [
                   {
+                    "source": "d3def525-140b-4e37-9597-38fa87b56430:output:output",
+                    "target": "f2e35aba-4d36-488f-f5ca-48aba5612ac9:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "f2e35aba-4d36-488f-f5ca-48aba5612ac9",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 562,
+                "top": 100
+              },
+              "surface": "downloadGovernanceTransactionReport",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
                     "source": "e2067128-e881-4d42-de79-45e0890e2a7b:output:output",
                     "target": "53e36046-809d-4d0d-f8c1-8a3bbe882b1e:input:input"
                   }
@@ -6666,6 +7629,96 @@
               "connections": {
                 "inputs": [
                   {
+                    "source": "f53182d3-3f91-4003-f68c-56b320429c95:output:done",
+                    "target": "79971fd7-83f4-4410-de11-e3149f64bd35:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "79971fd7-83f4-4410-de11-e3149f64bd35",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 540,
+                "top": 100
+              },
+              "surface": "showGovernanceReportDocuments",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
+                    "source": "fafa900c-c5bf-4622-825c-8c99927be210:output:done",
+                    "target": "48a6b6fe-329b-4f78-f7ed-f5f79e6508a4:input:input"
+                  }
+                ],
+                "outputs": []
+              },
+              "fieldName": "",
+              "id": "48a6b6fe-329b-4f78-f7ed-f5f79e6508a4",
+              "inputValues": [
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "input",
+                  "label": "Value",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                },
+                {
+                  "description": "",
+                  "disablelog": "",
+                  "documentation": "",
+                  "id": "trigger",
+                  "label": "Trigger",
+                  "transformation": "",
+                  "transformationOptions": "",
+                  "type": "",
+                  "value": ""
+                }
+              ],
+              "outputValues": [],
+              "position": {
+                "left": 540,
+                "top": 100
+              },
+              "surface": "showSocialReportDocuments",
+              "title": "Output",
+              "type": "actionoutput2"
+            },
+            {
+              "connections": {
+                "inputs": [
+                  {
                     "source": "fb9a9157-a563-4b23-cefa-167a6a884f04:output:output",
                     "target": "cf870671-1531-46a2-c530-3b630e289ca0:input:input"
                   }
@@ -6800,7 +7853,6 @@
             ],
             "parameters": [
               "json",
-              "month",
               "year"
             ],
             "parametersExtended": [
@@ -6809,12 +7861,6 @@
                 "docs": "",
                 "example": "",
                 "id": "json"
-              },
-              {
-                "dataType": "",
-                "docs": "",
-                "example": "",
-                "id": "month"
               },
               {
                 "dataType": "",
@@ -6871,7 +7917,6 @@
             ],
             "parameters": [
               "json",
-              "month",
               "year"
             ],
             "parametersExtended": [
@@ -6880,12 +7925,6 @@
                 "docs": "",
                 "example": "",
                 "id": "json"
-              },
-              {
-                "dataType": "",
-                "docs": "",
-                "example": "",
-                "id": "month"
               },
               {
                 "dataType": "",
@@ -7054,6 +8093,81 @@
             "capability": "",
             "docs": "",
             "initiate": false,
+            "name": "downloadGovernanceTransactionReport",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "downloadOHSTransactionReport",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "downloadSocialTransactionReport",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "TransactionID"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "TransactionID"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"object\",\"properties\":{\"_id\":{\"type\":\"string\"},\"ActivityID\":{\"type\":\"string\"},\"ActivityCategory\":{\"type\":\"string\"},\"ActivityGroup\":{\"type\":\"string\"},\"Value\":{\"type\":\"string\"},\"Uploaded\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"},\"MaleValue\":{\"type\":\"string\"},\"FemaleValue\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"TransactionID\":{\"type\":\"string\"}},\"required\":[\"_id\",\"ActivityID\",\"ActivityCategory\",\"ActivityGroup\",\"Value\",\"Uploaded\",\"Status\",\"MaleValue\",\"FemaleValue\",\"Month\",\"Year\",\"TransactionID\"]}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
             "name": "rejectGovernanceDocument",
             "outputs": [
               ""
@@ -7134,7 +8248,6 @@
               ""
             ],
             "parameters": [
-              "selectedMonth",
               "selectedYear"
             ],
             "parametersExtended": [
@@ -7142,8 +8255,27 @@
                 "dataType": "",
                 "docs": "",
                 "example": "",
-                "id": "selectedMonth"
-              },
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "showGovernanceReportDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedYear"
+            ],
+            "parametersExtended": [
               {
                 "dataType": "",
                 "docs": "",
@@ -7211,6 +8343,31 @@
             "capability": "",
             "docs": "",
             "initiate": false,
+            "name": "showOHSReportDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedYear"
+            ],
+            "parametersExtended": [
+              {
+                "dataType": "",
+                "docs": "",
+                "example": "",
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Year\",\"Status\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
             "name": "showOHSTransactionDetails",
             "outputs": [
               ""
@@ -7241,7 +8398,6 @@
               ""
             ],
             "parameters": [
-              "selectedMonth",
               "selectedYear"
             ],
             "parametersExtended": [
@@ -7249,8 +8405,27 @@
                 "dataType": "",
                 "docs": "",
                 "example": "",
-                "id": "selectedMonth"
-              },
+                "id": "selectedYear"
+              }
+            ],
+            "published": false,
+            "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"TransactionID\":{\"type\":\"string\"},\"Month\":{\"type\":\"string\"},\"Year\":{\"type\":\"string\"},\"Status\":{\"type\":\"string\"}},\"required\":[\"TransactionID\",\"Month\",\"Year\",\"Status\"]}}",
+            "schemaFrozen": false,
+            "static": true
+          },
+          {
+            "canOverrideCredentials": false,
+            "capability": "",
+            "docs": "",
+            "initiate": false,
+            "name": "showSocialReportDocuments",
+            "outputs": [
+              ""
+            ],
+            "parameters": [
+              "selectedYear"
+            ],
+            "parametersExtended": [
               {
                 "dataType": "",
                 "docs": "",
@@ -7400,13 +8575,13 @@
           "Name": "OHSActivities"
         },
         {
-          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Month\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"MaleValue\",\"dataType\":\"string\"},{\"name\":\"FemaleValue\",\"dataType\":\"string\"},{\"name\":\"TransactionID\",\"dataType\":\"string\"}]",
+          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"MaleValue\",\"dataType\":\"string\"},{\"name\":\"FemaleValue\",\"dataType\":\"string\"},{\"name\":\"TransactionID\",\"dataType\":\"string\"}]",
           "GUID": "b7ab55f7-45f7-48dc-ead5-f1c27f00c65a",
           "MapKey": "14",
           "Name": "SocialActivities"
         },
         {
-          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Month\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"TransactionID\",\"dataType\":\"string\"},{\"name\":\"Unit\",\"dataType\":\"string\"}]",
+          "Attributes": "[{\"name\":\"ActivityID\",\"dataType\":\"string\"},{\"name\":\"ActivityGroup\",\"dataType\":\"string\"},{\"name\":\"ActivityCategory\",\"dataType\":\"string\"},{\"name\":\"Value\",\"dataType\":\"string\"},{\"name\":\"Uploaded\",\"dataType\":\"string\"},{\"name\":\"Status\",\"dataType\":\"string\"},{\"name\":\"Year\",\"dataType\":\"string\"},{\"name\":\"TransactionID\",\"dataType\":\"string\"},{\"name\":\"Unit\",\"dataType\":\"string\"}]",
           "GUID": "0545ee77-37fc-471d-f0ab-6fb97d90341a",
           "MapKey": "14",
           "Name": "GovernanceActivities"

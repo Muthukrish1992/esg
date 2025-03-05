@@ -40,24 +40,9 @@ interface TableData {
     FemaleValue?: string;
 }
 
-const getMonths = () => [
-    { label: 'January', value: '1' },
-    { label: 'February', value: '2' },
-    { label: 'March', value: '3' },
-    { label: 'April', value: '4' },
-    { label: 'May', value: '5' },
-    { label: 'June', value: '6' },
-    { label: 'July', value: '7' },
-    { label: 'August', value: '8' },
-    { label: 'September', value: '9' },
-    { label: 'October', value: '10' },
-    { label: 'November', value: '11' },
-    { label: 'December', value: '12' }
-];
-
 const getYears = () => {
     const currentYear = new Date().getFullYear();
-    return Array.from({ length: 5 }, (_, i) => ({
+    return Array.from({ length: 10 }, (_, i) => ({
         label: String(currentYear - i),
         value: String(currentYear - i)
     }));
@@ -152,15 +137,17 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
     const crudRef = useRef(null);
     const alert = useAlert();
     const [file, setFile] = useState<File | null>(null);
-    const [sheets, setSheets] = useState<string[]>([]);
-    const [selectedSheet, setSelectedSheet] = useState<string>("");
+    // const [sheets, setSheets] = useState<string[]>([]);
+    // const [selectedSheet, setSelectedSheet] = useState<string>("");
+    const FIXED_SHEET_NAME = "Input Social_Revised";
+
     const [loading, setLoading] = useState<boolean>(false);
     const [success, setSuccess] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [showUploadForm, setShowUploadForm] = useState<boolean>(false);
     const [isDragging, setIsDragging] = useState(false);
     
-    const [selectedMonth, setSelectedMonth] = useState<string>(String(new Date().getMonth() + 1));
+    // const [selectedMonth, setSelectedMonth] = useState<string>(String(new Date().getMonth() + 1));
     const [selectedYear, setSelectedYear] = useState<string>(String(new Date().getFullYear()));
 
     const [showEditModel, setShowEditModel] = useState<boolean>(false);
@@ -181,9 +168,12 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
         reader.onload = (e: ProgressEvent<FileReader>) => {
             try {
                 const binary = e.target?.result;
-                if (binary && typeof binary === 'string') {
-                    const workbook = XLSX.read(binary, { type: 'binary' });
-                    setSheets(workbook.SheetNames);
+                const workbook = XLSX.read(binary, { type: 'binary' });
+                // Check if our fixed sheet exists
+                if (!workbook.SheetNames.includes(FIXED_SHEET_NAME)) {
+                    setError(`Required sheet "${FIXED_SHEET_NAME}" not found in the uploaded file`);
+                    setLoading(false);
+                    return;
                 }
                 setLoading(false);
             } catch (error) {
@@ -206,20 +196,11 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
             return false;
         }
 
-        if (sheets.length === 0) {
-            setError("No sheets found in the uploaded file");
-            return false;
-        }
 
-        if (!selectedSheet) {
-            setError("Please select a sheet from the dropdown");
-            return false;
-        }
-
-        if (!selectedMonth) {
-            setError("Please select a month");
-            return false;
-        }
+        // if (!selectedMonth) {
+        //     setError("Please select a month");
+        //     return false;
+        // }
 
         if (!selectedYear) {
             setError("Please select a year");
@@ -231,8 +212,6 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
 
     const handleCancelUpload = async () =>{
         setFile(null)
-        setSelectedSheet("");
-        setSheets([]);
     }
 
     const handleSubmit = async () => {
@@ -252,16 +231,23 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                     const binary = e.target?.result;
                     if (binary && typeof binary === 'string') {
                         const workbook = XLSX.read(binary, { type: 'binary' });
-                        const worksheet = workbook.Sheets[selectedSheet];
+                        
+                        if (!workbook.SheetNames.includes(FIXED_SHEET_NAME)) {
+                            setError(`Required sheet "${FIXED_SHEET_NAME}" not found in the uploaded file`);
+                            setLoading(false);
+                            return;
+                        }
+                        
+                        const worksheet = workbook.Sheets[FIXED_SHEET_NAME];
                         const processedData = processExcelData(worksheet);
                         
                         setTableData(processedData);
                         const payload = {
                             json: JSON.stringify(processedData),
-                            month: selectedMonth,
+                            // month: selectedMonth,
                             year: selectedYear
                         };
-
+    
                         setPayload(payload);
                         setShowEditModel(true);
                         setLoading(false);
@@ -296,8 +282,6 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
             setSuccess(true);
             setShowUploadForm(false);
             setFile(null);
-            setSelectedSheet("");
-            setSheets([]);
             alert.show('Document successfully submitted for approval');
             setShowEditModel(false);
         })
@@ -351,19 +335,8 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
 
                             <div className="selection-controls">
                                 <div className="controls-row">
-                                {sheets.length > 0 && (
-                                        <div className="select-container">
-                                            <label>Sheet</label>
-                                            <Select
-                                                options={sheets.map(sheet => ({ label: sheet, value: sheet }))}
-                                                selected={selectedSheet}
-                                                onChange={(value) => setSelectedSheet(value as string)}
-                                                placeholder="Select Sheet"
-                                                
-                                            />
-                                        </div>
-                                    )}
-                                    <div className="select-container">
+
+                                    {/* <div className="select-container">
                                         <label>Month</label>
                                         <Select
                                             options={getMonths()}
@@ -372,7 +345,7 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                                             placeholder="Select Month"
                                            
                                         />
-                                    </div>
+                                    </div> */}
                                     <div className="select-container">
                                         <label>Year</label>
                                         <Select
@@ -385,7 +358,7 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                                     </div>
 
                                 </div>
-                                {sheets.length > 0 && (
+                               
                                     <div className="button-container">
                                         <Button
                                             title="Submit"
@@ -395,7 +368,7 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                                             Submit
                                         </Button>
                                     </div>
-                                )}
+                                
                             </div>
 
                             {success && (
@@ -541,7 +514,7 @@ const UploadDocumentSocial: React.FunctionComponent<IWidgetProps> = (props) => {
                                             ...data,
                                             Status: "Uploaded",
                                             Uploaded: "yes",
-                                            Month: selectedMonth,
+                                            // Month: selectedMonth,
                                             Year: selectedYear
                                         };
                                         setTableData(prev => [...prev, newRecord]);

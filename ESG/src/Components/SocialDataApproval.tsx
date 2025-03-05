@@ -47,12 +47,12 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
     const [transactionActivities, setTransactionActivities] = useState<any[]>([]);
     const alert = useAlert();
     const [approval, setApproval] = useState<any>();
-    const [selectedMonth, setSelectedMonth] = useState<string>(null);
+    // const [selectedMonth, setSelectedMonth] = useState<string>(null);
     const [selectedYear, setSelectedYear] = useState<string>(null);
 
     useEffect(() => {
         fetchDocuments();
-    }, [approval, selectedMonth, selectedYear]);
+    }, [approval,  selectedYear]);
     const fetchTransactionDetails = async (transactionId: string) => {
         try {
             const activities = await props.uxpContext?.executeAction(
@@ -71,13 +71,19 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
 
         const handleUpdateActivity = async (data: any, oldData: any): Promise<any> => {
             try {
+                const updatePayload = {
+                    id: oldData._id,
+                    updates: {
+                        ...data,
+                        Status:'Uploaded',
+                        // Month: transactionActivities[0].Month,
+                        Year: transactionActivities[0].Year
+                    }
+                };
                 await props.uxpContext?.executeAction(
                     'ESG',
                     'updateSocialDocument',
-                    { 
-                        id: oldData._id,  // Using the _id from the original activity
-                        updates: data      // Passing the updated data
-                    },
+                    updatePayload,
                     { json: true }
                 );
                 
@@ -116,20 +122,20 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
                     }
                 });
         };
-    const getMonths = () => [
-        { label: 'January', value: '1' },
-        { label: 'February', value: '2' },
-        { label: 'March', value: '3' },
-        { label: 'April', value: '4' },
-        { label: 'May', value: '5' },
-        { label: 'June', value: '6' },
-        { label: 'July', value: '7' },
-        { label: 'August', value: '8' },
-        { label: 'September', value: '9' },
-        { label: 'October', value: '10' },
-        { label: 'November', value: '11' },
-        { label: 'December', value: '12' }
-    ];
+    // const getMonths = () => [
+    //     { label: 'January', value: '1' },
+    //     { label: 'February', value: '2' },
+    //     { label: 'March', value: '3' },
+    //     { label: 'April', value: '4' },
+    //     { label: 'May', value: '5' },
+    //     { label: 'June', value: '6' },
+    //     { label: 'July', value: '7' },
+    //     { label: 'August', value: '8' },
+    //     { label: 'September', value: '9' },
+    //     { label: 'October', value: '10' },
+    //     { label: 'November', value: '11' },
+    //     { label: 'December', value: '12' }
+    // ];
     
     const getYears = () => {
         const currentYear = new Date().getFullYear();
@@ -142,7 +148,7 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
 
     const fetchDocuments = () => {
         setLoading(true);
-        props.uxpContext?.executeAction('ESG', 'showSocialApprovalDocuments', {selectedMonth, selectedYear}, {json:true})
+        props.uxpContext?.executeAction('ESG', 'showSocialApprovalDocuments', { selectedYear}, {json:true})
             .then((res) => {
                 setDocuments(res);
             })
@@ -234,7 +240,7 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
                         <thead>
                             <tr>
                                 <th>Transaction ID</th>
-                                <th>Month</th>
+                                
                                 <th>Year</th>
                                 <th>Status</th>
                                 <th>Actions</th>
@@ -244,7 +250,7 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
                             {documents.map((doc) => (
                                 <tr key={doc._id}>
                                     <td>{doc.TransactionID}</td>
-                                    <td>{doc.Month}</td>
+                                    
                                     <td>{doc.Year}</td>
                                     <td>{doc.Status}</td>
                                     <td>
@@ -278,17 +284,10 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
         <WidgetWrapper className="social-approval-widget">
             <TitleBar title='Social Document Approval' className="title-bar">
                 <FilterPanel onClear={() => {
-                    setSelectedMonth("");
+                    
                     setSelectedYear("");
                 }}>
-                    <FormField>
-                        <Select
-                            options={getMonths()}
-                            selected={selectedMonth}
-                            onChange={(value) => setSelectedMonth(value as string)}
-                            placeholder="Select Month"
-                        />
-                    </FormField>
+
                     <FormField>
                         <Select
                             options={getYears()}
@@ -349,13 +348,18 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
                                             },
                                             {
                                                 name: 'Value',
-                                                label: 'Value',
+                                                label: 'Total Value',
                                                 type: 'text',
                                                 validate: { required: true }
                                             },
                                             {
-                                                name: 'Unit',
-                                                label: 'Unit',
+                                                name: 'MaleValue',
+                                                label: 'Male Value',
+                                                type: 'text'
+                                            },
+                                            {
+                                                name: 'FemaleValue',
+                                                label: 'Female Value',
                                                 type: 'text'
                                             }
                                         ]
@@ -376,9 +380,10 @@ const SocialDataApproval: React.FunctionComponent<IWidgetProps> = (props) => {
                                     { id: 'ActivityID', label: 'Activity ID' },
                                     { id: 'ActivityCategory', label: 'Category' },
                                     { id: 'ActivityGroup', label: 'Group' },
-                                    { id: 'Unit', label: 'Unit' },
-                                    { id: 'Value', label: 'Value' }
-                                ]
+                                    { id: 'Value', label: 'Total Value' },
+                                    { id: 'MaleValue', label: 'Male Value' },
+                                    { id: 'FemaleValue', label: 'Female Value' },
+                                ],
                             }}
                         />
                     </div>

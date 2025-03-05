@@ -50,7 +50,7 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
         const [transactionActivities, setTransactionActivities] = useState<any[]>([]);
     const alert = useAlert();
     const [approval, setApproval] = useState<any>();
-    const [selectedMonth, setSelectedMonth] = useState<string>(null);
+
     const [selectedYear, setSelectedYear] = useState<string>(null);
     const [showEditModal, setShowEditModal] = useState(false);
     const [editingActivity, setEditingActivity] = useState<Document | null>(null);
@@ -58,7 +58,7 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
 
     useEffect(() => {
         fetchDocuments();
-    }, [approval, selectedMonth, selectedYear]);
+    }, [approval, selectedYear]);
     const fetchTransactionDetails = async (transactionId: string) => {
         try {
             const activities = await props.uxpContext?.executeAction(
@@ -106,21 +106,7 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
                     };
                 }
             };
-    const getMonths = () => [
-        { label: 'January', value: '1' },
-        { label: 'February', value: '2' },
-        { label: 'March', value: '3' },
-        { label: 'April', value: '4' },
-        { label: 'May', value: '5' },
-        { label: 'June', value: '6' },
-        { label: 'July', value: '7' },
-        { label: 'August', value: '8' },
-        { label: 'September', value: '9' },
-        { label: 'October', value: '10' },
-        { label: 'November', value: '11' },
-        { label: 'December', value: '12' }
-    ];
-    
+
     const getYears = () => {
         const currentYear = new Date().getFullYear();
         return Array.from({ length: 5 }, (_, i) => ({
@@ -131,7 +117,7 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
 
     const fetchDocuments = () => {
         setLoading(true);
-        props.uxpContext?.executeAction('ESG', 'showGovernanceApprovalDocuments', {selectedMonth, selectedYear}, {json:true})
+        props.uxpContext?.executeAction('ESG', 'showGovernanceApprovalDocuments', { selectedYear}, {json:true})
             .then((res) => {
                 setDocuments(res);
             })
@@ -241,7 +227,6 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
                         <thead>
                             <tr>
                                 <th>Transaction ID</th>
-                                <th>Month</th>
                                 <th>Year</th>
                                 <th>Status</th>
                                 <th>Actions</th>
@@ -251,7 +236,6 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
                             {documents.map((doc) => (
                                 <tr key={doc.TransactionID}>
                                     <td>{doc.TransactionID}</td>
-                                    <td>{doc.Month}</td>
                                     <td>{doc.Year}</td>
                                     <td>{doc.Status}</td>
                                     <td>
@@ -284,17 +268,9 @@ const GovernanceDataApproval: React.FunctionComponent<IWidgetProps> = (props) =>
         <WidgetWrapper className="governance-approval-widget">
             <TitleBar title='Governance Document Approval' className="title-bar">
                 <FilterPanel onClear={() => {
-                    setSelectedMonth("");
                     setSelectedYear("");
                 }}>
-                    <FormField>
-                        <Select
-                            options={getMonths()}
-                            selected={selectedMonth}
-                            onChange={(value) => setSelectedMonth(value as string)}
-                            placeholder="Select Month"
-                        />
-                    </FormField>
+
                     <FormField>
                         <Select
                             options={getYears()}

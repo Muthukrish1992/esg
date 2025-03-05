@@ -6,6 +6,8 @@
     "dev": "webpack serve"
   },
   "dependencies": {
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "xlsx": "^0.18.5"
